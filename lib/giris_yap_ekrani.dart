@@ -92,6 +92,30 @@ class GirisYapEkrani extends StatelessWidget {
                       style: TextStyle(color: Colors.blue, fontSize: 15),
                     ),
                   ),
+                  Container(
+                    height: 50,
+                    width: 250,
+                    decoration: BoxDecoration(
+                        color: Colors.blue,
+                        borderRadius: BorderRadius.circular(20)),
+                    child: OutlinedButton(
+                      onPressed: () {
+                        if (formkey.currentState!.validate()) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (_) => GirisYapEkrani()));
+                          print("Doğrulandı");
+                        } else {
+                          print("Doğrulanmadı");
+                        }
+                      },
+                      child: Text(
+                        'Giriş Yap',
+                        style: TextStyle(color: Colors.white, fontSize: 25),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
