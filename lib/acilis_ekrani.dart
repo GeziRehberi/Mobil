@@ -15,6 +15,11 @@ class SplashScreen extends StatelessWidget {
       duration: 5000,
       imageSize: 200,
       imageSrc: "assets/konum.png",
+      text: "Gezi Rehberi",
+      textType: TextType.ColorizeAnimationText,
+      textStyle: TextStyle(
+        fontSize: 40.0,
+      ),
       backgroundColor: Colors.white,
     );
   }
