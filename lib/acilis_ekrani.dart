@@ -20,6 +20,12 @@ class SplashScreen extends StatelessWidget {
       textStyle: TextStyle(
         fontSize: 40.0,
       ),
+      colors: [
+        Colors.purple,
+        Colors.blue,
+        Colors.yellow,
+        Colors.red,
+      ],
       backgroundColor: Colors.white,
     );
   }
