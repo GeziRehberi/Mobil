@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'giris/splash_screen.dart';
+import 'giris_yap_ekrani.dart';
 
 void main() {
   runApp(MyApp());
@@ -9,12 +9,10 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Widget splashScreen = SplashScreen();
-
     return MaterialApp(
       title: 'Gezi Rehberi',
       debugShowCheckedModeBanner: false,
-      home: splashScreen,
+      home: GirisYapEkrani(),
     );
   }
 }

@@ -28,6 +28,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   splash_screen_view: ^3.0.0
+  form_field_validator: ^1.0.1
 
   flutter:
     sdk: flutter
