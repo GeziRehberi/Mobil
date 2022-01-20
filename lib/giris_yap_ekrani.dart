@@ -85,6 +85,13 @@ class GirisYapEkrani extends StatelessWidget {
                         //validatePassword,        //Function to check validation
                         ),
                   ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Şifremi Unuttum',
+                      style: TextStyle(color: Colors.blue, fontSize: 15),
+                    ),
+                  ),
                 ],
               ),
             ),
