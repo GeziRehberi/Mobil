@@ -116,6 +116,14 @@ class GirisYapEkrani extends StatelessWidget {
                       ),
                     ),
                   ),
+                  SizedBox(height: 90),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Henüz bir hesabınız yoksa kaydolun',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                  ),
                 ],
               ),
             ),
