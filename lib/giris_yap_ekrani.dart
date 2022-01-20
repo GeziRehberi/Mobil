@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 
+import 'kayit_ol_ekrani.dart';
+
 class GirisYapEkrani extends StatelessWidget {
   const GirisYapEkrani({Key? key}) : super(key: key);
 
@@ -118,7 +120,10 @@ class GirisYapEkrani extends StatelessWidget {
                   ),
                   SizedBox(height: 90),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (_) => KayitOlEkrani()));
+                    },
                     child: Text(
                       'Henüz bir hesabınız yoksa kaydolun',
                       style: TextStyle(color: Colors.black),
