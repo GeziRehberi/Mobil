@@ -8,6 +8,15 @@ class GirisYapEkrani extends StatelessWidget {
   Widget build(BuildContext context) {
     GlobalKey<FormState> formkey = GlobalKey<FormState>();
 
+    String? validatePassword(String value) {
+      if (value.isEmpty) {
+        return "* gerekli";
+      } else if (value.length < 6) {
+        return "Şifre en az 6 karakter olmalı";
+      } else
+        return null;
+    }
+
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -58,6 +67,23 @@ class GirisYapEkrani extends StatelessWidget {
                         EmailValidator(errorText: "Geçerli bir mail giriniz:"),
                       ]),
                     ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                        left: 15.0, right: 15.0, top: 15, bottom: 0),
+                    child: TextFormField(
+                        obscureText: true,
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(),
+                            labelText: 'Şifre',
+                            hintText: 'Şifrenizi Giriniz'),
+                        validator: MultiValidator([
+                          RequiredValidator(errorText: "Şifre girmek zorunlu"),
+                          MinLengthValidator(6,
+                              errorText: "Şifre en az 6 karakter olmalıdır"),
+                        ])
+                        //validatePassword,        //Function to check validation
+                        ),
                   ),
                 ],
               ),
