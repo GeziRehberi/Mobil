@@ -30,6 +30,13 @@ class KayitOlEkrani extends StatelessWidget {
                 ),
               ),
             ),
+            SizedBox(height: 20),
+            Container(
+              child: Image.asset(
+                'assets/konum.png',
+                scale: 1,
+              ),
+            ),
           ],
         ),
       ),
