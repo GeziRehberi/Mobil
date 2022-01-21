@@ -27,21 +27,75 @@ class _ProfilEkraniState extends State<ProfilEkrani> {
           ],
         ),
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 12, right: 8, top: 16),
-            child: Row(
-              children: [
-                CircleAvatar(
-                  backgroundImage: NetworkImage(_logo),
-                  radius: 30,
-                ),
-                SizedBox(width: 7),
-              ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 12, right: 8, top: 16),
+              child: Row(
+                children: [
+                  CircleAvatar(
+                    backgroundImage: NetworkImage(_logo),
+                    radius: 30,
+                  ),
+                  SizedBox(width: 7),
+                  Text(
+                    ' Nuri Ulgen',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
             ),
-          ),
-        ],
+            Padding(
+              padding: const EdgeInsets.only(top: 10, left: 4, right: 4),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Takip Edilenler : 15',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      'Takipçiler : 97',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 17,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 30, right: 190),
+                  child: ElevatedButton(
+                    onPressed: () {},
+                    child: Text('Beğenilen Mekanlar'),
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.white,
+                      onPrimary: Colors.black,
+                      side: BorderSide(
+                        width: 3,
+                        color: Colors.black,
+                      ),
+                      shape: RoundedRectangleBorder(),
+                    ),
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
