@@ -7,10 +7,15 @@ class KayitOlEkrani extends StatelessWidget {
   final FocusNode focusName = FocusNode();
   final FocusNode focusSurName = FocusNode();
   final FocusNode focusEmail = FocusNode();
+  final FocusNode focusPassword = FocusNode();
+  final FocusNode focusConfirmPassword = FocusNode();
 
   final TextEditingController nameController = TextEditingController();
   final TextEditingController SurnameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -113,6 +118,57 @@ class KayitOlEkrani extends StatelessWidget {
                         ),
                         Container(
                             width: 250.0, height: 1.0, color: Colors.grey),
+                        Padding(
+                          padding: EdgeInsets.only(
+                              top: 20.0, bottom: 20.0, left: 25.0, right: 25.0),
+                          child: TextField(
+                            focusNode: focusPassword,
+                            controller: passwordController,
+                            style: TextStyle(
+                                fontFamily: "SignikaSemiBold",
+                                fontSize: 16.0,
+                                color: Colors.black),
+                            decoration: InputDecoration(
+                                border: InputBorder.none,
+                                icon: Icon(
+                                  FontAwesomeIcons.lock,
+                                  color: Colors.black,
+                                  size: 22.0,
+                                ),
+                                hintText: "Şifrenizi giriniz",
+                                hintStyle: TextStyle(
+                                    fontFamily: "SignikaSemiBold",
+                                    fontSize: 18.0)),
+                          ),
+                        ),
+                        Container(
+                          width: 250.0,
+                          height: 1.0,
+                          color: Colors.grey,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(
+                              top: 20.0, bottom: 20.0, left: 25.0, right: 25.0),
+                          child: TextField(
+                            focusNode: focusPassword,
+                            controller: passwordController,
+                            style: TextStyle(
+                                fontFamily: "SignikaSemiBold",
+                                fontSize: 16.0,
+                                color: Colors.black),
+                            decoration: InputDecoration(
+                                border: InputBorder.none,
+                                icon: Icon(
+                                  FontAwesomeIcons.lock,
+                                  color: Colors.black,
+                                  size: 22.0,
+                                ),
+                                hintText: "Şifrenizi tekrar giriniz",
+                                hintStyle: TextStyle(
+                                    fontFamily: "SignikaSemiBold",
+                                    fontSize: 18.0)),
+                          ),
+                        ),
                       ],
                     ),
                   ),
