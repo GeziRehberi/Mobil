@@ -4,8 +4,10 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class KayitOlEkrani extends StatelessWidget {
   KayitOlEkrani({Key? key}) : super(key: key);
   final FocusNode focusName = FocusNode();
+  final FocusNode focusSurName = FocusNode();
 
   final TextEditingController nameController = TextEditingController();
+  final TextEditingController SurnameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,6 +50,32 @@ class KayitOlEkrani extends StatelessWidget {
                                   size: 22.0,
                                 ),
                                 hintText: "Adınızı giriniz",
+                                hintStyle: TextStyle(
+                                    fontFamily: "SignikaSemiBold",
+                                    fontSize: 18.0)),
+                          ),
+                        ),
+                        Container(
+                            width: 250.0, height: 1.0, color: Colors.grey),
+                        Padding(
+                          padding: EdgeInsets.only(
+                              top: 20.0, bottom: 20.0, left: 25.0, right: 25.0),
+                          child: TextField(
+                            focusNode: focusSurName,
+                            controller: SurnameController,
+                            keyboardType: TextInputType.emailAddress,
+                            style: TextStyle(
+                                fontFamily: "SignikaSemiBold",
+                                fontSize: 16.0,
+                                color: Colors.black),
+                            decoration: InputDecoration(
+                                border: InputBorder.none,
+                                icon: Icon(
+                                  FontAwesomeIcons.user,
+                                  color: Colors.black,
+                                  size: 22.0,
+                                ),
+                                hintText: "Soyadınızı giriniz",
                                 hintStyle: TextStyle(
                                     fontFamily: "SignikaSemiBold",
                                     fontSize: 18.0)),
