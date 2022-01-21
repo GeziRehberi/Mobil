@@ -139,6 +139,29 @@ class _ProfilEkraniState extends State<ProfilEkrani> {
                     ],
                   ),
                 ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 6, right: 6, top: 12),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Container(
+                        width: 120,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            primary: Color(0xFF008C8C),
+                          ),
+                          onPressed: () {},
+                          child: Text(
+                            'Harita',
+                            style: TextStyle(
+                              fontSize: 18,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             )
           ],
