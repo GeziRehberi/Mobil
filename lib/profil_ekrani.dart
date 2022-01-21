@@ -114,6 +114,31 @@ class _ProfilEkraniState extends State<ProfilEkrani> {
                     ),
                   ),
                 ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 80, top: 250),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.power_settings_new,
+                        size: 40,
+                      ),
+                      Container(
+                        height: 50,
+                        width: 200,
+                        decoration: BoxDecoration(
+                            color: Color(0xFF3949AB),
+                            borderRadius: BorderRadius.circular(20)),
+                        child: OutlinedButton(
+                          onPressed: () {},
+                          child: Text(
+                            'Çıkış Yap',
+                            style: TextStyle(color: Colors.white, fontSize: 25),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ],
             )
           ],
