@@ -90,8 +90,10 @@ class GirisYapEkrani extends StatelessWidget {
                   ),
                   TextButton(
                     onPressed: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (_) => SifremiUnutttumEkrani()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (_) => SifremiUnutttumEkrani()));
                     },
                     child: Text(
                       'Şifremi Unuttum',

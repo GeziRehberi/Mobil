@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 
 class SifremiUnutttumEkrani extends StatelessWidget {
   const SifremiUnutttumEkrani({Key? key}) : super(key: key);
@@ -10,24 +11,50 @@ class SifremiUnutttumEkrani extends StatelessWidget {
         child: Column(
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.only(left: 16, right: 16, top: 130),
+              padding: const EdgeInsets.only(left: 16, right: 16, top: 150),
               child: Center(
                 child: Container(
-                  width: 180,
-                  height: 43,
                   child: Center(
                     child: Text(
-                      'Gezi Rehberi',
-                      style: TextStyle(
-                        fontSize: 22,
-                      ),
+                      'Şifreni mi Unuttun?',
+                      style: TextStyle(fontSize: 25, color: Colors.indigo),
                     ),
                   ),
-                  decoration: BoxDecoration(
-                    color: Colors.indigoAccent,
-                    borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+            ),
+            SizedBox(height: 10),
+            Center(
+              child: Container(
+                child: Center(
+                  child: Text(
+                    ' Hesabınızla ilişkili e-posta',
+                    style: TextStyle(fontSize: 18, color: Colors.black),
                   ),
                 ),
+              ),
+            ),
+            Center(
+              child: Container(
+                child: Center(
+                  child: Text(
+                    ' adresini giriniz',
+                    style: TextStyle(fontSize: 18, color: Colors.black),
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 16, right: 16, top: 40),
+              child: TextFormField(
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(40)),
+                    hintText: 'Email adresinizi giriniz'),
+                validator: MultiValidator([
+                  RequiredValidator(errorText: "E-mail girmek zorunlu"),
+                  EmailValidator(errorText: "Geçerli bir email giriniz:"),
+                ]),
               ),
             ),
           ],
