@@ -77,18 +77,40 @@ class _ProfilEkraniState extends State<ProfilEkrani> {
             Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 30, right: 190),
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: Text('Beğenilen Mekanlar'),
-                    style: ElevatedButton.styleFrom(
-                      primary: Colors.white,
-                      onPrimary: Colors.black,
-                      side: BorderSide(
-                        width: 3,
-                        color: Colors.black,
+                  padding: const EdgeInsets.only(top: 30, right: 180),
+                  child: Container(
+                    width: 200,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      child: Text('Beğenilen Mekanlar'),
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.white,
+                        onPrimary: Colors.black,
+                        side: BorderSide(
+                          width: 3,
+                          color: Colors.black,
+                        ),
+                        shape: RoundedRectangleBorder(),
                       ),
-                      shape: RoundedRectangleBorder(),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 30, right: 180),
+                  child: Container(
+                    width: 200,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      child: Text('Yorumlarım'),
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.white,
+                        onPrimary: Colors.black,
+                        side: BorderSide(
+                          width: 3,
+                          color: Colors.black,
+                        ),
+                        shape: RoundedRectangleBorder(),
+                      ),
                     ),
                   ),
                 ),
