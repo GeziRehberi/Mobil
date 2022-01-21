@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 
-import 'giris_yap_ekrani.dart';
+import 'dogrulama_kodu_ekrani.dart';
 
 class SifremiUnutttumEkrani extends StatelessWidget {
   SifremiUnutttumEkrani({Key? key}) : super(key: key);
@@ -85,7 +85,7 @@ class SifremiUnutttumEkrani extends StatelessWidget {
               child: OutlinedButton(
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => GirisYapEkrani()));
+                      MaterialPageRoute(builder: (_) => KoduDogrula()));
                 },
                 child: Text(
                   'Doğrulama Kodu Gönder',
