@@ -159,6 +159,21 @@ class _ProfilEkraniState extends State<ProfilEkrani> {
                           ),
                         ),
                       ),
+                      Container(
+                        width: 120,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            primary: Color(0xFF008C8C),
+                          ),
+                          onPressed: () {},
+                          child: Text(
+                            'Katkı',
+                            style: TextStyle(
+                              fontSize: 18,
+                            ),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
