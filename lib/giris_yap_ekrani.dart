@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 
 import 'kayit_ol_ekrani.dart';
+import 'sifremi_unuttum_ekrani.dart';
 
 class GirisYapEkrani extends StatelessWidget {
   const GirisYapEkrani({Key? key}) : super(key: key);
@@ -88,7 +89,10 @@ class GirisYapEkrani extends StatelessWidget {
                         ),
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (_) => SifremiUnutttumEkrani()));
+                    },
                     child: Text(
                       'Şifremi Unuttum',
                       style: TextStyle(color: Colors.blue, fontSize: 15),
