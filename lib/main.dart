@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'acilis_ekrani.dart';
+import 'package:flutter_widgets/profil_ekrani.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Gezi Rehberi',
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: ProfilEkrani(),
     );
   }
 }
