@@ -97,14 +97,14 @@ class GirisYapEkrani extends StatelessWidget {
                     },
                     child: Text(
                       'Şifremi Unuttum',
-                      style: TextStyle(color: Colors.blue, fontSize: 15),
+                      style: TextStyle(color: Color(0xFF3949AB), fontSize: 15),
                     ),
                   ),
                   Container(
                     height: 50,
                     width: 250,
                     decoration: BoxDecoration(
-                        color: Colors.blue,
+                        color: Color(0xFF3949AB),
                         borderRadius: BorderRadius.circular(20)),
                     child: OutlinedButton(
                       onPressed: () {

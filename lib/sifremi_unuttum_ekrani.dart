@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 
+import 'giris_yap_ekrani.dart';
+
 class SifremiUnutttumEkrani extends StatelessWidget {
   SifremiUnutttumEkrani({Key? key}) : super(key: key);
 
@@ -17,7 +19,10 @@ class SifremiUnutttumEkrani extends StatelessWidget {
                   child: Center(
                     child: Text(
                       'Şifreni mi Unuttun?',
-                      style: TextStyle(fontSize: 25, color: Colors.indigo),
+                      style: TextStyle(
+                        fontSize: 25,
+                        color: Color(0xFF3949AB),
+                      ),
                     ),
                   ),
                 ),
@@ -71,6 +76,23 @@ class SifremiUnutttumEkrani extends StatelessWidget {
               ),
             ),
             SizedBox(height: 30),
+            Container(
+              height: 50,
+              width: 320,
+              decoration: BoxDecoration(
+                  color: Color(0xFF3949AB),
+                  borderRadius: BorderRadius.circular(20)),
+              child: OutlinedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => GirisYapEkrani()));
+                },
+                child: Text(
+                  'Doğrulama Kodu Gönder',
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
+              ),
+            ),
           ],
         ),
       ),
