@@ -140,7 +140,7 @@ class _ProfilEkraniState extends State<ProfilEkrani> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 6, right: 6, top: 12),
+                  padding: const EdgeInsets.only(left: 6, right: 6, top: 15),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -168,6 +168,21 @@ class _ProfilEkraniState extends State<ProfilEkrani> {
                           onPressed: () {},
                           child: Text(
                             'Katkı',
+                            style: TextStyle(
+                              fontSize: 18,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        width: 120,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            primary: Color(0xFF008C8C),
+                          ),
+                          onPressed: () {},
+                          child: Text(
+                            'Oylama',
                             style: TextStyle(
                               fontSize: 18,
                             ),
