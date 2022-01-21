@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import 'giris_yap_ekrani.dart';
+import 'models/theme.dart';
+
 class KayitOlEkrani extends StatelessWidget {
   KayitOlEkrani({Key? key}) : super(key: key);
 
@@ -167,6 +170,52 @@ class KayitOlEkrani extends StatelessWidget {
                                 hintStyle: TextStyle(
                                     fontFamily: "SignikaSemiBold",
                                     fontSize: 18.0)),
+                          ),
+                        ),
+                        Container(
+                          margin: EdgeInsets.only(top: 40.0),
+                          decoration: BoxDecoration(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(5.0)),
+                              boxShadow: <BoxShadow>[
+                                BoxShadow(
+                                    color: AppColours.colorStart,
+                                    offset: Offset(1.0, 6.0),
+                                    blurRadius: 20.0),
+                                BoxShadow(
+                                    color: AppColours.colorEnd,
+                                    offset: Offset(1.0, 6.0),
+                                    blurRadius: 20.0),
+                              ],
+                              gradient: LinearGradient(
+                                  colors: [
+                                    AppColours.colorEnd,
+                                    AppColours.colorStart
+                                  ],
+                                  begin: const FractionalOffset(0.2, 0.2),
+                                  end: const FractionalOffset(1.0, 1.0),
+                                  stops: [0.1, 1.0],
+                                  tileMode: TileMode.clamp)),
+                          child: MaterialButton(
+                            highlightColor: Colors.transparent,
+                            splashColor: AppColours.colorEnd,
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                  vertical: 10.0, horizontal: 42.0),
+                              child: Text(
+                                "Kayıt Ol",
+                                style: TextStyle(
+                                    fontFamily: "SignikaSemiBold",
+                                    color: Colors.white,
+                                    fontSize: 22.0),
+                              ),
+                            ),
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (_) => GirisYapEkrani()));
+                            },
                           ),
                         ),
                       ],

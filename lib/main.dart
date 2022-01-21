@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'kayit_ol_ekrani.dart';
+import 'acilis_ekrani.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Gezi Rehberi',
       debugShowCheckedModeBanner: false,
-      home: KayitOlEkrani(),
+      home: SplashScreen(),
     );
   }
 }
