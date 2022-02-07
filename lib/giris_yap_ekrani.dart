@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_widgets/profil_ekrani.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 
 import 'kayit_ol_ekrani.dart';
@@ -112,7 +113,7 @@ class GirisYapEkrani extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (_) => GirisYapEkrani()));
+                                  builder: (_) => ProfilEkrani()));
                           print("Doğrulandı");
                         } else {
                           print("Doğrulanmadı");

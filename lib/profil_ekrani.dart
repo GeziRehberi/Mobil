@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_widgets/giris_yap_ekrani.dart';
 
 class ProfilEkrani extends StatefulWidget {
   const ProfilEkrani({Key? key}) : super(key: key);
@@ -129,7 +130,12 @@ class _ProfilEkraniState extends State<ProfilEkrani> {
                             color: Color(0xFF3949AB),
                             borderRadius: BorderRadius.circular(20)),
                         child: OutlinedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (_) => GirisYapEkrani()));
+                          },
                           child: Text(
                             'Çıkış Yap',
                             style: TextStyle(color: Colors.white, fontSize: 25),
