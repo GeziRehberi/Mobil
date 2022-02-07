@@ -25,7 +25,16 @@ class _BottomNavigatorPageState extends State<BottomNavigatorPage> {
         bottomNavigationBar: SalomonBottomBar(
           currentIndex: _currentIndex,
           onTap: (i) => setState(() => _currentIndex = i),
-          items: [],
+          items: [
+            SalomonBottomBarItem(
+              icon: const Icon(
+                Icons.home,
+                size: 30,
+              ),
+              title: const Text("Harita"),
+              selectedColor: Colors.purple,
+            ),
+          ],
         ),
       ),
     );
