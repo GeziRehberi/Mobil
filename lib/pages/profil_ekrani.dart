@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_widgets/giris_yap_ekrani.dart';
+import 'package:flutter_widgets/pages/giris_yap_ekrani.dart';
 
 class ProfilEkrani extends StatefulWidget {
   const ProfilEkrani({Key? key}) : super(key: key);

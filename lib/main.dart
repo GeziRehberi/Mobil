@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_widgets/acilis_ekrani.dart';
+import 'package:flutter_widgets/pages/acilis_ekrani.dart';
 
 void main() {
   runApp(MyApp());

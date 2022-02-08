@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+import '../models/theme.dart';
 import 'giris_yap_ekrani.dart';
-import 'models/theme.dart';
 
 class KayitOlEkrani extends StatelessWidget {
   KayitOlEkrani({Key? key}) : super(key: key);
