@@ -17,8 +17,8 @@ class _BottomNavigatorPageState extends State<BottomNavigatorPage> {
 
   final screens = [
     HaritaSayfasi(),
-    OylamaSayfasi(),
     KatkiSayfasi(),
+    OylamaSayfasi(),
     ProfilSayfasi(),
   ];
 

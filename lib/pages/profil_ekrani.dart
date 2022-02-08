@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_widgets/login_pages/giris_yap_ekrani.dart';
 
@@ -131,10 +132,10 @@ class _ProfilSayfasiState extends State<ProfilSayfasi> {
                             borderRadius: BorderRadius.circular(20)),
                         child: OutlinedButton(
                           onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (_) => GirisYapEkrani()));
+                            Navigator.of(context).pushReplacement(
+                              CupertinoPageRoute(
+                                  builder: (context) => const GirisYapEkrani()),
+                            );
                           },
                           child: Text(
                             'Çıkış Yap',

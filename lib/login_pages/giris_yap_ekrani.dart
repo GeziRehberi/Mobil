@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 
@@ -110,10 +111,11 @@ class GirisYapEkrani extends StatelessWidget {
                     child: OutlinedButton(
                       onPressed: () {
                         if (formkey.currentState!.validate()) {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (_) => BottomNavigatorPage()));
+                          Navigator.of(context).pushReplacement(
+                            CupertinoPageRoute(
+                                builder: (context) =>
+                                    const BottomNavigatorPage()),
+                          );
                           print("Doğrulandı");
                         } else {
                           print("Doğrulanmadı");
