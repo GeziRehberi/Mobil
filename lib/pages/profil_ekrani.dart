@@ -16,24 +16,11 @@ class _ProfilSayfasiState extends State<ProfilSayfasi> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xFF008C8C),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            IconButton(
-              icon: Icon(Icons.arrow_back_ios),
-              onPressed: () {},
-            ),
-            IconButton(icon: Icon(Icons.more_vert), onPressed: () {}),
-          ],
-        ),
-      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 12, right: 8, top: 16),
+              padding: const EdgeInsets.only(left: 12, right: 8, top: 24),
               child: Row(
                 children: [
                   CircleAvatar(
@@ -44,7 +31,12 @@ class _ProfilSayfasiState extends State<ProfilSayfasi> {
                   Text(
                     ' Nuri Ulgen',
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  )
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 155),
+                    child: IconButton(
+                        icon: Icon(Icons.more_vert), onPressed: () {}),
+                  ),
                 ],
               ),
             ),
