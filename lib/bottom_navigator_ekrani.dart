@@ -34,6 +34,14 @@ class _BottomNavigatorPageState extends State<BottomNavigatorPage> {
               title: const Text("Harita"),
               selectedColor: Colors.purple,
             ),
+            SalomonBottomBarItem(
+              icon: const Icon(
+                Icons.add,
+                size: 30,
+              ),
+              title: const Text("Katkı"),
+              selectedColor: Colors.red,
+            ),
           ],
         ),
       ),
