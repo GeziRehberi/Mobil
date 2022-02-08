@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_widgets/pages/harita_ekrani.dart';
+import 'package:flutter_widgets/pages/katki_ekrani.dart';
+import 'package:flutter_widgets/pages/oylama_ekrani.dart';
+import 'package:flutter_widgets/pages/profil_ekrani.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 class BottomNavigatorPage extends StatefulWidget {
@@ -11,7 +15,12 @@ class BottomNavigatorPage extends StatefulWidget {
 class _BottomNavigatorPageState extends State<BottomNavigatorPage> {
   var _currentIndex = 0;
 
-  final screens = [];
+  final screens = [
+    HaritaSayfasi(),
+    OylamaSayfasi(),
+    KatkiSayfasi(),
+    ProfilSayfasi(),
+  ];
 
   @override
   Widget build(BuildContext context) {

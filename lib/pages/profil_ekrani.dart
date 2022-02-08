@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widgets/login_pages/giris_yap_ekrani.dart';
 
-class ProfilEkrani extends StatefulWidget {
-  const ProfilEkrani({Key? key}) : super(key: key);
+class ProfilSayfasi extends StatefulWidget {
+  const ProfilSayfasi({Key? key}) : super(key: key);
 
   @override
-  _ProfilEkraniState createState() => _ProfilEkraniState();
+  _ProfilSayfasiState createState() => _ProfilSayfasiState();
 }
 
-class _ProfilEkraniState extends State<ProfilEkrani> {
+class _ProfilSayfasiState extends State<ProfilSayfasi> {
   String _logo =
       'https://pbs.twimg.com/profile_images/1408322029061824512/7oNDK2Tb_400x400.jpg';
 

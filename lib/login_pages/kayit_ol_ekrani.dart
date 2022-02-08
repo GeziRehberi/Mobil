@@ -14,7 +14,7 @@ class KayitOlEkrani extends StatelessWidget {
   final FocusNode focusConfirmPassword = FocusNode();
 
   final TextEditingController nameController = TextEditingController();
-  final TextEditingController SurnameController = TextEditingController();
+  final TextEditingController surnameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
@@ -74,7 +74,7 @@ class KayitOlEkrani extends StatelessWidget {
                               top: 20.0, bottom: 20.0, left: 25.0, right: 25.0),
                           child: TextField(
                             focusNode: focusSurName,
-                            controller: SurnameController,
+                            controller: surnameController,
                             keyboardType: TextInputType.emailAddress,
                             style: TextStyle(
                                 fontFamily: "SignikaSemiBold",

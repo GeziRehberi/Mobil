@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class HaritaSayfasi extends StatefulWidget {
-  const HaritaSayfasi({Key? key}) : super(key: key);
+class OylamaSayfasi extends StatefulWidget {
+  const OylamaSayfasi({Key? key}) : super(key: key);
 
   @override
-  _HaritaSayfasiState createState() => _HaritaSayfasiState();
+  _OylamaSayfasiState createState() => _OylamaSayfasiState();
 }
 
-class _HaritaSayfasiState extends State<HaritaSayfasi> {
+class _OylamaSayfasiState extends State<OylamaSayfasi> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

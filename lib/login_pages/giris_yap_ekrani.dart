@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_widgets/login_pages/profil_ekrani.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 
+import '../pages/bottom_navigator_ekrani.dart';
 import 'kayit_ol_ekrani.dart';
 import 'sifremi_unuttum_ekrani.dart';
 
@@ -113,7 +113,7 @@ class GirisYapEkrani extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (_) => ProfilEkrani()));
+                                  builder: (_) => BottomNavigatorPage()));
                           print("Doğrulandı");
                         } else {
                           print("Doğrulanmadı");
