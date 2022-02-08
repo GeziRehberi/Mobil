@@ -50,6 +50,14 @@ class _BottomNavigatorPageState extends State<BottomNavigatorPage> {
               title: const Text("Oylama"),
               selectedColor: Colors.teal,
             ),
+            SalomonBottomBarItem(
+              icon: const Icon(
+                Icons.add,
+                size: 30,
+              ),
+              title: const Text("Profil"),
+              selectedColor: Colors.orange,
+            ),
           ],
         ),
       ),
