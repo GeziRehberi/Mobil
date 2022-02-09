@@ -126,7 +126,7 @@ class _ProfilSayfasiState extends State<ProfilSayfasi> {
                           onPressed: () {
                             Navigator.of(context).pushReplacement(
                               CupertinoPageRoute(
-                                  builder: (context) => const GirisYapEkrani()),
+                                  builder: (context) => GirisYapEkrani()),
                             );
                           },
                           child: Text(
