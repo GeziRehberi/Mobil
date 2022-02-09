@@ -1,6 +1,6 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:form_field_validator/form_field_validator.dart';
 
 import '../pages/bottom_navigator_ekrani.dart';
 import 'kayit_ol_ekrani.dart';
@@ -11,7 +11,8 @@ class GirisYapEkrani extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    GlobalKey<FormState> formkey = GlobalKey<FormState>();
+    String _email = '';
+    GlobalKey<FormState> _formkey = GlobalKey<FormState>();
 
     String? validatePassword(String value) {
       if (value.isEmpty) {
@@ -56,21 +57,31 @@ class GirisYapEkrani extends StatelessWidget {
             ),
             SizedBox(height: 20),
             Form(
-              autovalidateMode: AutovalidateMode.always,
-              key: formkey,
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              key: _formkey,
               child: Column(
                 children: <Widget>[
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 15),
                     child: TextFormField(
+                      keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                           border: OutlineInputBorder(),
                           labelText: 'Email',
                           hintText: 'Email giriniz: abc@gmail.com'),
-                      validator: MultiValidator([
-                        RequiredValidator(errorText: "E-mail girmek zorunlu"),
-                        EmailValidator(errorText: "Geçerli bir mail giriniz:"),
-                      ]),
+                      onSaved: (deger) {
+                        _email = deger!; // verilerin kaydedilmesi
+                      },
+                      validator: (deger) {
+                        // email doğrulama işlemleri
+                        if (deger!.isEmpty) {
+                          return 'mail boş olamaz';
+                        } else if (!EmailValidator.validate(deger)) {
+                          return 'Geçerli bir mail giriniz';
+                        } else {
+                          return null;
+                        }
+                      },
                     ),
                   ),
                   Padding(
