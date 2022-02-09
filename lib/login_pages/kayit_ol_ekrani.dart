@@ -1,4 +1,5 @@
 import 'package:email_validator/email_validator.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class KayitOlEkrani extends StatelessWidget {
@@ -7,7 +8,8 @@ class KayitOlEkrani extends StatelessWidget {
   String _ad = '';
   String _soyAd = '';
   String _email = '';
-  String _sifre = '';
+
+  TextEditingController password = TextEditingController();
 
   final _formkey3 = GlobalKey<FormState>();
 
@@ -56,6 +58,7 @@ class KayitOlEkrani extends StatelessWidget {
                                 autovalidateMode:
                                     AutovalidateMode.onUserInteraction,
                                 keyboardType: TextInputType.text,
+                                textInputAction: TextInputAction.next,
                                 style: const TextStyle(
                                     fontSize: 16.0, color: Colors.black),
                                 decoration: InputDecoration(
@@ -78,7 +81,7 @@ class KayitOlEkrani extends StatelessWidget {
                             ),
                             Padding(
                               padding: const EdgeInsets.only(
-                                  top: 60.0,
+                                  top: 10.0,
                                   bottom: 20.0,
                                   left: 25.0,
                                   right: 25.0),
@@ -86,6 +89,7 @@ class KayitOlEkrani extends StatelessWidget {
                                 autovalidateMode:
                                     AutovalidateMode.onUserInteraction,
                                 keyboardType: TextInputType.text,
+                                textInputAction: TextInputAction.next,
                                 style: const TextStyle(
                                     fontSize: 16.0, color: Colors.black),
                                 decoration: InputDecoration(
@@ -116,6 +120,7 @@ class KayitOlEkrani extends StatelessWidget {
                                 autovalidateMode:
                                     AutovalidateMode.onUserInteraction,
                                 keyboardType: TextInputType.emailAddress,
+                                textInputAction: TextInputAction.next,
                                 style: const TextStyle(
                                     fontSize: 16.0, color: Colors.black),
                                 decoration: InputDecoration(
@@ -139,6 +144,38 @@ class KayitOlEkrani extends StatelessWidget {
                                   }
                                 },
                               ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  top: 10.0,
+                                  bottom: 20.0,
+                                  left: 25.0,
+                                  right: 25.0),
+                              child: TextFormField(
+                                  controller: password,
+                                  autovalidateMode:
+                                      AutovalidateMode.onUserInteraction,
+                                  keyboardType: TextInputType.text,
+                                  textInputAction: TextInputAction.next,
+                                  obscureText: true,
+                                  style: const TextStyle(
+                                      fontSize: 16.0, color: Colors.black),
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(40),
+                                    ),
+                                    hintText: 'Şifre giriniz',
+                                  ),
+                                  validator: (deger) {
+                                    // şifre doğrulama işlemleri
+                                    if (deger!.isEmpty) {
+                                      return "Şifre boş olamaz";
+                                    } else if (deger.length < 6) {
+                                      return 'Şifre en az 6 karakter olmalı';
+                                    } else {
+                                      return null;
+                                    }
+                                  }),
                             ),
                           ],
                         ),
