@@ -136,15 +136,13 @@ class _GirisYapEkraniState extends State<GirisYapEkrani> {
                         borderRadius: BorderRadius.circular(20)),
                     child: OutlinedButton(
                       onPressed: () {
-                        if (formkey.currentState!.validate()) {
+                        bool _validate = _formkey.currentState!.validate();
+                        if (_validate) {
+                          _formkey.currentState!.save();
                           Navigator.of(context).pushReplacement(
-                            CupertinoPageRoute(
-                                builder: (context) =>
-                                    const BottomNavigatorPage()),
-                          );
-                          print("Doğrulandı");
-                        } else {
-                          print("Doğrulanmadı");
+                              CupertinoPageRoute(
+                                  builder: (context) =>
+                                      const BottomNavigatorPage()));
                         }
                       },
                       child: Text(
