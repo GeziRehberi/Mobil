@@ -15,7 +15,7 @@ class GirisYapEkrani extends StatefulWidget {
 
 class _GirisYapEkraniState extends State<GirisYapEkrani> {
   String _email = '';
-
+  String _sifre = '';
   final _formkey = GlobalKey<FormState>();
 
   @override
@@ -101,6 +101,19 @@ class _GirisYapEkraniState extends State<GirisYapEkrani> {
                           border: OutlineInputBorder(),
                           labelText: 'Şifre',
                           hintText: 'Şifrenizi Giriniz'),
+                      onSaved: (deger) {
+                        _sifre = deger!;
+                        print(_sifre);
+                      },
+                      validator: (deger) {
+                        // şifre doğrulama işlemleri
+                        if (deger!.isEmpty) {
+                          return "Şifre boş olamaz";
+                        } else if (deger.length < 6) {
+                          return "Şifre en az 6 karakter olmalı";
+                        } else
+                          return null;
+                      },
                     ),
                   ),
                   TextButton(
