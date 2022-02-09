@@ -92,6 +92,20 @@ class _SifremiUnutttumEkraniState extends State<SifremiUnutttumEkrani> {
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(40)),
                             hintText: 'Email adresinizi doğrulayınız'),
+                        onSaved: (deger) {
+                          _email = deger!;
+                          print(_email); // verilerin kaydedilmesi
+                        },
+                        validator: (deger) {
+                          // email doğrulama işlemleri
+                          if (deger!.isEmpty) {
+                            return 'mail boş olamaz';
+                          } else if (!EmailValidator.validate(deger)) {
+                            return 'Geçerli bir mail giriniz';
+                          } else {
+                            return null;
+                          }
+                        },
                       ),
                     ),
                   ],
