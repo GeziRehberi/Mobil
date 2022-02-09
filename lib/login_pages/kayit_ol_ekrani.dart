@@ -2,6 +2,8 @@ import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'giris_yap_ekrani.dart';
+
 class KayitOlEkrani extends StatelessWidget {
   KayitOlEkrani({Key? key}) : super(key: key);
 
@@ -31,7 +33,7 @@ class KayitOlEkrani extends StatelessWidget {
       body: SingleChildScrollView(
         child: Center(
             child: Container(
-          padding: const EdgeInsets.only(top: 40.0),
+          padding: const EdgeInsets.only(top: 30.0),
           child: Column(
             children: <Widget>[
               Stack(
@@ -44,15 +46,15 @@ class KayitOlEkrani extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8.0)),
                     child: Container(
                       width: 390.00,
-                      height: 550.00,
+                      height: 620.00,
                       child: Form(
                         key: _formkey3,
                         child: Column(
                           children: <Widget>[
                             Padding(
                               padding: const EdgeInsets.only(
-                                  top: 60.0,
-                                  bottom: 20.0,
+                                  top: 30.0,
+                                  bottom: 5.0,
                                   left: 25.0,
                                   right: 25.0),
                               child: TextFormField(
@@ -83,7 +85,7 @@ class KayitOlEkrani extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.only(
                                   top: 10.0,
-                                  bottom: 20.0,
+                                  bottom: 10.0,
                                   left: 25.0,
                                   right: 25.0),
                               child: TextFormField(
@@ -114,7 +116,7 @@ class KayitOlEkrani extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.only(
                                   top: 10.0,
-                                  bottom: 20.0,
+                                  bottom: 5.0,
                                   left: 25.0,
                                   right: 25.0),
                               child: TextFormField(
@@ -149,7 +151,7 @@ class KayitOlEkrani extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.only(
                                   top: 10.0,
-                                  bottom: 20.0,
+                                  bottom: 5.0,
                                   left: 25.0,
                                   right: 25.0),
                               child: TextFormField(
@@ -181,7 +183,7 @@ class KayitOlEkrani extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.only(
                                   top: 10.0,
-                                  bottom: 20.0,
+                                  bottom: 30.0,
                                   left: 25.0,
                                   right: 25.0),
                               child: TextFormField(
@@ -189,6 +191,7 @@ class KayitOlEkrani extends StatelessWidget {
                                 autovalidateMode:
                                     AutovalidateMode.onUserInteraction,
                                 keyboardType: TextInputType.text,
+                                obscureText: true,
                                 style: const TextStyle(
                                     fontSize: 16.0, color: Colors.black),
                                 decoration: InputDecoration(
@@ -198,14 +201,48 @@ class KayitOlEkrani extends StatelessWidget {
                                   hintText: 'Şifreyi yeniden giriniz',
                                 ),
                                 validator: (value) {
-                                  if (value!.isEmpty) {
-                                    return 'Şifre boş bırakılamaz';
-                                  }
                                   if (password.text != confirmpassword.text) {
                                     return "Şifreler eşleşmiyor!";
                                   }
                                   return null;
                                 },
+                              ),
+                            ),
+                            Container(
+                              height: 50,
+                              width: 300,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(30)),
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  primary: const Color(0xFF3949AB),
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(25)),
+                                ),
+                                onPressed: () {
+                                  bool _validate =
+                                      _formkey3.currentState!.validate();
+                                  if (_validate) {
+                                    _formkey3.currentState!.save();
+                                    // bilgileri okuyup ekranda göstermesi
+                                    ScaffoldMessenger.of(context)
+                                        .showSnackBar(SnackBar(
+                                      content: Text(
+                                        'Başarıyla kayıt oldunuz.Giriş yapınız.',
+                                      ),
+                                    ));
+                                    Navigator.pushReplacement(
+                                        context,
+                                        CupertinoPageRoute(
+                                            builder: (context) =>
+                                                GirisYapEkrani()));
+                                  }
+                                },
+                                child: const Text(
+                                  'Kayıt Ol',
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 25),
+                                ),
                               ),
                             ),
                           ],
