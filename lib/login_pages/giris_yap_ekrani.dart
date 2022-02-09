@@ -20,15 +20,6 @@ class _GirisYapEkraniState extends State<GirisYapEkrani> {
 
   @override
   Widget build(BuildContext context) {
-    String? validatePassword(String value) {
-      if (value.isEmpty) {
-        return "* gerekli";
-      } else if (value.length < 6) {
-        return "Şifre en az 6 karakter olmalı";
-      } else
-        return null;
-    }
-
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -63,13 +54,13 @@ class _GirisYapEkraniState extends State<GirisYapEkrani> {
             ),
             SizedBox(height: 20),
             Form(
-              autovalidateMode: AutovalidateMode.onUserInteraction,
               key: _formkey,
               child: Column(
                 children: <Widget>[
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 15),
                     child: TextFormField(
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
                           border: OutlineInputBorder(),
@@ -95,7 +86,6 @@ class _GirisYapEkraniState extends State<GirisYapEkrani> {
                     padding: const EdgeInsets.only(
                         left: 15.0, right: 15.0, top: 15, bottom: 0),
                     child: TextFormField(
-                      obscureText: true,
                       autovalidateMode: AutovalidateMode.onUserInteraction,
                       decoration: InputDecoration(
                           border: OutlineInputBorder(),
@@ -110,9 +100,10 @@ class _GirisYapEkraniState extends State<GirisYapEkrani> {
                         if (deger!.isEmpty) {
                           return "Şifre boş olamaz";
                         } else if (deger.length < 6) {
-                          return "Şifre en az 6 karakter olmalı";
-                        } else
+                          return 'Şifre en az 6 karakter olmalı';
+                        } else {
                           return null;
+                        }
                       },
                     ),
                   ),
