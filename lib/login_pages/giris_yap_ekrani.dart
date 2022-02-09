@@ -121,11 +121,16 @@ class _GirisYapEkraniState extends State<GirisYapEkrani> {
                   ),
                   Container(
                     height: 50,
-                    width: 250,
+                    width: 300,
                     decoration: BoxDecoration(
                         color: Color(0xFF3949AB),
                         borderRadius: BorderRadius.circular(20)),
-                    child: OutlinedButton(
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: const Color(0xFF3949AB),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(25)),
+                      ),
                       onPressed: () {
                         bool _validate = _formkey.currentState!.validate();
                         if (_validate) {
