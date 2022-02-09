@@ -6,14 +6,20 @@ import '../pages/bottom_navigator_ekrani.dart';
 import 'kayit_ol_ekrani.dart';
 import 'sifremi_unuttum_ekrani.dart';
 
-class GirisYapEkrani extends StatelessWidget {
-  const GirisYapEkrani({Key? key}) : super(key: key);
+class GirisYapEkrani extends StatefulWidget {
+  GirisYapEkrani({Key? key}) : super(key: key);
+
+  @override
+  State<GirisYapEkrani> createState() => _GirisYapEkraniState();
+}
+
+class _GirisYapEkraniState extends State<GirisYapEkrani> {
+  String _email = '';
+
+  final _formkey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
-    String _email = '';
-    GlobalKey<FormState> _formkey = GlobalKey<FormState>();
-
     String? validatePassword(String value) {
       if (value.isEmpty) {
         return "* gerekli";
@@ -70,7 +76,8 @@ class GirisYapEkrani extends StatelessWidget {
                           labelText: 'Email',
                           hintText: 'Email giriniz: abc@gmail.com'),
                       onSaved: (deger) {
-                        _email = deger!; // verilerin kaydedilmesi
+                        _email = deger!;
+                        print(_email); // verilerin kaydedilmesi
                       },
                       validator: (deger) {
                         // email doğrulama işlemleri
@@ -88,18 +95,13 @@ class GirisYapEkrani extends StatelessWidget {
                     padding: const EdgeInsets.only(
                         left: 15.0, right: 15.0, top: 15, bottom: 0),
                     child: TextFormField(
-                        obscureText: true,
-                        decoration: InputDecoration(
-                            border: OutlineInputBorder(),
-                            labelText: 'Şifre',
-                            hintText: 'Şifrenizi Giriniz'),
-                        validator: MultiValidator([
-                          RequiredValidator(errorText: "Şifre girmek zorunlu"),
-                          MinLengthValidator(6,
-                              errorText: "Şifre en az 6 karakter olmalıdır"),
-                        ])
-                        //validatePassword,        //Function to check validation
-                        ),
+                      obscureText: true,
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: 'Şifre',
+                          hintText: 'Şifrenizi Giriniz'),
+                    ),
                   ),
                   TextButton(
                     onPressed: () {
