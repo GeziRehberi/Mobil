@@ -1,11 +1,18 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
-import 'package:form_field_validator/form_field_validator.dart';
 
 import 'dogrulama_kodu_ekrani.dart';
 
-class SifremiUnutttumEkrani extends StatelessWidget {
+class SifremiUnutttumEkrani extends StatefulWidget {
   SifremiUnutttumEkrani({Key? key}) : super(key: key);
 
+  @override
+  State<SifremiUnutttumEkrani> createState() => _SifremiUnutttumEkraniState();
+}
+
+class _SifremiUnutttumEkraniState extends State<SifremiUnutttumEkrani> {
+  String _email = '';
+  final _formkey2 = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,32 +56,46 @@ class SifremiUnutttumEkrani extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 16, right: 16, top: 40),
-              child: TextFormField(
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(40)),
-                    hintText: 'Email adresinizi giriniz'),
-                validator: MultiValidator([
-                  RequiredValidator(errorText: "E-mail girmek zorunlu"),
-                  EmailValidator(errorText: "Geçerli bir email giriniz:"),
-                ]),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 16, right: 16, top: 10),
-              child: TextFormField(
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(40)),
-                    hintText: 'Email adresinizi doğrulayınız'),
-                validator: MultiValidator([
-                  RequiredValidator(errorText: "E-mail girmek zorunlu"),
-                  EmailValidator(errorText: "Geçerli bir email giriniz:"),
-                ]),
-              ),
-            ),
+            Form(
+                key: _formkey2,
+                child: Column(
+                  children: [
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(left: 16, right: 16, top: 40),
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(40)),
+                            hintText: 'Email adresinizi giriniz'),
+                        onSaved: (deger) {
+                          _email = deger!;
+                          print(_email); // verilerin kaydedilmesi
+                        },
+                        validator: (deger) {
+                          // email doğrulama işlemleri
+                          if (deger!.isEmpty) {
+                            return 'mail boş olamaz';
+                          } else if (!EmailValidator.validate(deger)) {
+                            return 'Geçerli bir mail giriniz';
+                          } else {
+                            return null;
+                          }
+                        },
+                      ),
+                    ),
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(left: 16, right: 16, top: 10),
+                      child: TextFormField(
+                        decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(40)),
+                            hintText: 'Email adresinizi doğrulayınız'),
+                      ),
+                    ),
+                  ],
+                )),
             SizedBox(height: 30),
             Container(
               height: 50,
