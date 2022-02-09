@@ -10,6 +10,7 @@ class KayitOlEkrani extends StatelessWidget {
   String _email = '';
 
   TextEditingController password = TextEditingController();
+  TextEditingController confirmpassword = TextEditingController();
 
   final _formkey3 = GlobalKey<FormState>();
 
@@ -176,6 +177,36 @@ class KayitOlEkrani extends StatelessWidget {
                                       return null;
                                     }
                                   }),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  top: 10.0,
+                                  bottom: 20.0,
+                                  left: 25.0,
+                                  right: 25.0),
+                              child: TextFormField(
+                                controller: confirmpassword,
+                                autovalidateMode:
+                                    AutovalidateMode.onUserInteraction,
+                                keyboardType: TextInputType.text,
+                                style: const TextStyle(
+                                    fontSize: 16.0, color: Colors.black),
+                                decoration: InputDecoration(
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(40),
+                                  ),
+                                  hintText: 'Şifreyi yeniden giriniz',
+                                ),
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return 'Şifre boş bırakılamaz';
+                                  }
+                                  if (password.text != confirmpassword.text) {
+                                    return "Şifreler eşleşmiyor!";
+                                  }
+                                  return null;
+                                },
+                              ),
                             ),
                           ],
                         ),
