@@ -52,27 +52,28 @@ class KayitOlEkrani extends StatelessWidget {
                                   left: 25.0,
                                   right: 25.0),
                               child: TextFormField(
-                                  autovalidateMode:
-                                      AutovalidateMode.onUserInteraction,
-                                  keyboardType: TextInputType.emailAddress,
-                                  style: const TextStyle(
-                                      fontSize: 16.0, color: Colors.black),
-                                  decoration: InputDecoration(
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(40),
-                                    ),
-                                    hintText: 'Adınızı giriniz',
+                                autovalidateMode:
+                                    AutovalidateMode.onUserInteraction,
+                                keyboardType: TextInputType.text,
+                                style: const TextStyle(
+                                    fontSize: 16.0, color: Colors.black),
+                                decoration: InputDecoration(
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(40),
                                   ),
-                                  validator: (deger) {
-                                    if (deger!.length < 3) {
-                                      return 'Adınız en az 3 karakter olmalı';
-                                    } else {
-                                      return null;
-                                    }
-                                  },
-                                  onSaved: (deger) {
-                                    _ad = deger!;
-                                  }),
+                                  hintText: 'Adınızı giriniz',
+                                ),
+                                onSaved: (deger) {
+                                  _ad = deger!;
+                                },
+                                validator: (deger) {
+                                  if (deger!.length < 3) {
+                                    return 'Adınız en az 3 karakter olmalı';
+                                  } else {
+                                    return null;
+                                  }
+                                },
+                              ),
                             ),
                           ],
                         ),
