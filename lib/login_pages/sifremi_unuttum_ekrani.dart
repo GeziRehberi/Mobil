@@ -64,6 +64,7 @@ class _SifremiUnutttumEkraniState extends State<SifremiUnutttumEkrani> {
                       padding:
                           const EdgeInsets.only(left: 16, right: 16, top: 40),
                       child: TextFormField(
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
                         decoration: InputDecoration(
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(40)),
