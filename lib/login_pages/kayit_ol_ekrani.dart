@@ -75,6 +75,36 @@ class KayitOlEkrani extends StatelessWidget {
                                 },
                               ),
                             ),
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  top: 60.0,
+                                  bottom: 20.0,
+                                  left: 25.0,
+                                  right: 25.0),
+                              child: TextFormField(
+                                autovalidateMode:
+                                    AutovalidateMode.onUserInteraction,
+                                keyboardType: TextInputType.text,
+                                style: const TextStyle(
+                                    fontSize: 16.0, color: Colors.black),
+                                decoration: InputDecoration(
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(40),
+                                  ),
+                                  hintText: 'Soyadınızı giriniz',
+                                ),
+                                onSaved: (deger) {
+                                  _soyAd = deger!;
+                                },
+                                validator: (deger) {
+                                  if (deger!.length < 2) {
+                                    return 'Soyadınız en az 2 karakter olmalı';
+                                  } else {
+                                    return null;
+                                  }
+                                },
+                              ),
+                            ),
                           ],
                         ),
                       ),
