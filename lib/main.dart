@@ -6,15 +6,11 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  static final String title = 'User Profile';
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        dividerColor: Colors.black,
-      ),
-      title: 'Gezi Rehberi',
-      debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
-    );
+        debugShowCheckedModeBanner: false, title: title, home: SplashScreen());
   }
 }
