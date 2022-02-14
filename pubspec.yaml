@@ -32,6 +32,8 @@ dependencies:
   salomon_bottom_bar: ^3.2.0
   email_validator:
   image_picker: ^0.8.3+1
+  animated_theme_switcher: ^2.0.5
+  theme_provider: ^0.5.0
   flutter:
     sdk: flutter
 
