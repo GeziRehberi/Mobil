@@ -86,6 +86,7 @@ class _GirisYapEkraniState extends State<GirisYapEkrani> {
                     padding: const EdgeInsets.only(
                         left: 15.0, right: 15.0, top: 15, bottom: 0),
                     child: TextFormField(
+                      obscureText: true,
                       autovalidateMode: AutovalidateMode.onUserInteraction,
                       decoration: InputDecoration(
                           border: OutlineInputBorder(),
