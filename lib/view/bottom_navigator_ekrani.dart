@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_widgets/pages/harita_ekrani.dart';
-import 'package:flutter_widgets/pages/katki_ekrani.dart';
-import 'package:flutter_widgets/view/oylama_ekrani.dart';
-import 'package:flutter_widgets/pages/profil_ekrani.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
+
+import 'harita_ekrani.dart';
+import 'katki_ekrani.dart';
+import 'oylama_ekrani.dart';
+import 'profil_ekrani.dart';
 
 class BottomNavigatorPage extends StatefulWidget {
   const BottomNavigatorPage({Key? key}) : super(key: key);
@@ -17,7 +18,7 @@ class _BottomNavigatorPageState extends State<BottomNavigatorPage> {
 
   final screens = [
     HaritaSayfasi(),
-    KatkiSayfasi(),z
+    KatkiSayfasi(),
     OylamaSayfasi(),
     ProfilSayfasi(),
   ];
