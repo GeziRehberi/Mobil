@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_widgets/model/user.dart';
 import 'package:flutter_widgets/model/user_preferences.dart';
 
 class ProfilSayfasi extends StatefulWidget {
@@ -33,12 +34,24 @@ class _ProfilSayfasiState extends State<ProfilSayfasi> {
           ProfileWidget(
             imagePath: user.imagePath,
             onClicked: () {},
-          )
+          ),
+          const SizedBox(height: 24),
+          buildName(user),
         ],
       ),
     );
   }
 }
+
+Widget buildName(User user) => Column(
+      children: [
+        Text(
+          user.name,
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+        ),
+        const SizedBox(height: 4),
+      ],
+    );
 
 class ProfileWidget extends StatelessWidget {
   final String imagePath;
