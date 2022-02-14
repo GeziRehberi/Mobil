@@ -23,7 +23,7 @@ class _ProfilSayfasiState extends State<ProfilSayfasi> {
         elevation: 0,
         actions: [
           IconButton(
-            icon: Icon(icon, color: Colors.black),
+            icon: Icon(icon, color: Colors.black, size: 30),
             onPressed: () {},
           ),
         ],
