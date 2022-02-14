@@ -31,6 +31,7 @@ dependencies:
   font_awesome_flutter: ^9.0.2
   salomon_bottom_bar: ^3.2.0
   email_validator:
+  image_picker: ^0.8.3+1
   flutter:
     sdk: flutter
 
