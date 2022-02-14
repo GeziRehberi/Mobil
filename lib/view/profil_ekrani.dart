@@ -29,21 +29,126 @@ class _ProfilSayfasiState extends State<ProfilSayfasi> {
           ),
         ],
       ),
-      body: ListView(
-        physics: BouncingScrollPhysics(),
-        children: [
-          ProfileWidget(
-            imagePath: user.imagePath,
-            onClicked: () {
-              Navigator.push(context,
-                  CupertinoPageRoute(builder: (context) => EditProfilePage()));
-            },
-          ),
-          const SizedBox(height: 24),
-          buildName(user),
-          const SizedBox(height: 24),
-          NumbersWidget(),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: ListView(
+          physics: BouncingScrollPhysics(),
+          children: [
+            ProfileWidget(
+              imagePath: user.imagePath,
+              onClicked: () {
+                Navigator.push(
+                    context,
+                    CupertinoPageRoute(
+                        builder: (context) => EditProfilePage()));
+              },
+            ),
+            const SizedBox(height: 24),
+            buildName(user),
+            const SizedBox(height: 20),
+            NumbersWidget(),
+            const SizedBox(height: 15),
+            ListTile(
+              leading: const CircleAvatar(
+                backgroundColor: Colors.green,
+                child: Icon(CupertinoIcons.person),
+              ),
+              title: const Text(
+                'Account Settings',
+                style: TextStyle(color: Colors.black),
+              ),
+              subtitle: const Text(
+                'Privacy,Language',
+                style: TextStyle(color: Colors.black, fontSize: 11),
+              ),
+              trailing: Container(
+                width: 40,
+                height: 40,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.transparent,
+                ),
+                child: IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.arrow_forward_ios,
+                      size: 17, color: Colors.black),
+                ),
+              ),
+            ),
+            const SizedBox(height: 10),
+            ListTile(
+              title: const Text(
+                'Send Feedback',
+                style: TextStyle(color: Colors.black),
+              ),
+              leading: const CircleAvatar(
+                backgroundColor: Colors.purpleAccent,
+                child: Icon(Icons.messenger_outlined),
+              ),
+              trailing: Container(
+                width: 40,
+                height: 40,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.transparent,
+                ),
+                child: IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.arrow_forward_ios,
+                      size: 17, color: Colors.black),
+                ),
+              ),
+            ),
+            const SizedBox(height: 10),
+            ListTile(
+              title: const Text(
+                'Report a Bug',
+                style: TextStyle(color: Colors.black),
+              ),
+              leading: const CircleAvatar(
+                backgroundColor: Colors.teal,
+                child: Icon(Icons.bug_report),
+              ),
+              trailing: Container(
+                width: 40,
+                height: 40,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.transparent,
+                ),
+                child: IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.arrow_forward_ios,
+                      size: 17, color: Colors.black),
+                ),
+              ),
+            ),
+            const SizedBox(height: 10),
+            ListTile(
+              title: const Text(
+                'Logout',
+                style: TextStyle(color: Colors.black),
+              ),
+              leading: const CircleAvatar(
+                backgroundColor: Colors.blue,
+                child: Icon(Icons.logout),
+              ),
+              trailing: Container(
+                width: 40,
+                height: 40,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.transparent,
+                ),
+                child: IconButton(
+                  onPressed: () {},
+                  icon: Icon(Icons.arrow_forward_ios,
+                      size: 17, color: Colors.black),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
