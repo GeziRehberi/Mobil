@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_widgets/model/user.dart';
 import 'package:flutter_widgets/model/user_preferences.dart';
+import 'package:flutter_widgets/pages/edit_profile_page.dart';
 
 class ProfilSayfasi extends StatefulWidget {
   const ProfilSayfasi({Key? key}) : super(key: key);
@@ -33,7 +34,10 @@ class _ProfilSayfasiState extends State<ProfilSayfasi> {
         children: [
           ProfileWidget(
             imagePath: user.imagePath,
-            onClicked: () {},
+            onClicked: () {
+              Navigator.push(context,
+                  CupertinoPageRoute(builder: (context) => EditProfilePage()));
+            },
           ),
           const SizedBox(height: 24),
           buildName(user),
@@ -61,11 +65,13 @@ Widget buildName(User user) => Column(
 
 class ProfileWidget extends StatelessWidget {
   final String imagePath;
+  final bool isEdit;
   final VoidCallback onClicked;
 
   const ProfileWidget({
     Key? key,
     required this.imagePath,
+    this.isEdit = false,
     required this.onClicked,
   }) : super(key: key);
 
@@ -111,7 +117,7 @@ class ProfileWidget extends StatelessWidget {
           color: color,
           all: 8,
           child: Icon(
-            Icons.edit,
+            isEdit ? Icons.add_a_photo : Icons.edit,
             color: Colors.white,
             size: 20,
           ),
