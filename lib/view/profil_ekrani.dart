@@ -50,6 +50,10 @@ Widget buildName(User user) => Column(
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
         ),
         const SizedBox(height: 4),
+        Text(
+          user.email,
+          style: TextStyle(color: Colors.grey),
+        )
       ],
     );
 
