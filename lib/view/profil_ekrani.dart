@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_widgets/login_pages/giris_yap_ekrani.dart';
@@ -17,7 +19,8 @@ class _ProfilSayfasiState extends State<ProfilSayfasi> {
 
   @override
   Widget build(BuildContext context) {
-    final user = UserPreferences.myUser;
+    //final user = UserPreferences.myUser;
+    final user = UserPreferences.getUser();
     return WillPopScope(
       onWillPop: () async {
         final shouldPop = await showMyDialog(context);
@@ -25,7 +28,6 @@ class _ProfilSayfasiState extends State<ProfilSayfasi> {
       },
       child: Scaffold(
         appBar: AppBar(
-          leading: BackButton(),
           backgroundColor: Colors.transparent,
           elevation: 0,
           actions: [
@@ -42,11 +44,11 @@ class _ProfilSayfasiState extends State<ProfilSayfasi> {
             children: [
               ProfileWidget(
                 imagePath: user.imagePath,
-                onClicked: () {
-                  Navigator.push(
-                      context,
-                      CupertinoPageRoute(
-                          builder: (context) => EditProfilePage()));
+                onClicked: () async {
+                  await Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => EditProfilePage()),
+                  );
+                  setState(() {});
                 },
               ),
               const SizedBox(height: 24),
@@ -236,13 +238,15 @@ class ProfileWidget extends StatelessWidget {
   }
 
   Widget buildImage() {
-    final image = NetworkImage(imagePath);
+    final image = imagePath.contains('https://')
+        ? NetworkImage(imagePath)
+        : FileImage(File(imagePath));
 
     return ClipOval(
       child: Material(
         color: Colors.transparent,
         child: Ink.image(
-          image: image,
+          image: image as ImageProvider,
           fit: BoxFit.cover,
           width: 128,
           height: 128,
