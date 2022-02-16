@@ -1,7 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_widgets/login_pages/acilis_ekrani.dart';
+import 'package:flutter_widgets/model/user_preferences.dart';
 
-void main() {
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+
+  await UserPreferences.init();
+
   runApp(MyApp());
 }
 
