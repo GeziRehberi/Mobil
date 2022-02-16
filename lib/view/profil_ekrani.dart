@@ -51,109 +51,173 @@ class _ProfilSayfasiState extends State<ProfilSayfasi> {
                   setState(() {});
                 },
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 15),
               buildName(user),
-              const SizedBox(height: 20),
+              const SizedBox(height: 15),
               NumbersWidget(),
               const SizedBox(height: 15),
-              ListTile(
-                leading: const CircleAvatar(
-                  backgroundColor: Colors.green,
-                  child: Icon(CupertinoIcons.person),
+              Container(
+                height: 57,
+                margin: EdgeInsets.symmetric(horizontal: 15),
+                decoration: BoxDecoration(
+                  color: Color(0xA0A4BFFF),
+                  borderRadius: BorderRadius.circular(30),
                 ),
-                title: const Text(
-                  'Account Settings',
-                  style: TextStyle(color: Colors.black),
-                ),
-                subtitle: const Text(
-                  'Privacy,Language',
-                  style: TextStyle(color: Colors.black, fontSize: 11),
-                ),
-                trailing: Container(
-                  width: 40,
-                  height: 40,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.transparent,
+                child: ListTile(
+                  leading: const CircleAvatar(
+                    backgroundColor: Colors.green,
+                    child: Icon(CupertinoIcons.person),
                   ),
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.arrow_forward_ios,
-                        size: 17, color: Colors.black),
+                  title: const Text(
+                    'Account Settings',
+                    style: TextStyle(color: Colors.black),
                   ),
-                ),
-              ),
-              const SizedBox(height: 10),
-              ListTile(
-                title: const Text(
-                  'Send Feedback',
-                  style: TextStyle(color: Colors.black),
-                ),
-                leading: const CircleAvatar(
-                  backgroundColor: Colors.purpleAccent,
-                  child: Icon(Icons.messenger_outlined),
-                ),
-                trailing: Container(
-                  width: 40,
-                  height: 40,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.transparent,
+                  subtitle: const Text(
+                    'Privacy,Language',
+                    style: TextStyle(color: Colors.black, fontSize: 11),
                   ),
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.arrow_forward_ios,
-                        size: 17, color: Colors.black),
+                  trailing: Container(
+                    width: 40,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.transparent,
+                    ),
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: Icon(Icons.arrow_forward_ios,
+                          size: 17, color: Colors.black),
+                    ),
                   ),
                 ),
               ),
-              const SizedBox(height: 10),
-              ListTile(
-                title: const Text(
-                  'Report a Bug',
-                  style: TextStyle(color: Colors.black),
+              const SizedBox(height: 15),
+              Container(
+                height: 55,
+                margin: EdgeInsets.symmetric(horizontal: 15),
+                decoration: BoxDecoration(
+                  color: Color(0xA0A4BFFF),
+                  borderRadius: BorderRadius.circular(30),
                 ),
-                leading: const CircleAvatar(
-                  backgroundColor: Colors.teal,
-                  child: Icon(Icons.bug_report),
-                ),
-                trailing: Container(
-                  width: 40,
-                  height: 40,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.transparent,
+                child: ListTile(
+                  title: const Text(
+                    'Privacy',
+                    style: TextStyle(color: Colors.black),
                   ),
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.arrow_forward_ios,
-                        size: 17, color: Colors.black),
+                  leading: const CircleAvatar(
+                    backgroundColor: Colors.purpleAccent,
+                    child: Icon(CupertinoIcons.shield_fill),
+                  ),
+                  trailing: Container(
+                    width: 40,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.transparent,
+                    ),
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: Icon(Icons.arrow_forward_ios,
+                          size: 17, color: Colors.black),
+                    ),
                   ),
                 ),
               ),
-              const SizedBox(height: 10),
-              ListTile(
-                title: const Text(
-                  'Logout',
-                  style: TextStyle(color: Colors.black),
+              const SizedBox(height: 15),
+              Container(
+                height: 55,
+                margin: EdgeInsets.symmetric(horizontal: 15),
+                decoration: BoxDecoration(
+                  color: Color(0xA0A4BFFF),
+                  borderRadius: BorderRadius.circular(30),
                 ),
-                leading: const CircleAvatar(
-                  backgroundColor: Colors.blue,
-                  child: Icon(Icons.logout),
-                ),
-                trailing: Container(
-                  width: 40,
-                  height: 40,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.transparent,
+                child: ListTile(
+                  title: const Text(
+                    'Help & Support',
+                    style: TextStyle(color: Colors.black),
                   ),
-                  child: IconButton(
-                    onPressed: () {
-                      showMyDialog(context);
-                    },
-                    icon: Icon(Icons.arrow_forward_ios,
-                        size: 17, color: Colors.black),
+                  leading: const CircleAvatar(
+                    backgroundColor: Colors.teal,
+                    child: Icon(CupertinoIcons.question_circle),
+                  ),
+                  trailing: Container(
+                    width: 40,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.transparent,
+                    ),
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: Icon(Icons.arrow_forward_ios,
+                          size: 17, color: Colors.black),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 15),
+              Container(
+                height: 55,
+                margin: EdgeInsets.symmetric(horizontal: 15),
+                decoration: BoxDecoration(
+                  color: Color(0xA0A4BFFF),
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                child: ListTile(
+                  title: const Text(
+                    'Invite a Friend',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  leading: const CircleAvatar(
+                    backgroundColor: Colors.redAccent,
+                    child: Icon(CupertinoIcons.person_add_solid),
+                  ),
+                  trailing: Container(
+                    width: 40,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.transparent,
+                    ),
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: Icon(Icons.arrow_forward_ios,
+                          size: 17, color: Colors.black),
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 15),
+              Container(
+                height: 55,
+                margin: EdgeInsets.symmetric(horizontal: 15),
+                decoration: BoxDecoration(
+                  color: Color(0xA0A4BFFF),
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                child: ListTile(
+                  title: const Text(
+                    'Logout',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  leading: const CircleAvatar(
+                    backgroundColor: Colors.blue,
+                    child: Icon(Icons.logout),
+                  ),
+                  trailing: Container(
+                    width: 40,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.transparent,
+                    ),
+                    child: IconButton(
+                      onPressed: () {
+                        showMyDialog(context);
+                      },
+                      icon: Icon(Icons.arrow_forward_ios,
+                          size: 17, color: Colors.black),
+                    ),
                   ),
                 ),
               ),
