@@ -8,57 +8,6 @@ import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 
-/*class EditProfilePage extends StatefulWidget {
-  @override
-  _EditProfilePageState createState() => _EditProfilePageState();
-}
-
-class _EditProfilePageState extends State<EditProfilePage> {
-  User user = UserPreferences.myUser;
-  final icon = CupertinoIcons.moon_stars;
-  @override
-  Widget build(BuildContext context) => ThemeSwitchingArea(
-        child: Builder(
-          builder: (context) => Scaffold(
-            appBar: AppBar(
-              leading: BackButton(),
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-              actions: [
-                IconButton(
-                  icon: Icon(icon, color: Colors.black, size: 30),
-                  onPressed: () {},
-                ),
-              ],
-            ),
-            body: ListView(
-              padding: EdgeInsets.symmetric(horizontal: 32),
-              physics: BouncingScrollPhysics(),
-              children: [
-                ProfileWidget(
-                  imagePath: user.imagePath,
-                  isEdit: true,
-                  onClicked: () async {},
-                ),
-                const SizedBox(height: 24),
-                TextFieldWidget(
-                  label: 'Kullanıcı Adı',
-                  text: user.name,
-                  onChanged: (name) {},
-                ),
-                const SizedBox(height: 24),
-                TextFieldWidget(
-                  label: 'Email',
-                  text: user.email,
-                  onChanged: (email) {},
-                ),
-              ],
-            ),
-          ),
-        ),
-      );
-}*/
-
 class EditProfilePage extends StatefulWidget {
   @override
   _EditProfilePageState createState() => _EditProfilePageState();
