@@ -1,10 +1,7 @@
-import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_widgets/model/user.dart';
 import 'package:flutter_widgets/model/user_preferences.dart';
-import 'package:flutter_widgets/pages/edit_profile_page.dart';
 
 import '../pages/settings.dart';
 
@@ -39,7 +36,7 @@ class _ProfilSayfasiState extends State<ProfilSayfasi>
         elevation: 0,
         actions: [
           IconButton(
-            icon: Icon(icon, color: Colors.black, size: 30),
+            icon: Icon(Icons.more_vert, color: Colors.black, size: 30),
             onPressed: () {
               Navigator.push(
                   context, MaterialPageRoute(builder: (_) => Settings()));
@@ -54,22 +51,30 @@ class _ProfilSayfasiState extends State<ProfilSayfasi>
           children: [
             Row(
               children: [
-                ProfileWidget(
-                  imagePath: user.imagePath,
-                  onClicked: () async {
-                    await Navigator.of(context).push(
-                      MaterialPageRoute(
-                          builder: (context) => EditProfilePage()),
-                    );
-                    setState(() {});
-                  },
+                CircleAvatar(
+                  backgroundImage: NetworkImage(_logo),
+                  radius: 50,
                 ),
-                const SizedBox(height: 15),
-                buildName(user),
-                const SizedBox(height: 15),
+                const SizedBox(width: 15),
+                Column(
+                  children: [
+                    buildName(user),
+                    const SizedBox(height: 10),
+                    NumbersWidget(),
+                  ],
+                )
               ],
             ),
-            NumbersWidget(),
+            const SizedBox(height: 15),
+            ElevatedButton(
+              child: Text('Takip Et'),
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                primary: Colors.grey,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+              ),
+            ),
             const SizedBox(height: 15),
             Container(
               child: TabBar(
@@ -102,8 +107,8 @@ class _ProfilSayfasiState extends State<ProfilSayfasi>
                     child: Column(
                       children: [
                         Card(
-                          elevation: 10,
-                          shadowColor: Colors.red,
+                          elevation: 5,
+                          shadowColor: Colors.grey,
                           color: Colors.white,
                           child: ListTile(
                             leading: CircleAvatar(
@@ -120,23 +125,26 @@ class _ProfilSayfasiState extends State<ProfilSayfasi>
                             contentPadding: const EdgeInsets.only(left: 8),
                           ),
                         ),
-                        Card(
-                          elevation: 10,
-                          shadowColor: Colors.green,
-                          color: Colors.white,
-                          child: ListTile(
-                            leading: CircleAvatar(
-                              backgroundImage: NetworkImage(_logo),
-                              radius: 30,
+                        Container(
+                          decoration: BoxDecoration(),
+                          child: Card(
+                            elevation: 5,
+                            shadowColor: Colors.grey,
+                            color: Colors.white,
+                            child: ListTile(
+                              leading: CircleAvatar(
+                                backgroundImage: NetworkImage(_logo),
+                                radius: 30,
+                              ),
+                              title: const Text('Nuri Ülgen'),
+                              subtitle: const Text(
+                                  'Add Favorite Add FavoriteAdd FavoriteAdd FavoriteteAdd FavoriteAdd FavoriteAdd Favorite'),
+                              trailing: const Text('15 m'),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(100),
+                              ),
+                              contentPadding: const EdgeInsets.only(left: 8),
                             ),
-                            title: const Text('Nuri Ülgen'),
-                            subtitle: const Text(
-                                'Add Favorite Add FavoriteAdd FavoriteAdd FavoriteteAdd FavoriteAdd FavoriteAdd Favorite'),
-                            trailing: const Text('15 m'),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            contentPadding: const EdgeInsets.only(left: 8),
                           ),
                         ),
                       ],
@@ -163,89 +171,11 @@ Widget buildName(User user) => Column(
       ],
     );
 
-class ProfileWidget extends StatelessWidget {
-  final String imagePath;
-  final bool isEdit;
-  final VoidCallback onClicked;
-
-  const ProfileWidget({
-    Key? key,
-    required this.imagePath,
-    this.isEdit = false,
-    required this.onClicked,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    final color = Theme.of(context).colorScheme.primary;
-
-    return Center(
-      child: Stack(
-        children: [
-          buildImage(),
-          Positioned(
-            bottom: 0,
-            right: 4,
-            child: buildEditIcon(color),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget buildImage() {
-    final image = imagePath.contains('https://')
-        ? NetworkImage(imagePath)
-        : FileImage(File(imagePath));
-
-    return ClipOval(
-      child: Material(
-        color: Colors.transparent,
-        child: Ink.image(
-          image: image as ImageProvider,
-          fit: BoxFit.cover,
-          width: 128,
-          height: 128,
-          child: InkWell(onTap: onClicked),
-        ),
-      ),
-    );
-  }
-
-  Widget buildEditIcon(Color color) => buildCircle(
-        color: Colors.white,
-        all: 3,
-        child: buildCircle(
-          color: color,
-          all: 8,
-          child: Icon(
-            isEdit ? Icons.add_a_photo : Icons.edit,
-            color: Colors.white,
-            size: 20,
-          ),
-        ),
-      );
-
-  Widget buildCircle({
-    required Widget child,
-    required double all,
-    required Color color,
-  }) =>
-      ClipOval(
-        child: Container(
-          padding: EdgeInsets.all(all),
-          color: color,
-          child: child,
-        ),
-      );
-}
-
 class NumbersWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          buildDivider(),
           buildButton(context, '35', 'Takip'),
           buildDivider(),
           buildButton(context, '82', 'Takipçiler'),
@@ -267,7 +197,7 @@ class NumbersWidget extends StatelessWidget {
           children: <Widget>[
             Text(
               value,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
             ),
             SizedBox(height: 2),
             Text(
