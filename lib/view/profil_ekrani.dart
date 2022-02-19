@@ -15,66 +15,139 @@ class ProfilSayfasi extends StatefulWidget {
   _ProfilSayfasiState createState() => _ProfilSayfasiState();
 }
 
-class _ProfilSayfasiState extends State<ProfilSayfasi> {
+class _ProfilSayfasiState extends State<ProfilSayfasi>
+    with TickerProviderStateMixin {
   final icon = CupertinoIcons.moon_stars;
+  late final TabController _tabController;
+  String _logo =
+      'https://cdn.pixabay.com/photo/2016/11/22/23/44/porsche-1851246_960_720.jpg';
+
+  @override
+  void initState() {
+    _tabController = new TabController(length: 3, vsync: this);
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     //final user = UserPreferences.myUser;
     final user = UserPreferences.getUser();
-    return DefaultTabController(
-      length: 2,
-      child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          actions: [
-            IconButton(
-              icon: Icon(icon, color: Colors.black, size: 30),
-              onPressed: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => Settings()));
-              },
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        actions: [
+          IconButton(
+            icon: Icon(icon, color: Colors.black, size: 30),
+            onPressed: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (_) => Settings()));
+            },
+          ),
+        ],
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: ListView(
+          physics: BouncingScrollPhysics(),
+          children: [
+            Row(
+              children: [
+                ProfileWidget(
+                  imagePath: user.imagePath,
+                  onClicked: () async {
+                    await Navigator.of(context).push(
+                      MaterialPageRoute(
+                          builder: (context) => EditProfilePage()),
+                    );
+                    setState(() {});
+                  },
+                ),
+                const SizedBox(height: 15),
+                buildName(user),
+                const SizedBox(height: 15),
+              ],
             ),
-          ],
-        ),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: ListView(
-            physics: BouncingScrollPhysics(),
-            children: [
-              ProfileWidget(
-                imagePath: user.imagePath,
-                onClicked: () async {
-                  await Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => EditProfilePage()),
-                  );
-                  setState(() {});
-                },
-              ),
-              const SizedBox(height: 15),
-              buildName(user),
-              const SizedBox(height: 15),
-              NumbersWidget(),
-              const SizedBox(height: 15),
-              TabBar(
+            NumbersWidget(),
+            const SizedBox(height: 15),
+            Container(
+              child: TabBar(
+                labelColor: Colors.black,
+                unselectedLabelColor: Colors.grey,
+                controller: _tabController,
                 tabs: [
                   Tab(
-                    icon: Icon(
-                      Icons.message,
-                      color: Colors.black,
-                    ),
+                    icon: Icon(Icons.message),
+                  ),
+                  Tab(
+                    icon: Icon(Icons.favorite),
                   ),
                   Tab(
                     icon: Icon(
                       Icons.favorite,
-                      color: Colors.black,
                     ),
                   ),
                 ],
               ),
-            ],
-          ),
+            ),
+            Container(
+              width: double.infinity,
+              height: 400,
+              child: TabBarView(
+                controller: _tabController,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      children: [
+                        Card(
+                          elevation: 10,
+                          shadowColor: Colors.red,
+                          color: Colors.white,
+                          child: ListTile(
+                            leading: CircleAvatar(
+                              backgroundImage: NetworkImage(_logo),
+                              radius: 30,
+                            ),
+                            title: const Text('Nuri Ülgen'),
+                            subtitle: const Text(
+                                'Add Favorite Add FavoriteAdd FavoriteAdd FavoriteteAdd FavoriteAdd FavoriteAdd Favorite'),
+                            trailing: const Text('15 m'),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            contentPadding: const EdgeInsets.only(left: 8),
+                          ),
+                        ),
+                        Card(
+                          elevation: 10,
+                          shadowColor: Colors.green,
+                          color: Colors.white,
+                          child: ListTile(
+                            leading: CircleAvatar(
+                              backgroundImage: NetworkImage(_logo),
+                              radius: 30,
+                            ),
+                            title: const Text('Nuri Ülgen'),
+                            subtitle: const Text(
+                                'Add Favorite Add FavoriteAdd FavoriteAdd FavoriteteAdd FavoriteAdd FavoriteAdd Favorite'),
+                            trailing: const Text('15 m'),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            contentPadding: const EdgeInsets.only(left: 8),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Text('hi'),
+                  Text('hi'),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -87,11 +160,6 @@ Widget buildName(User user) => Column(
           user.name,
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
         ),
-        const SizedBox(height: 4),
-        Text(
-          user.email,
-          style: TextStyle(color: Colors.grey),
-        )
       ],
     );
 
@@ -177,7 +245,6 @@ class NumbersWidget extends StatelessWidget {
   Widget build(BuildContext context) => Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          buildButton(context, '13', 'Yorumlarım'),
           buildDivider(),
           buildButton(context, '35', 'Takip'),
           buildDivider(),
