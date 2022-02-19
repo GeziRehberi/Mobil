@@ -1,8 +1,8 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'harita_ekrani.dart';
-import 'katki_ekrani.dart';
 import 'oylama_ekrani.dart';
 import 'profil_ekrani.dart';
 
@@ -18,9 +18,8 @@ class _BottomNavigatorPageState extends State<BottomNavigatorPage> {
   GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
 
   final screens = [
-    HaritaSayfasi(),
-    KatkiSayfasi(),
     OylamaSayfasi(),
+    HaritaSayfasi(),
     ProfilSayfasi(),
   ];
 
@@ -38,15 +37,14 @@ class _BottomNavigatorPageState extends State<BottomNavigatorPage> {
           index: 0,
           height: 60.0,
           items: const <Widget>[
-            Icon(Icons.home, size: 30),
-            Icon(Icons.add, size: 30),
             Icon(Icons.favorite, size: 30),
+            Icon(CupertinoIcons.placemark_fill, size: 30),
             Icon(Icons.perm_identity, size: 30),
           ],
           color: Colors.white,
           buttonBackgroundColor: Colors.white,
-          backgroundColor: Colors.blueAccent,
-          animationCurve: Curves.easeInOut,
+          backgroundColor: Colors.blue.withOpacity(0.2),
+          animationCurve: Curves.fastLinearToSlowEaseIn,
           animationDuration: const Duration(milliseconds: 600),
           onTap: (index) {
             setState(() {
