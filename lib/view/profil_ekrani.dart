@@ -2,10 +2,11 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_widgets/login_pages/giris_yap_ekrani.dart';
 import 'package:flutter_widgets/model/user.dart';
 import 'package:flutter_widgets/model/user_preferences.dart';
 import 'package:flutter_widgets/pages/edit_profile_page.dart';
+
+import '../pages/settings.dart';
 
 class ProfilSayfasi extends StatefulWidget {
   const ProfilSayfasi({Key? key}) : super(key: key);
@@ -21,11 +22,8 @@ class _ProfilSayfasiState extends State<ProfilSayfasi> {
   Widget build(BuildContext context) {
     //final user = UserPreferences.myUser;
     final user = UserPreferences.getUser();
-    return WillPopScope(
-      onWillPop: () async {
-        final shouldPop = await showMyDialog(context);
-        return shouldPop ?? false;
-      },
+    return DefaultTabController(
+      length: 2,
       child: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.transparent,
@@ -33,7 +31,10 @@ class _ProfilSayfasiState extends State<ProfilSayfasi> {
           actions: [
             IconButton(
               icon: Icon(icon, color: Colors.black, size: 30),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (_) => Settings()));
+              },
             ),
           ],
         ),
@@ -56,170 +57,21 @@ class _ProfilSayfasiState extends State<ProfilSayfasi> {
               const SizedBox(height: 15),
               NumbersWidget(),
               const SizedBox(height: 15),
-              Container(
-                height: 57,
-                margin: EdgeInsets.symmetric(horizontal: 15),
-                decoration: BoxDecoration(
-                  color: Color(0xA0A4BFFF),
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                child: ListTile(
-                  leading: const CircleAvatar(
-                    backgroundColor: Colors.green,
-                    child: Icon(CupertinoIcons.person),
-                  ),
-                  title: const Text(
-                    'Account Settings',
-                    style: TextStyle(color: Colors.black),
-                  ),
-                  subtitle: const Text(
-                    'Privacy,Language',
-                    style: TextStyle(color: Colors.black, fontSize: 11),
-                  ),
-                  trailing: Container(
-                    width: 40,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.transparent,
-                    ),
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.arrow_forward_ios,
-                          size: 17, color: Colors.black),
+              TabBar(
+                tabs: [
+                  Tab(
+                    icon: Icon(
+                      Icons.message,
+                      color: Colors.black,
                     ),
                   ),
-                ),
-              ),
-              const SizedBox(height: 15),
-              Container(
-                height: 55,
-                margin: EdgeInsets.symmetric(horizontal: 15),
-                decoration: BoxDecoration(
-                  color: Color(0xA0A4BFFF),
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                child: ListTile(
-                  title: const Text(
-                    'Privacy',
-                    style: TextStyle(color: Colors.black),
-                  ),
-                  leading: const CircleAvatar(
-                    backgroundColor: Colors.purpleAccent,
-                    child: Icon(CupertinoIcons.shield_fill),
-                  ),
-                  trailing: Container(
-                    width: 40,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.transparent,
-                    ),
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.arrow_forward_ios,
-                          size: 17, color: Colors.black),
+                  Tab(
+                    icon: Icon(
+                      Icons.favorite,
+                      color: Colors.black,
                     ),
                   ),
-                ),
-              ),
-              const SizedBox(height: 15),
-              Container(
-                height: 55,
-                margin: EdgeInsets.symmetric(horizontal: 15),
-                decoration: BoxDecoration(
-                  color: Color(0xA0A4BFFF),
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                child: ListTile(
-                  title: const Text(
-                    'Help & Support',
-                    style: TextStyle(color: Colors.black),
-                  ),
-                  leading: const CircleAvatar(
-                    backgroundColor: Colors.teal,
-                    child: Icon(CupertinoIcons.question_circle),
-                  ),
-                  trailing: Container(
-                    width: 40,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.transparent,
-                    ),
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.arrow_forward_ios,
-                          size: 17, color: Colors.black),
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 15),
-              Container(
-                height: 55,
-                margin: EdgeInsets.symmetric(horizontal: 15),
-                decoration: BoxDecoration(
-                  color: Color(0xA0A4BFFF),
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                child: ListTile(
-                  title: const Text(
-                    'Invite a Friend',
-                    style: TextStyle(color: Colors.black),
-                  ),
-                  leading: const CircleAvatar(
-                    backgroundColor: Colors.redAccent,
-                    child: Icon(CupertinoIcons.person_add_solid),
-                  ),
-                  trailing: Container(
-                    width: 40,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.transparent,
-                    ),
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: Icon(Icons.arrow_forward_ios,
-                          size: 17, color: Colors.black),
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 15),
-              Container(
-                height: 55,
-                margin: EdgeInsets.symmetric(horizontal: 15),
-                decoration: BoxDecoration(
-                  color: Color(0xA0A4BFFF),
-                  borderRadius: BorderRadius.circular(30),
-                ),
-                child: ListTile(
-                  title: const Text(
-                    'Logout',
-                    style: TextStyle(color: Colors.black),
-                  ),
-                  leading: const CircleAvatar(
-                    backgroundColor: Colors.blue,
-                    child: Icon(Icons.logout),
-                  ),
-                  trailing: Container(
-                    width: 40,
-                    height: 40,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.transparent,
-                    ),
-                    child: IconButton(
-                      onPressed: () {
-                        showMyDialog(context);
-                      },
-                      icon: Icon(Icons.arrow_forward_ios,
-                          size: 17, color: Colors.black),
-                    ),
-                  ),
-                ),
+                ],
               ),
             ],
           ),
@@ -227,34 +79,6 @@ class _ProfilSayfasiState extends State<ProfilSayfasi> {
       ),
     );
   }
-
-  Future<bool?> showMyDialog(BuildContext context) => showDialog<bool>(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: const Text('Emin Misin?'),
-            actions: [
-              TextButton(
-                  onPressed: () {
-                    Navigator.pop(context, false);
-                  },
-                  child: const Text('Hayır')),
-              TextButton(
-                  onPressed: () {
-                    //Giriş yap sayfasına yönlendirir ve geriye dönmesini engeller
-                    Navigator.of(context).pushAndRemoveUntil(
-                      CupertinoPageRoute(
-                          builder: (context) => GirisYapEkrani()),
-                      (_) => false,
-                    );
-                    /*SystemChannels.platform.invokeMethod(
-                        'SystemNavigator.pop');*/ //evet butonuna basınca direkt uygulamadan çıkış yapıyor
-                  },
-                  child: const Text('Evet')),
-            ],
-          );
-        },
-      );
 }
 
 Widget buildName(User user) => Column(
