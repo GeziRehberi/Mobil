@@ -83,14 +83,21 @@ class _ProfilSayfasiState extends State<ProfilSayfasi>
                 controller: _tabController,
                 tabs: [
                   Tab(
-                    icon: Icon(Icons.message),
-                  ),
-                  Tab(
-                    icon: Icon(Icons.favorite),
+                    icon: Icon(
+                      Icons.message,
+                      size: 30,
+                    ),
                   ),
                   Tab(
                     icon: Icon(
-                      Icons.favorite,
+                      CupertinoIcons.star_fill,
+                      size: 30,
+                    ),
+                  ),
+                  Tab(
+                    icon: Icon(
+                      CupertinoIcons.checkmark_square_fill,
+                      size: 30,
                     ),
                   ),
                 ],
@@ -103,26 +110,60 @@ class _ProfilSayfasiState extends State<ProfilSayfasi>
                 controller: _tabController,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.only(
+                      top: 10.0,
+                      left: 2.0,
+                      right: 2.0,
+                    ),
                     child: Column(
                       children: [
-                        Card(
-                          elevation: 5,
-                          shadowColor: Colors.grey,
-                          color: Colors.white,
-                          child: ListTile(
-                            leading: CircleAvatar(
-                              backgroundImage: NetworkImage(_logo),
-                              radius: 30,
+                        Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(25)),
+                          child: Card(
+                            elevation: 5,
+                            shadowColor: Colors.grey,
+                            color: Colors.white,
+                            child: ListTile(
+                              leading: CircleAvatar(
+                                backgroundImage: NetworkImage(_logo),
+                              ),
+                              title: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    '@Nuri Ulgen',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                  Text(
+                                    '18 hour',
+                                    style: TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 13,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              subtitle: RichText(
+                                text: TextSpan(
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                    ),
+                                    children: [
+                                      TextSpan(
+                                          text:
+                                              'Contrary to popular belief, Lorem Ipsum is not simply random text.'
+                                              ' It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.'),
+                                    ]),
+                              ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(50),
+                              ),
                             ),
-                            title: const Text('Nuri Ülgen'),
-                            subtitle: const Text(
-                                'Add Favorite Add FavoriteAdd FavoriteAdd FavoriteteAdd FavoriteAdd FavoriteAdd Favorite'),
-                            trailing: const Text('15 m'),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            contentPadding: const EdgeInsets.only(left: 8),
                           ),
                         ),
                         Container(
@@ -134,24 +175,98 @@ class _ProfilSayfasiState extends State<ProfilSayfasi>
                             child: ListTile(
                               leading: CircleAvatar(
                                 backgroundImage: NetworkImage(_logo),
-                                radius: 30,
                               ),
-                              title: const Text('Nuri Ülgen'),
-                              subtitle: const Text(
-                                  'Add Favorite Add FavoriteAdd FavoriteAdd FavoriteteAdd FavoriteAdd FavoriteAdd Favorite'),
-                              trailing: const Text('15 m'),
+                              title: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    '@Nuri Ulgen',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                  Text(
+                                    '7 minute',
+                                    style: TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 13,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              subtitle: RichText(
+                                text: TextSpan(
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                    ),
+                                    children: [
+                                      TextSpan(
+                                          text:
+                                              'There are many variations of passages of Lorem Ipsum available, '
+                                              'but the majority have suffered alteration in some form, by injected humour, or randomised words which.'),
+                                    ]),
+                              ),
                               shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(100),
+                                borderRadius: BorderRadius.circular(20),
                               ),
-                              contentPadding: const EdgeInsets.only(left: 8),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          decoration: BoxDecoration(),
+                          child: Card(
+                            elevation: 5,
+                            shadowColor: Colors.grey,
+                            color: Colors.white,
+                            child: ListTile(
+                              leading: CircleAvatar(
+                                backgroundImage: NetworkImage(_logo),
+                              ),
+                              title: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    '@Nuri Ulgen',
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 16,
+                                    ),
+                                  ),
+                                  Text(
+                                    'right now',
+                                    style: TextStyle(
+                                      color: Colors.grey,
+                                      fontSize: 13,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              subtitle: RichText(
+                                text: TextSpan(
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                    ),
+                                    children: [
+                                      TextSpan(
+                                          text:
+                                              'Various versions have evolved over the years, sometimes by accident, '
+                                              'sometimes on purpose (injected humour and the like).'),
+                                    ]),
+                              ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
                             ),
                           ),
                         ),
                       ],
                     ),
                   ),
-                  Text('hi'),
-                  Text('hi'),
+                  Center(child: Text('Oylama')),
+                  Center(child: Text('Eklediğim mekanlar')),
                 ],
               ),
             ),
