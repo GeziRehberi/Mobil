@@ -5,9 +5,10 @@ import 'package:flutter_widgets/model/user_preferences.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // ekran yatay döndürme kilitlendi sadece portre modu açık
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
-    DeviceOrientation.portraitDown,
   ]);
 
   await UserPreferences.init();
