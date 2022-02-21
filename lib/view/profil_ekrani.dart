@@ -422,7 +422,13 @@ class _ProfilSayfasiState extends State<ProfilSayfasi>
         ),
       );
 
-
+  onSelected(BuildContext context, MenuItem item) {
+    switch (item) {
+      case MenuItems.itemSettings:
+        Navigator.push(context, MaterialPageRoute(builder: (_) => Settings()));
+        break;
+      case MenuItems.itemSignOut:
+        showMyDialog(context);
     }
   }
 }
@@ -499,3 +505,32 @@ class NumbersWidget extends StatelessWidget {
       );
 }
 
+Future<bool?> showMyDialog(BuildContext context) => showDialog<bool>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text(
+            'Are you sure?',
+            style: TextStyle(),
+          ),
+          actions: [
+            TextButton(
+                onPressed: () {
+                  Navigator.pop(context, false);
+                },
+                child: const Text('Hayır')),
+            TextButton(
+                onPressed: () {
+                  //Giriş yap sayfasına yönlendirir ve geriye dönmesini engeller
+                  Navigator.of(context).pushAndRemoveUntil(
+                    CupertinoPageRoute(builder: (context) => GirisYapEkrani()),
+                    (_) => false,
+                  );
+                  /*SystemChannels.platform.invokeMethod(
+                        'SystemNavigator.pop');*/ //evet butonuna basınca direkt uygulamadan çıkış yapıyor
+                },
+                child: const Text('Evet')),
+          ],
+        );
+      },
+    );
