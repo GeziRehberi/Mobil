@@ -84,7 +84,7 @@ class _SettingsState extends State<Settings> {
                 borderRadius: BorderRadius.circular(15),
                 color: Colors.white,
               ),
-              height: 270,
+              height: 305,
               child: Column(
                 children: [
                   SizedBox(height: 15),
@@ -110,6 +110,17 @@ class _SettingsState extends State<Settings> {
                     title: Text('Invite a Friend'),
                     onPressed: () {},
                   ),
+                  SettingsListTile(
+                      icon: Icons.info,
+                      title: Text('About'),
+                      onPressed: () {
+                        showLicensePage(
+                          context: context,
+                          // applicationIcon: Image.asset(name)
+                          applicationName: 'Gezi Rehberi',
+                          applicationVersion: '1.0',
+                        );
+                      }),
                 ],
               ),
             ),
