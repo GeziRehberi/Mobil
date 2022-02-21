@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_widgets/components/card_favorites.dart';
 import 'package:flutter_widgets/model/user.dart';
 import 'package:flutter_widgets/model/user_preferences.dart';
 
@@ -164,112 +165,30 @@ class _ProfilSayfasiState extends State<ProfilSayfasi>
                   //favori mekanlar bölümü
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Column(
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(),
-                          child: Card(
-                            elevation: 5,
-                            shadowColor: Colors.grey,
-                            color: Colors.white,
-                            child: ListTile(
-                              leading: CircleAvatar(
-                                backgroundImage: NetworkImage(
-                                    'https://i4.hurimg.com/i/hurriyet/75/0x0/5f19d22bc9de3d25681fae31.jpg'),
-                              ),
-                              title: Text(
-                                'Ayasofya Müzesi',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 16,
-                                ),
-                              ),
-                              subtitle: Padding(
-                                  padding: const EdgeInsets.only(top: 5),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      RichText(
-                                        text: TextSpan(
-                                            style: TextStyle(
-                                              color: Colors.grey.shade600,
-                                            ),
-                                            children: [
-                                              TextSpan(
-                                                  text:
-                                                      'Ayasofya veya resmî ismiyle Ayasofya-i Kebîr Câmi-i Şerîfi, eski ismiyle Ayasofya Kilisesi veya Ayasofya Müzesi,'
-                                                      'İstanbul da yer alan bir cami, eski bazilika, katedral ve müze.'),
-                                            ]),
-                                      ),
-                                      SizedBox(height: 5),
-                                      Text(
-                                        'Çalışma Saatleri:24 saat açık',
-                                        style: TextStyle(
-                                            color: Colors.black87,
-                                            fontSize: 13),
-                                      )
-                                    ],
-                                  )),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                            ),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          CardFavorites(
+                            resimUrl:
+                                'https://www.gezilesiyer.com/wp-content/uploads/2018/12/topkapi-sarayi-03.jpg',
+                            placeName: 'Topkapı Sarayı',
+                            comment:
+                                'Topkapı Sarayı, İstanbul Sarayburnu nda, Osmanlı İmparatorluğu nun 600 yıllık tarihinin 400 yılı boyunca,'
+                                ' devletin idare merkezi olarak kullanılan ve Osmanlı padişahlarının yaşadığı saraydır. '
+                                'Bir zamanlar içinde 4.000e yakın insan yaşamıştır..',
+                            workingHours: 'Çalışma Saatleri:10:00–16:00',
                           ),
-                        ),
-                        Container(
-                          decoration: BoxDecoration(),
-                          child: Card(
-                            elevation: 5,
-                            shadowColor: Colors.grey,
-                            color: Colors.white,
-                            child: ListTile(
-                              leading: CircleAvatar(
-                                backgroundImage: NetworkImage(
-                                    'https://www.gezilesiyer.com/wp-content/uploads/2018/12/topkapi-sarayi-03.jpg'),
-                              ),
-                              title: Text(
-                                'Topkapı Sarayı',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 16,
-                                ),
-                              ),
-                              subtitle: Padding(
-                                  padding: const EdgeInsets.only(top: 5),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      RichText(
-                                        text: TextSpan(
-                                            style: TextStyle(
-                                              color: Colors.grey.shade600,
-                                            ),
-                                            children: [
-                                              TextSpan(
-                                                  text:
-                                                      'Topkapı Sarayı, İstanbul Sarayburnu nda, Osmanlı İmparatorluğu nun 600 yıllık tarihinin 400 yılı boyunca,'
-                                                      ' devletin idare merkezi olarak kullanılan ve Osmanlı padişahlarının yaşadığı saraydır. '
-                                                      'Bir zamanlar içinde 4.000e yakın insan yaşamıştır..'),
-                                            ]),
-                                      ),
-                                      SizedBox(height: 5),
-                                      Text(
-                                        'Çalışma Saatleri:10:00–16:00',
-                                        style: TextStyle(
-                                            color: Colors.black87,
-                                            fontSize: 13),
-                                      )
-                                    ],
-                                  )),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
+                          SizedBox(height: 15),
+                          CardFavorites(
+                              resimUrl:
+                                  'https://i4.hurimg.com/i/hurriyet/75/0x0/5f19d22bc9de3d25681fae31.jpg',
+                              placeName: 'Ayasofya Müzesi',
+                              comment:
+                                  'Ayasofya veya resmî ismiyle Ayasofya-i Kebîr Câmi-i Şerîfi, eski ismiyle Ayasofya Kilisesi veya Ayasofya Müzesi,'
+                                  'İstanbul da yer alan bir cami, eski bazilika, katedral ve müze.',
+                              workingHours: 'Çalışma Saatleri:24 saat açık')
+                        ],
+                      ),
                     ),
                   ),
                 ],
