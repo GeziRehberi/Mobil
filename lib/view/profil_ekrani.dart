@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_widgets/model/user.dart';
 import 'package:flutter_widgets/model/user_preferences.dart';
 
+import '../components/card_comments.dart';
 import '../data/menu_items.dart';
 import '../login_pages/giris_yap_ekrani.dart';
 import '../model/menu_item.dart';
@@ -135,158 +136,26 @@ class _ProfilSayfasiState extends State<ProfilSayfasi>
                     child: SingleChildScrollView(
                       child: Column(
                         children: [
-                          Container(
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(25)),
-                            child: Card(
-                              elevation: 5,
-                              shadowColor: Colors.grey,
-                              color: Colors.white,
-                              child: ListTile(
-                                leading: CircleAvatar(
-                                  backgroundImage: NetworkImage(_logo),
-                                ),
-                                title: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      '@Nuri Ulgen',
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 16,
-                                      ),
-                                    ),
-                                    Text(
-                                      '18 hour',
-                                      style: TextStyle(
-                                        color: Colors.grey,
-                                        fontSize: 13,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                subtitle: Padding(
-                                  padding: const EdgeInsets.only(top: 5),
-                                  child: RichText(
-                                    text: TextSpan(
-                                        style: TextStyle(
-                                          color: Colors.grey.shade600,
-                                        ),
-                                        children: [
-                                          TextSpan(
-                                              text:
-                                                  'Contrary to popular belief, Lorem Ipsum is not simply random text.'
-                                                  ' It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.'),
-                                        ]),
-                                  ),
-                                ),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(50),
-                                ),
-                              ),
-                            ),
+                          CardComments(
+                            logo:
+                                'https://pbs.twimg.com/profile_images/1408322029061824512/7oNDK2Tb_400x400.jpg',
+                            name: 'Nuri',
+                            comment:
+                                'There are many variations of passages of Lorem Ipsum available, '
+                                'but the majority have suffered alteration in some form, by injected humour, or randomised words which.',
+                            date: '1 m ago',
                           ),
-                          Container(
-                            decoration: BoxDecoration(),
-                            child: Card(
-                              elevation: 5,
-                              shadowColor: Colors.grey,
-                              color: Colors.white,
-                              child: ListTile(
-                                leading: CircleAvatar(
-                                  backgroundImage: NetworkImage(_logo),
-                                ),
-                                title: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      '@Nuri Ulgen',
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 16,
-                                      ),
-                                    ),
-                                    Text(
-                                      '7 minute',
-                                      style: TextStyle(
-                                        color: Colors.grey,
-                                        fontSize: 13,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                subtitle: Padding(
-                                  padding: const EdgeInsets.only(top: 5),
-                                  child: RichText(
-                                    text: TextSpan(
-                                        style: TextStyle(
-                                          color: Colors.grey.shade600,
-                                        ),
-                                        children: [
-                                          TextSpan(
-                                              text:
-                                                  'There are many variations of passages of Lorem Ipsum available, '
-                                                  'but the majority have suffered alteration in some form, by injected humour, or randomised words which.'),
-                                        ]),
-                                  ),
-                                ),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                              ),
-                            ),
+                          SizedBox(
+                            height: 10,
                           ),
-                          Container(
-                            child: Card(
-                              elevation: 5,
-                              shadowColor: Colors.grey,
-                              color: Colors.white,
-                              child: ListTile(
-                                leading: CircleAvatar(
-                                  backgroundImage: NetworkImage(_logo),
-                                ),
-                                title: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      '@Nuri Ulgen',
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 16,
-                                      ),
-                                    ),
-                                    Text(
-                                      'right now',
-                                      style: TextStyle(
-                                        color: Colors.grey,
-                                        fontSize: 13,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                subtitle: Padding(
-                                  padding: const EdgeInsets.only(top: 5),
-                                  child: RichText(
-                                    text: TextSpan(
-                                        style: TextStyle(
-                                          color: Colors.grey.shade600,
-                                        ),
-                                        children: [
-                                          TextSpan(
-                                              text:
-                                                  'Various versions have evolved over the years, sometimes by accident, '
-                                                  'sometimes on purpose (injected humour and the like).'),
-                                        ]),
-                                  ),
-                                ),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20),
-                                ),
-                              ),
-                            ),
+                          CardComments(
+                            logo:
+                                'https://pbs.twimg.com/profile_images/1408322029061824512/7oNDK2Tb_400x400.jpg',
+                            name: 'Nuri',
+                            comment:
+                                'Various versions have evolved over the years, sometimes by accident, '
+                                'sometimes on purpose (injected humour and the like).',
+                            date: 'right now',
                           ),
                         ],
                       ),
