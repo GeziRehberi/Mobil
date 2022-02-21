@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_widgets/components/settings_listTile.dart';
 
 import '../model/user_preferences.dart';
 import '../view/profil_ekrani.dart';
@@ -42,28 +43,12 @@ class Settings extends StatelessWidget {
                   ),
                   const SizedBox(height: 20),
                   buildName(user),
-                  Container(
-                    width: 170,
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                              builder: (context) => EditProfilePage()),
-                        );
-                      },
-                      child: Text('Edit Profile'),
-                      style: ElevatedButton.styleFrom(
-                          shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15),
-                      )),
-                    ),
-                  ),
                 ],
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 8.0, left: 15.0, bottom: 2),
+            padding: const EdgeInsets.only(top: 16.0, left: 15.0, bottom: 8),
             child: Text(
               'Settings',
               style: TextStyle(fontSize: 18, color: Colors.grey.shade800),
@@ -76,66 +61,29 @@ class Settings extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15),
                 color: Colors.white,
               ),
-              height: 280,
+              height: 270,
               child: Column(
                 children: [
                   SizedBox(height: 15),
-                  ListTile(
-                    leading: Icon(
-                      Icons.language_outlined,
-                      color: Colors.grey.shade600,
-                      size: 30,
-                    ),
+                  SettingsListTile(
+                    icon: Icons.language_outlined,
                     title: Text('Language'),
-                    trailing: IconButton(
-                      icon: Icon(Icons.arrow_forward_ios, color: Colors.black),
-                      onPressed: () {},
-                    ),
+                    onPressed: () {},
                   ),
-                  ListTile(
-                    leading: Icon(
-                      CupertinoIcons.shield_fill,
-                      color: Colors.grey.shade600,
-                      size: 30,
-                    ),
-                    title: const Text(
-                      'Privacy',
-                      style: TextStyle(color: Colors.black),
-                    ),
-                    trailing: IconButton(
-                      icon: Icon(Icons.arrow_forward_ios, color: Colors.black),
-                      onPressed: () {},
-                    ),
+                  SettingsListTile(
+                    icon: CupertinoIcons.shield_fill,
+                    title: Text('Privacy'),
+                    onPressed: () {},
                   ),
-                  ListTile(
-                    leading: Icon(
-                      CupertinoIcons.question_circle,
-                      color: Colors.grey.shade600,
-                      size: 30,
-                    ),
-                    title: const Text(
-                      'Help & Support',
-                      style: TextStyle(color: Colors.black),
-                    ),
-                    trailing: IconButton(
-                      icon: Icon(Icons.arrow_forward_ios, color: Colors.black),
-                      onPressed: () {},
-                    ),
+                  SettingsListTile(
+                    icon: CupertinoIcons.question_circle,
+                    title: Text('Help & Support'),
+                    onPressed: () {},
                   ),
-                  ListTile(
-                    leading: Icon(
-                      CupertinoIcons.person_add_solid,
-                      color: Colors.grey.shade600,
-                      size: 30,
-                    ),
-                    title: const Text(
-                      'Invite a Friend',
-                      style: TextStyle(color: Colors.black),
-                    ),
-                    trailing: IconButton(
-                      icon: Icon(Icons.arrow_forward_ios, color: Colors.black),
-                      onPressed: () {},
-                    ),
+                  SettingsListTile(
+                    icon: CupertinoIcons.person_add_solid,
+                    title: Text('Invite a Friend'),
+                    onPressed: () {},
                   ),
                 ],
               ),
