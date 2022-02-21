@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_widgets/model/user.dart';
 import 'package:flutter_widgets/model/user_preferences.dart';
 
+import '../data/menu_items.dart';
+import '../login_pages/giris_yap_ekrani.dart';
+import '../model/menu_item.dart';
 import '../pages/settings.dart';
 
 class ProfilSayfasi extends StatefulWidget {
@@ -14,7 +17,6 @@ class ProfilSayfasi extends StatefulWidget {
 
 class _ProfilSayfasiState extends State<ProfilSayfasi>
     with TickerProviderStateMixin {
-  final icon = CupertinoIcons.moon_stars;
   late final TabController _tabController;
   String _logo =
       'https://pbs.twimg.com/profile_images/1408322029061824512/7oNDK2Tb_400x400.jpg';
@@ -38,14 +40,16 @@ class _ProfilSayfasiState extends State<ProfilSayfasi>
             'Nuri Ülgen',
             style: TextStyle(color: Colors.black),
           ),
+          iconTheme: IconThemeData(color: Colors.black),
           elevation: 0,
           actions: [
-            IconButton(
-              icon: Icon(Icons.more_vert, color: Colors.black, size: 30),
-              onPressed: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (_) => Settings()));
-              },
+            PopupMenuButton<MenuItem>(
+              onSelected: (item) => onSelected(context, item),
+              itemBuilder: (context) => [
+                ...MenuItems.itemFirst.map(buildItem).toList(),
+                PopupMenuDivider(),
+                ...MenuItems.itemSecond.map(buildItem).toList(),
+              ],
             ),
           ],
         ),
@@ -90,7 +94,8 @@ class _ProfilSayfasiState extends State<ProfilSayfasi>
                 ),
                 SliverPersistentHeader(
                   delegate: _SliverAppBarDelegate(
-                    const TabBar(
+                    TabBar(
+                      controller: _tabController,
                       labelColor: Colors.black87,
                       unselectedLabelColor: Colors.grey,
                       tabs: [
@@ -117,6 +122,7 @@ class _ProfilSayfasiState extends State<ProfilSayfasi>
               width: double.infinity,
               height: 400,
               child: TabBarView(
+                controller: _tabController,
                 children: [
                   // yorumlarım bölümü
                   Padding(
@@ -404,6 +410,21 @@ class _ProfilSayfasiState extends State<ProfilSayfasi>
       ),
     );
   }
+
+  PopupMenuItem<MenuItem> buildItem(MenuItem item) => PopupMenuItem<MenuItem>(
+        value: item,
+        child: Row(
+          children: [
+            Icon(item.icon, color: Colors.black, size: 20),
+            const SizedBox(width: 12),
+            Text(item.text),
+          ],
+        ),
+      );
+
+
+    }
+  }
 }
 
 class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
@@ -477,3 +498,4 @@ class NumbersWidget extends StatelessWidget {
         ),
       );
 }
+
