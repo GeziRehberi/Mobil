@@ -1,17 +1,40 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_widgets/components/settings_listTile.dart';
 
 import '../model/user_preferences.dart';
 import '../view/profil_ekrani.dart';
 import 'edit_profile_page.dart';
 
-class Settings extends StatelessWidget {
+class Settings extends StatefulWidget {
   const Settings({Key? key}) : super(key: key);
+
+  @override
+  State<Settings> createState() => _SettingsState();
+}
+
+class _SettingsState extends State<Settings> {
+  String data = '';
+  fetchFileData() async {
+    String responseText;
+    responseText = await rootBundle.loadString('assets/gizlilk.txt');
+    setState(() {
+      data = responseText;
+    });
+  }
+
+  @override
+  void initState() {
+    fetchFileData();
+    super.initState();
+    // Add code after super
+  }
 
   @override
   Widget build(BuildContext context) {
     final user = UserPreferences.getUser();
+
     return Scaffold(
       backgroundColor: Colors.white.withOpacity(0.9),
       appBar: AppBar(
@@ -73,7 +96,9 @@ class Settings extends StatelessWidget {
                   SettingsListTile(
                     icon: CupertinoIcons.shield_fill,
                     title: Text('Privacy'),
-                    onPressed: () {},
+                    onPressed: () {
+                      showMyDialog(context);
+                    },
                   ),
                   SettingsListTile(
                     icon: CupertinoIcons.question_circle,
@@ -93,4 +118,33 @@ class Settings extends StatelessWidget {
       ),
     );
   }
+
+  Future<bool?> showMyDialog(BuildContext context) => showDialog<bool>(
+        context: context,
+        builder: (BuildContext context) {
+          return ListView(
+            children: [
+              AlertDialog(
+                title: RichText(
+                  text: TextSpan(
+                    style: TextStyle(
+                      color: Colors.grey.shade600,
+                    ),
+                    children: [
+                      TextSpan(text: data),
+                    ],
+                  ),
+                ),
+                actions: [
+                  TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: const Text('Kabul Ediyorum')),
+                ],
+              ),
+            ],
+          );
+        },
+      );
 }
