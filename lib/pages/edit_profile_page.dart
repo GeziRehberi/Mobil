@@ -128,11 +128,11 @@ class ProfileWidget extends StatelessWidget {
       child: Stack(
         children: [
           buildImage(),
-          Positioned(
+          /* Positioned(
             bottom: 0,
             right: 4,
             child: buildEditIcon(color),
-          ),
+          ),*/
         ],
       ),
     );
@@ -156,8 +156,8 @@ class ProfileWidget extends StatelessWidget {
       ),
     );
   }
-
-  Widget buildEditIcon(Color color) => buildCircle(
+// düzenleme işareti
+/*  Widget buildEditIcon(Color color) => buildCircle(
         color: Colors.white,
         all: 3,
         child: buildCircle(
@@ -169,7 +169,7 @@ class ProfileWidget extends StatelessWidget {
             size: 20,
           ),
         ),
-      );
+      );*/
 
   Widget buildCircle({
     required Widget child,

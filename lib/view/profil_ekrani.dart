@@ -6,6 +6,7 @@ import 'package:flutter_widgets/model/user_preferences.dart';
 import '../data/menu_items.dart';
 import '../login_pages/giris_yap_ekrani.dart';
 import '../model/menu_item.dart';
+import '../pages/edit_profile_page.dart';
 import '../pages/settings.dart';
 
 class ProfilSayfasi extends StatefulWidget {
@@ -66,9 +67,9 @@ class _ProfilSayfasiState extends State<ProfilSayfasi>
                       children: [
                         Row(
                           children: [
-                            CircleAvatar(
-                              backgroundImage: NetworkImage(_logo),
-                              radius: 50,
+                            ProfileWidget(
+                              imagePath: user.imagePath,
+                              onClicked: () {},
                             ),
                             const SizedBox(width: 20),
                             NumbersWidget(),
@@ -464,6 +465,10 @@ Widget buildName(User user) => Column(
           user.name,
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
         ),
+        Text(
+          user.email,
+          style: TextStyle(color: Colors.grey),
+        )
       ],
     );
 
