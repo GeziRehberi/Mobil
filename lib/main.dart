@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_widgets/login_pages/acilis_ekrani.dart';
 import 'package:flutter_widgets/model/user_preferences.dart';
+import 'package:wiredash/wiredash.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,14 +18,19 @@ Future main() async {
 }
 
 class MyApp extends StatelessWidget {
-  static final String title = 'User Profile';
+  final _navigatorKey = GlobalKey<NavigatorState>();
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: title,
-      home: SplashScreen(),
+    return Wiredash(
+      projectId: 'YOUR-PROJECT-ID',
+      secret: 'YOUR-SECRET',
+      navigatorKey: _navigatorKey,
+      child: MaterialApp(
+        navigatorKey: _navigatorKey,
+        debugShowCheckedModeBanner: false,
+        home: SplashScreen(),
+      ),
     );
   }
 }

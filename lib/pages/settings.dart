@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_widgets/components/settings_listTile.dart';
+import 'package:wiredash/wiredash.dart';
 
 import '../model/user_preferences.dart';
 import '../view/profil_ekrani.dart';
@@ -34,9 +35,9 @@ class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
     final user = UserPreferences.getUser();
-
+    final _navigatorKey = GlobalKey<NavigatorState>();
     return Scaffold(
-      backgroundColor: Colors.white.withOpacity(0.9),
+      backgroundColor: Colors.white.withOpacity(0),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         leading: IconButton(
@@ -50,7 +51,7 @@ class _SettingsState extends State<Settings> {
       body: ListView(
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 3.0, left: 12.0, right: 12.0),
+            padding: const EdgeInsets.only(top: 3.0, left: 15.0, right: 15.0),
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
@@ -70,6 +71,7 @@ class _SettingsState extends State<Settings> {
               ),
             ),
           ),
+          SizedBox(height: 10),
           Padding(
             padding: const EdgeInsets.only(top: 16.0, left: 15.0, bottom: 8),
             child: Text(
@@ -77,14 +79,15 @@ class _SettingsState extends State<Settings> {
               style: TextStyle(fontSize: 18, color: Colors.grey.shade800),
             ),
           ),
+          SizedBox(height: 10),
           Padding(
-            padding: const EdgeInsets.only(top: 4.0, left: 12.0, right: 12.0),
+            padding: const EdgeInsets.only(top: 4.0, left: 15.0, right: 15.0),
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 color: Colors.white,
               ),
-              height: 305,
+              height: 300,
               child: Column(
                 children: [
                   SizedBox(height: 15),
@@ -101,10 +104,11 @@ class _SettingsState extends State<Settings> {
                     },
                   ),
                   SettingsListTile(
-                    icon: CupertinoIcons.question_circle,
-                    title: Text('Help & Support'),
-                    onPressed: () {},
-                  ),
+                      icon: CupertinoIcons.question_diamond_fill,
+                      title: Text('Help & Support'),
+                      onPressed: () {
+                        Wiredash.of(context)!.show();
+                      }),
                   SettingsListTile(
                     icon: CupertinoIcons.person_add_solid,
                     title: Text('Invite a Friend'),
