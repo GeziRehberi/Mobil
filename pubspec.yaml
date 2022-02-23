@@ -40,3 +40,16 @@ flutter:
   assets:
     - assets/konum.png
     - assets/gizlilk.txt
+
+
+  fonts:
+    - family: NunitoSans
+      fonts:
+        - asset: assets/fonts/NunitoSans-Black.ttf
+        - asset: assets/fonts/NunitoSans-Bold.ttf
+        - asset: assets/fonts/NunitoSans-Light.ttf
+        - asset: assets/fonts/NunitoSans-Regular.ttf
+        - asset: assets/fonts/NunitoSans-SemiBold.ttf
+        - asset: assets/fonts/NunitoSans-ExtraLight.ttf
+        - asset: assets/fonts/NunitoSans-ExtraBold.ttf
+
