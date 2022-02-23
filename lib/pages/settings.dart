@@ -4,8 +4,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_widgets/components/settings_listTile.dart';
 import 'package:wiredash/wiredash.dart';
 
+import '../components/widget/profile_widget.dart';
+import '../model/user.dart';
 import '../model/user_preferences.dart';
-import '../view/profil_ekrani.dart';
 import 'edit_profile_page.dart';
 
 class Settings extends StatefulWidget {
@@ -63,7 +64,13 @@ class _SettingsState extends State<Settings> {
                   SizedBox(height: 15),
                   ProfileWidget(
                     imagePath: user.imagePath,
-                    onClicked: () {},
+                    onClicked: () async {
+                      await Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) => EditProfilePage()),
+                      );
+                      setState(() {});
+                    },
                   ),
                   const SizedBox(height: 20),
                   buildName(user),
@@ -163,3 +170,17 @@ class _SettingsState extends State<Settings> {
         },
       );
 }
+
+Widget buildName(User user) => Column(
+      children: [
+        Text(
+          user.name,
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+        ),
+        const SizedBox(height: 4),
+        Text(
+          user.email,
+          style: TextStyle(color: Colors.grey),
+        )
+      ],
+    );
