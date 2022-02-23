@@ -9,11 +9,12 @@ class UserPreferences {
   static const _keyUser = 'user';
   static const myUser = User(
     imagePath:
-        'https://pbs.twimg.com/profile_images/1408322029061824512/7oNDK2Tb_400x400.jpg',
-    name: 'Nuri Ülgen',
-    email: 'nuriulgen07@gmail.com',
+        'https://pbs.twimg.com/profile_images/1466813742390427648/zPrpJfv6_400x400.jpg',
+    name: 'Sarah Abs',
+    email: 'sarah.abs@gmail.com',
     isDarkMode: false,
   );
+
   static Future init() async =>
       _preferences = await SharedPreferences.getInstance();
 

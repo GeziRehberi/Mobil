@@ -2,6 +2,7 @@ class User {
   final String imagePath;
   final String name;
   final String email;
+
   final bool isDarkMode;
 
   const User({
@@ -10,6 +11,7 @@ class User {
     required this.email,
     required this.isDarkMode,
   });
+
   User copy({
     String? imagePath,
     String? name,
