@@ -60,6 +60,7 @@ class _GirisYapEkraniState extends State<GirisYapEkrani> {
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 15),
                     child: TextFormField(
+                      initialValue: 'nuri@gmail.com',
                       autovalidateMode: AutovalidateMode.onUserInteraction,
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
@@ -86,6 +87,7 @@ class _GirisYapEkraniState extends State<GirisYapEkrani> {
                     padding: const EdgeInsets.only(
                         left: 15.0, right: 15.0, top: 15, bottom: 0),
                     child: TextFormField(
+                      initialValue: 'nuri07',
                       obscureText: true,
                       autovalidateMode: AutovalidateMode.onUserInteraction,
                       decoration: InputDecoration(

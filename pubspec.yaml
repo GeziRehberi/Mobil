@@ -14,7 +14,7 @@ dependencies:
   salomon_bottom_bar: ^3.2.0
   email_validator:
   image_picker: ^0.7.4
-  animated_theme_switcher: ^2.0.5
+  animated_theme_switcher: ^2.0.1-nullsafety.0
   theme_provider: ^0.5.0
   shared_preferences: ^2.0.5
   path_provider: ^2.0.1

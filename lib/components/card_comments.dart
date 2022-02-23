@@ -11,18 +11,18 @@ class CardComments extends StatelessWidget {
   final String date;
   final String comment;
 
-  CardComments(
-      {Key? key,
-      this.elevation,
-      this.shadowColor,
-      this.color,
-      this.child,
-      required this.logo,
-      required this.name,
-      required this.date,
-      required this.comment,
-      this.radius})
-      : super(key: key);
+  CardComments({
+    Key? key,
+    this.elevation,
+    this.shadowColor,
+    this.color,
+    this.child,
+    required this.logo,
+    required this.name,
+    required this.date,
+    required this.comment,
+    this.radius,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -8,15 +8,9 @@ class OylamaSayfasi extends StatefulWidget {
 }
 
 class _OylamaSayfasiState extends State<OylamaSayfasi> {
+  final _navigatorKey = GlobalKey<NavigatorState>();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Oylama'),
-      ),
-      body: Center(
-        child: Text('Oylama'),
-      ),
-    );
+    return Center();
   }
 }

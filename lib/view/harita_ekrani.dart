@@ -11,11 +11,13 @@ class _HaritaSayfasiState extends State<HaritaSayfasi> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Harita'),
-      ),
       body: Center(
-        child: Text('Harita'),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('Hello World!'),
+          ],
+        ),
       ),
     );
   }
