@@ -1,7 +1,7 @@
 import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_widgets/login_pages/acilis_ekrani.dart';
+import 'package:flutter_widgets/view/acilis_ekrani.dart';
 import 'package:wiredash/wiredash.dart';
 
 import 'model/themes.dart';

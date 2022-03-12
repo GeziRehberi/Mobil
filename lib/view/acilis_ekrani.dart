@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:splash_screen_view/SplashScreenView.dart';
 
-import 'giris_yap_ekrani.dart';
+import '../authentication/login/giris_yap_ekrani.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({

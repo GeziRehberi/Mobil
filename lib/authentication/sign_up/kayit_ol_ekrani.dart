@@ -2,7 +2,7 @@ import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'giris_yap_ekrani.dart';
+import '../login/giris_yap_ekrani.dart';
 
 class KayitOlEkrani extends StatelessWidget {
   KayitOlEkrani({Key? key}) : super(key: key);

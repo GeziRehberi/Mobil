@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_widgets/login_pages/sifre_yenileme_ekrani.dart';
+import 'package:flutter_widgets/authentication/forgot/sifre_yenileme_ekrani.dart';
 
 class KoduDogrula extends StatelessWidget {
   const KoduDogrula({Key? key}) : super(key: key);

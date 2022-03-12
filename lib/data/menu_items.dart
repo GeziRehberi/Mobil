@@ -14,5 +14,5 @@ class MenuItems {
   static const itemSettings = MenuItem(text: 'Settings', icon: Icons.settings);
   static const itemDarkMode =
       MenuItem(text: 'Dark Mode', icon: CupertinoIcons.moon_stars);
-  static const itemSignOut = MenuItem(text: 'Sign Out', icon: Icons.logout);
+  static const itemSignOut = MenuItem(text: 'Log Out', icon: Icons.logout);
 }

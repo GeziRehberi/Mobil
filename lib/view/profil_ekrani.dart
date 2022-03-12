@@ -8,7 +8,7 @@ import '../components/card_comments.dart';
 import '../components/widget/numbers_widget.dart';
 import '../components/widget/profile_widget.dart';
 import '../data/menu_items.dart';
-import '../login_pages/giris_yap_ekrani.dart';
+import '../authentication/login/giris_yap_ekrani.dart';
 import '../model/menu_item.dart';
 import '../pages/edit_profile_page.dart';
 import '../pages/settings.dart';
@@ -265,15 +265,15 @@ Future<bool?> showMyDialog(BuildContext context) => showDialog<bool>(
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text(
-            'Are you sure?',
-            style: TextStyle(),
+            'Çıkış yapmak istediğinizden emin misiniz?',
+            style: TextStyle(color: Colors.grey),
           ),
           actions: [
             TextButton(
                 onPressed: () {
                   Navigator.pop(context, false);
                 },
-                child: const Text('Hayır')),
+                child: const Text('VAZGEÇ')),
             TextButton(
                 onPressed: () {
                   //Giriş yap sayfasına yönlendirir ve geriye dönmesini engeller
@@ -284,7 +284,7 @@ Future<bool?> showMyDialog(BuildContext context) => showDialog<bool>(
                   /*SystemChannels.platform.invokeMethod(
                         'SystemNavigator.pop');*/ //evet butonuna basınca direkt uygulamadan çıkış yapıyor
                 },
-                child: const Text('Evet')),
+                child: const Text('ÇIKIŞ YAP')),
           ],
         );
       },
