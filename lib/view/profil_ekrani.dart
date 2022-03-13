@@ -188,17 +188,24 @@ class _ProfilSayfasiState extends State<ProfilSayfasi>
                                     ' devletin idare merkezi olarak kullanılan ve Osmanlı padişahlarının yaşadığı saraydır. '
                                     'Bir zamanlar içinde 4.000e yakın insan yaşamıştır..',
                                 workingHours: 'Çalışma Saatleri: 10:00–16:00',
+                                addressCard:
+                                    'Bereketzade, Galata Kulesi, 34421 Beyoğlu/İstanbul',
+                                categoryCard: 'Tarihi Yer',
+                                priceCard: '100 tl',
                               ),
                               SizedBox(height: 15),
                               CardFavorites(
-                                  placeName: 'Ayasofya',
-                                  resimUrl:
-                                      'https://i4.hurimg.com/i/hurriyet/75/0x0/5f19d22bc9de3d25681fae31.jpg',
-                                  descriptionCard:
-                                      'Ayasofya veya resmî ismiyle Ayasofya-i Kebîr Câmi-i Şerîfi, eski ismiyle Ayasofya Kilisesi veya Ayasofya Müzesi,'
-                                      'İstanbul da yer alan bir cami, eski bazilika, katedral ve müze.',
-                                  workingHours:
-                                      'Çalışma Saatleri: 24 saat açık')
+                                placeName: 'Ayasofya',
+                                resimUrl:
+                                    'https://i4.hurimg.com/i/hurriyet/75/0x0/5f19d22bc9de3d25681fae31.jpg',
+                                descriptionCard:
+                                    'Ayasofya veya resmî ismiyle Ayasofya-i Kebîr Câmi-i Şerîfi, eski ismiyle Ayasofya Kilisesi veya Ayasofya Müzesi,'
+                                    'İstanbul da yer alan bir cami, eski bazilika, katedral ve müze.',
+                                workingHours: 'Çalışma Saatleri: 24 saat açık',
+                                addressCard: 'Fatih/İstanbul',
+                                categoryCard: 'Cami/Müze',
+                                priceCard: 'Ücretsiz',
+                              )
                             ],
                           ),
                         ),

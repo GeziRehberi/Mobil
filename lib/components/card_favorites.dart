@@ -13,6 +13,9 @@ class CardFavorites extends StatelessWidget {
   final listelenenMekanlar;
   final String descriptionCard;
   final String workingHours;
+  final String addressCard;
+  final String categoryCard;
+  final String priceCard;
 
   CardFavorites(
       {Key? key,
@@ -25,7 +28,10 @@ class CardFavorites extends StatelessWidget {
       required this.placeName,
       required this.descriptionCard,
       required this.workingHours,
-      this.listelenenMekanlar})
+      this.listelenenMekanlar,
+      required this.addressCard,
+      required this.categoryCard,
+      required this.priceCard})
       : super(key: key);
 
   @override
@@ -46,6 +52,9 @@ class CardFavorites extends StatelessWidget {
                 description: descriptionCard,
                 imagePaths: resimUrl,
                 hours: workingHours,
+                address: addressCard,
+                category: categoryCard,
+                price: priceCard,
               ),
             ),
           );

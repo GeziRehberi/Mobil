@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 
+import '../view/harita_ekrani.dart';
 import 'card_favorites.dart';
 import 'icons.dart';
 import 'widget/favorite_listTile.dart';
@@ -10,9 +11,9 @@ class FavoriteDetailPage extends StatelessWidget {
   final String name;
   final String description;
   final String hours;
-  final String? address;
-  final String? category;
-  final int? price;
+  final String address;
+  final String category;
+  final String price;
   final String imagePaths;
 
   const FavoriteDetailPage(
@@ -21,9 +22,9 @@ class FavoriteDetailPage extends StatelessWidget {
       required this.name,
       required this.description,
       required this.hours,
-      this.address,
-      this.category,
-      this.price,
+      required this.address,
+      required this.category,
+      required this.price,
       required this.imagePaths})
       : super(key: key);
 
@@ -62,7 +63,7 @@ class FavoriteDetailPage extends StatelessWidget {
                         ),
                         const SizedBox(height: 10),
                         Text(
-                          "#Tarihi Yer",
+                          '# ' + category,
                           style: TextStyle(
                             fontSize: 14,
                             color: Colors.grey.shade700,
@@ -73,16 +74,24 @@ class FavoriteDetailPage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             CircleIcon(
-                              circleIcon: CupertinoIcons.arrow_up_right_diamond,
-                              text: "Yol Tarifi",
-                            ),
+                                circleIcon:
+                                    CupertinoIcons.arrow_up_right_diamond,
+                                text: "Yol Tarifi",
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => HaritaSayfasi(),
+                                    ),
+                                  );
+                                }),
                             CircleIcon(
                               circleIcon: CupertinoIcons.bookmark,
                               text: "Kaydet",
                             ),
                             CircleIcon(
-                              circleIcon: Icons.add,
-                              text: "Yol Tarifi",
+                              circleIcon: CupertinoIcons.captions_bubble,
+                              text: "Yorum Yap",
                             ),
                             CircleIcon(
                               circleIcon: CupertinoIcons.share,
@@ -113,12 +122,11 @@ class FavoriteDetailPage extends StatelessWidget {
                       children: [
                         FavoriteListTile(
                           icon: CupertinoIcons.location,
-                          title:
-                              'Bereketzade, Galata Kulesi, 34421 Beyoğlu/İstanbul',
+                          title: address,
                         ),
                         FavoriteListTile(
                           icon: CupertinoIcons.clock,
-                          title: '$hours',
+                          title: hours,
                         ),
                         FavoriteListTile(
                           icon: Icons.money,
