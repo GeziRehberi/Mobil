@@ -5,6 +5,7 @@ import '../view/harita_ekrani.dart';
 import 'card_favorites.dart';
 import 'icons.dart';
 import 'widget/favorite_listTile.dart';
+import 'widget/show_alert_dialog_widget.dart';
 
 class FavoriteDetailPage extends StatelessWidget {
   final secilenYer;
@@ -92,6 +93,9 @@ class FavoriteDetailPage extends StatelessWidget {
                             CircleIcon(
                               circleIcon: CupertinoIcons.captions_bubble,
                               text: "Yorum Yap",
+                              onPressed: () {
+                                showAlertDialog(context);
+                              },
                             ),
                             CircleIcon(
                               circleIcon: CupertinoIcons.share,
