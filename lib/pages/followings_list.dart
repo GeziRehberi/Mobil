@@ -23,14 +23,14 @@ class _FollowingsPageState extends State<FollowingsPage> {
           followTitle: 'Takip Ediliyor',
         ),
         FollowList(
-          name: 'Nuri',
-          surName: 'Ulgen',
+          name: 'Mia',
+          surName: 'Wong',
           photoPath: '',
           followTitle: 'Takip Ediliyor',
         ),
         FollowList(
-          name: 'Nuri',
-          surName: 'Ulgen',
+          name: 'Jane',
+          surName: 'Meldrum',
           photoPath: '',
           followTitle: 'Takip Ediliyor',
         ),

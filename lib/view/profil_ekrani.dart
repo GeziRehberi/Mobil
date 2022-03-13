@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_widgets/components/card_favorites.dart';
 import 'package:flutter_widgets/model/user_preferences.dart';
 
+import '../authentication/login/giris_yap_ekrani.dart';
 import '../components/card_comments.dart';
 import '../components/widget/numbers_widget.dart';
 import '../components/widget/profile_widget.dart';
 import '../data/menu_items.dart';
-import '../authentication/login/giris_yap_ekrani.dart';
 import '../model/menu_item.dart';
 import '../pages/edit_profile_page.dart';
 import '../pages/settings.dart';
@@ -180,24 +180,25 @@ class _ProfilSayfasiState extends State<ProfilSayfasi>
                           child: Column(
                             children: [
                               CardFavorites(
+                                placeName: 'Galata Kulesi',
                                 resimUrl:
-                                    'https://www.gezilesiyer.com/wp-content/uploads/2018/12/topkapi-sarayi-03.jpg',
-                                placeName: 'Topkapı Sarayı',
-                                comment:
+                                    'https://im.haberturk.com/2020/02/25/ver1582697783/2595195_1200x627.jpg',
+                                descriptionCard:
                                     'Topkapı Sarayı, İstanbul Sarayburnu nda, Osmanlı İmparatorluğu nun 600 yıllık tarihinin 400 yılı boyunca,'
                                     ' devletin idare merkezi olarak kullanılan ve Osmanlı padişahlarının yaşadığı saraydır. '
                                     'Bir zamanlar içinde 4.000e yakın insan yaşamıştır..',
-                                workingHours: 'Çalışma Saatleri:10:00–16:00',
+                                workingHours: 'Çalışma Saatleri: 10:00–16:00',
                               ),
                               SizedBox(height: 15),
                               CardFavorites(
+                                  placeName: 'Ayasofya',
                                   resimUrl:
                                       'https://i4.hurimg.com/i/hurriyet/75/0x0/5f19d22bc9de3d25681fae31.jpg',
-                                  placeName: 'Ayasofya Müzesi',
-                                  comment:
+                                  descriptionCard:
                                       'Ayasofya veya resmî ismiyle Ayasofya-i Kebîr Câmi-i Şerîfi, eski ismiyle Ayasofya Kilisesi veya Ayasofya Müzesi,'
                                       'İstanbul da yer alan bir cami, eski bazilika, katedral ve müze.',
-                                  workingHours: 'Çalışma Saatleri:24 saat açık')
+                                  workingHours:
+                                      'Çalışma Saatleri: 24 saat açık')
                             ],
                           ),
                         ),

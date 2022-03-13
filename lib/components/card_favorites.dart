@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'favorites_detail.dart';
+
 class CardFavorites extends StatelessWidget {
   final String resimUrl;
   final Color? color;
@@ -8,8 +10,8 @@ class CardFavorites extends StatelessWidget {
   final double? radius;
   final Color? shadowColor;
   final String placeName;
-
-  final String comment;
+  final listelenenMekanlar;
+  final String descriptionCard;
   final String workingHours;
 
   CardFavorites(
@@ -21,8 +23,9 @@ class CardFavorites extends StatelessWidget {
       this.radius,
       required this.resimUrl,
       required this.placeName,
-      required this.comment,
-      required this.workingHours})
+      required this.descriptionCard,
+      required this.workingHours,
+      this.listelenenMekanlar})
       : super(key: key);
 
   @override
@@ -33,6 +36,20 @@ class CardFavorites extends StatelessWidget {
       shadowColor: shadowColor ?? Colors.grey,
       color: color ?? Colors.white,
       child: ListTile(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => FavoriteDetailPage(
+                secilenYer: listelenenMekanlar,
+                name: placeName,
+                description: descriptionCard,
+                imagePaths: resimUrl,
+                hours: workingHours,
+              ),
+            ),
+          );
+        },
         leading: CircleAvatar(
           backgroundImage: NetworkImage(resimUrl),
         ),
@@ -54,7 +71,7 @@ class CardFavorites extends StatelessWidget {
                         color: Colors.grey.shade600,
                       ),
                       children: [
-                        TextSpan(text: comment),
+                        TextSpan(text: descriptionCard),
                       ]),
                 ),
                 SizedBox(height: 5),

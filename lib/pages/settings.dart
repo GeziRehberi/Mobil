@@ -100,30 +100,30 @@ class _SettingsState extends State<Settings> {
                   SizedBox(height: 15),
                   SettingsListTile(
                     icon: Icons.language_outlined,
-                    title: Text('Language'),
+                    title: 'Language',
                     onPressed: () {},
                   ),
                   SettingsListTile(
                     icon: CupertinoIcons.shield_fill,
-                    title: Text('Privacy'),
+                    title: 'Privacy',
                     onPressed: () {
                       showMyDialog(context);
                     },
                   ),
                   SettingsListTile(
                       icon: CupertinoIcons.question_diamond_fill,
-                      title: Text('Help & Support'),
+                      title: 'Help & Support',
                       onPressed: () {
                         Wiredash.of(context)!.show();
                       }),
                   SettingsListTile(
                     icon: CupertinoIcons.person_add_solid,
-                    title: Text('Invite a Friend'),
+                    title: 'Invite a Friend',
                     onPressed: () {},
                   ),
                   SettingsListTile(
                       icon: Icons.info,
-                      title: Text('About'),
+                      title: 'About',
                       onPressed: () {
                         showLicensePage(
                           context: context,

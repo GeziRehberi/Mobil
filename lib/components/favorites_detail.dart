@@ -7,24 +7,24 @@ import 'widget/favorite_listTile.dart';
 
 class FavoriteDetailPage extends StatelessWidget {
   final secilenYer;
-  final String? name;
-  final String? description;
-  final String? hours;
+  final String name;
+  final String description;
+  final String hours;
   final String? address;
   final String? category;
   final int? price;
-  final List<String>? imagePaths;
+  final String imagePaths;
 
   const FavoriteDetailPage(
       {Key? key,
       required this.secilenYer,
-      this.name,
-      this.description,
-      this.hours,
+      required this.name,
+      required this.description,
+      required this.hours,
       this.address,
       this.category,
       this.price,
-      this.imagePaths})
+      required this.imagePaths})
       : super(key: key);
 
   @override
@@ -39,7 +39,7 @@ class FavoriteDetailPage extends StatelessWidget {
             backgroundColor: Colors.white,
             flexibleSpace: FlexibleSpaceBar(
               background: Image.network(
-                "https://im.haberturk.com/2020/02/25/ver1582697783/2595195_1200x627.jpg",
+                imagePaths,
                 fit: BoxFit.cover,
               ),
             ),
@@ -54,7 +54,7 @@ class FavoriteDetailPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Galata Kulesi',
+                          name,
                           style: const TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w400,
@@ -98,10 +98,7 @@ class FavoriteDetailPage extends StatelessWidget {
                               fontSize: 18,
                             ),
                             children: [
-                              TextSpan(
-                                  text:
-                                      'En üst katındaki restoranıyla boğaza tepeden'
-                                      ' bakan, restore edilmiş 5. yüzyıl kulesi ve eski zindan.'),
+                              TextSpan(text: description),
                             ],
                           ),
                         ),
@@ -121,7 +118,7 @@ class FavoriteDetailPage extends StatelessWidget {
                         ),
                         FavoriteListTile(
                           icon: CupertinoIcons.clock,
-                          title: 'Çalışma saatleri: $hours',
+                          title: '$hours',
                         ),
                         FavoriteListTile(
                           icon: Icons.money,
