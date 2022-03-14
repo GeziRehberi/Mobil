@@ -5,6 +5,7 @@ import '../view/harita_ekrani.dart';
 import 'card_favorites.dart';
 import 'icons.dart';
 import 'widget/favorite_listTile.dart';
+import 'widget/page_view_image.dart';
 import 'widget/show_alert_dialog_widget.dart';
 
 class FavoriteDetailPage extends StatelessWidget {
@@ -36,13 +37,19 @@ class FavoriteDetailPage extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            expandedHeight: 220,
+            expandedHeight: 270,
             pinned: true,
-            backgroundColor: Colors.white,
+            leading: IconButton(
+              icon: Icon(Icons.arrow_back, color: Colors.black, size: 25),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+            backgroundColor: Colors.transparent,
             flexibleSpace: FlexibleSpaceBar(
-              background: Image.network(
-                imagePaths,
-                fit: BoxFit.cover,
+              background: Container(
+                padding: EdgeInsets.only(top: 20),
+                child: SliderImage(),
               ),
             ),
           ),
@@ -51,7 +58,7 @@ class FavoriteDetailPage extends StatelessWidget {
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.only(top: 8, left: 16, right: 16),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
