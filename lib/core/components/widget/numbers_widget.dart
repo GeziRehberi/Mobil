@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../pages/followers_list.dart';
-import '../../pages/followings_list.dart';
+import '../../../view/home/followers_list.dart';
+import '../../../view/home/followings_list.dart';
 
 class NumbersWidget extends StatelessWidget {
   @override
@@ -10,7 +10,7 @@ class NumbersWidget extends StatelessWidget {
         children: <Widget>[
           buildFollowingsButton(context, '35', 'Takip'),
           buildDivider(),
-          buildFollowersButton(context, '82', 'Takipçiler'),
+          buildFollowersButton(context, '782', 'Takipçiler'),
         ],
       );
   Widget buildDivider() => Container(

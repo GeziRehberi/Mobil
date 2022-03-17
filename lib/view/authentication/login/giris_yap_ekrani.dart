@@ -2,7 +2,7 @@ import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../view/bottom_navigator_ekrani.dart';
+import '../../home/bottom_navigator_ekrani.dart';
 import '../forgot/sifremi_unuttum_ekrani.dart';
 import '../sign_up/kayit_ol_ekrani.dart';
 

@@ -2,7 +2,7 @@ import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'dogrulama_kodu_ekrani.dart';
+import '../register/dogrulama_kodu_ekrani.dart';
 
 class SifremiUnutttumEkrani extends StatefulWidget {
   SifremiUnutttumEkrani({Key? key}) : super(key: key);

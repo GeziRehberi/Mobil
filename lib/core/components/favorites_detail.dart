@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 
-import '../view/harita_ekrani.dart';
-import 'card_favorites.dart';
+import '../../view/home/harita_ekrani.dart';
 import 'icons.dart';
 import 'widget/favorite_listTile.dart';
 import 'widget/page_view_image.dart';
@@ -32,7 +31,6 @@ class FavoriteDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    CardFavorites cardFavorites;
     return Scaffold(
       body: CustomScrollView(
         slivers: [

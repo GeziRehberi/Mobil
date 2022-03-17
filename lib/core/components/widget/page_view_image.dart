@@ -23,7 +23,7 @@ class _SliderImageState extends State<SliderImage> {
   @override
   void initState() {
     super.initState();
-    _pageController = PageController(viewportFraction: 0.8, initialPage: 1);
+    _pageController = PageController(initialPage: 1);
   }
 
   @override
@@ -34,8 +34,9 @@ class _SliderImageState extends State<SliderImage> {
           width: MediaQuery.of(context).size.width,
           height: 250,
           child: PageView.builder(
-              itemCount: 3,
+              itemCount: images.length,
               pageSnapping: true,
+              controller: _pageController,
               onPageChanged: (page) {
                 setState(() {
                   activePage = page;

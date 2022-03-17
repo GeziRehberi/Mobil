@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter_widgets/model/user.dart';
+import 'package:flutter_widgets/view/test/model/user.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class UserPreferences {
@@ -10,8 +10,8 @@ class UserPreferences {
   static const myUser = User(
     imagePath:
         'https://pbs.twimg.com/profile_images/1466813742390427648/zPrpJfv6_400x400.jpg',
-    name: 'Sarah Abs',
-    email: 'sarah.abs@gmail.com',
+    name: 'Nuri Ülgen',
+    email: 'nuri07@gmail.com',
     isDarkMode: false,
   );
 

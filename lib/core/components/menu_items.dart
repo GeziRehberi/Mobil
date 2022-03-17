@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_widgets/model/menu_item.dart';
+import 'package:flutter_widgets/view/test/model/menu_item.dart';
 
 class MenuItems {
   static const List<MenuItem> itemFirst = [

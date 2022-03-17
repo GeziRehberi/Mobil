@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_widgets/components/settings_listTile.dart';
 import 'package:wiredash/wiredash.dart';
 
-import '../components/widget/profile_widget.dart';
-import '../model/user.dart';
-import '../model/user_preferences.dart';
+import '../../core/components/settings_listTile.dart';
+import '../../core/components/widget/profile_widget.dart';
+import '../test/model/user.dart';
+import '../test/model/user_preferences.dart';
 import 'edit_profile_page.dart';
 
 class Settings extends StatefulWidget {

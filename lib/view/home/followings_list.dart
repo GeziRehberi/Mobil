@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../components/widget/appBar_widget.dart';
-import '../components/widget/follow_list.dart';
+import '../../core/components/widget/appBar_widget.dart';
+import '../../core/components/widget/follow_list.dart';
 
 class FollowingsPage extends StatefulWidget {
   const FollowingsPage({Key? key}) : super(key: key);

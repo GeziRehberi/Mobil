@@ -1,17 +1,17 @@
 import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_widgets/components/card_favorites.dart';
-import 'package:flutter_widgets/model/user_preferences.dart';
+import 'package:flutter_widgets/view/test/model/user_preferences.dart';
 
+import '../../core/components/card_comments.dart';
+import '../../core/components/card_favorites.dart';
+import '../../core/components/menu_items.dart';
+import '../../core/components/widget/numbers_widget.dart';
+import '../../core/components/widget/profile_widget.dart';
 import '../authentication/login/giris_yap_ekrani.dart';
-import '../components/card_comments.dart';
-import '../components/widget/numbers_widget.dart';
-import '../components/widget/profile_widget.dart';
-import '../data/menu_items.dart';
-import '../model/menu_item.dart';
-import '../pages/edit_profile_page.dart';
-import '../pages/settings.dart';
+import '../test/model/menu_item.dart';
+import 'edit_profile_page.dart';
+import 'settings.dart';
 
 class ProfilSayfasi extends StatefulWidget {
   const ProfilSayfasi({Key? key}) : super(key: key);

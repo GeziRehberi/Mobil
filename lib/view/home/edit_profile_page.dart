@@ -1,17 +1,16 @@
 import 'dart:io';
 
 import 'package:animated_theme_switcher/animated_theme_switcher.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_widgets/model/user.dart';
-import 'package:flutter_widgets/model/user_preferences.dart';
+import 'package:flutter_widgets/view/test/model/user.dart';
+import 'package:flutter_widgets/view/test/model/user_preferences.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 
-import '../components/widget/button_widget.dart';
-import '../components/widget/profile_widget.dart';
-import '../components/widget/textfield_widget.dart';
+import '../../core/components/widget/button_widget.dart';
+import '../../core/components/widget/profile_widget.dart';
+import '../../core/components/widget/textfield_widget.dart';
 
 class EditProfilePage extends StatefulWidget {
   @override
