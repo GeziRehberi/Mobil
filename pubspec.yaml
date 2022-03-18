@@ -20,7 +20,7 @@ dependencies:
   path_provider: ^2.0.1
   curved_navigation_bar: ^1.0.3
   wiredash: ^0.7.0+1
-
+  easy_localization: ^3.0.0
 
   flutter:
     sdk: flutter
@@ -40,6 +40,7 @@ flutter:
 
   assets:
     - assets/konum.png
+    - assets/lang/
     - assets/gizlilk.txt
 
 

@@ -1,13 +1,15 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 
 import '../../view/home/harita_ekrani.dart';
+import '../init/lang/locale_keys.dart';
 import 'icons.dart';
 import 'widget/favorite_listTile.dart';
 import 'widget/page_view_image.dart';
 import 'widget/show_alert_dialog_widget.dart';
 
-class FavoriteDetailPage extends StatelessWidget {
+class FavoriteDetailPage extends StatefulWidget {
   final secilenYer;
   final String name;
   final String description;
@@ -29,6 +31,11 @@ class FavoriteDetailPage extends StatelessWidget {
       required this.imagePaths})
       : super(key: key);
 
+  @override
+  State<FavoriteDetailPage> createState() => _FavoriteDetailPageState();
+}
+
+class _FavoriteDetailPageState extends State<FavoriteDetailPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,7 +68,7 @@ class FavoriteDetailPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          name,
+                          widget.name,
                           style: const TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w400,
@@ -69,7 +76,7 @@ class FavoriteDetailPage extends StatelessWidget {
                         ),
                         const SizedBox(height: 10),
                         Text(
-                          '# ' + category,
+                          '# ' + widget.category,
                           style: TextStyle(
                             fontSize: 14,
                             color: Colors.grey.shade700,
@@ -82,7 +89,9 @@ class FavoriteDetailPage extends StatelessWidget {
                             CircleIcon(
                                 circleIcon:
                                     CupertinoIcons.arrow_up_right_diamond,
-                                text: "Yol Tarifi",
+                                text: LocaleKeys
+                                    .profil_favorites_detail_subtitle1
+                                    .tr(),
                                 onPressed: () {
                                   Navigator.push(
                                     context,
@@ -93,18 +102,21 @@ class FavoriteDetailPage extends StatelessWidget {
                                 }),
                             CircleIcon(
                               circleIcon: CupertinoIcons.bookmark,
-                              text: "Kaydet",
+                              text: LocaleKeys.profil_favorites_detail_subtitle2
+                                  .tr(),
                             ),
                             CircleIcon(
                               circleIcon: CupertinoIcons.captions_bubble,
-                              text: "Yorum Yap",
+                              text: LocaleKeys.profil_favorites_detail_subtitle3
+                                  .tr(),
                               onPressed: () {
                                 showAlertDialog(context);
                               },
                             ),
                             CircleIcon(
                               circleIcon: CupertinoIcons.share,
-                              text: "Paylaş",
+                              text: LocaleKeys.profil_favorites_detail_subtitle4
+                                  .tr(),
                             ),
                           ],
                         ),
@@ -116,7 +128,7 @@ class FavoriteDetailPage extends StatelessWidget {
                               fontSize: 18,
                             ),
                             children: [
-                              TextSpan(text: description),
+                              TextSpan(text: widget.description),
                             ],
                           ),
                         ),
@@ -131,15 +143,15 @@ class FavoriteDetailPage extends StatelessWidget {
                       children: [
                         FavoriteListTile(
                           icon: CupertinoIcons.location,
-                          title: address,
+                          title: widget.address,
                         ),
                         FavoriteListTile(
                           icon: CupertinoIcons.clock,
-                          title: hours,
+                          title: widget.hours,
                         ),
                         FavoriteListTile(
                           icon: Icons.money,
-                          title: 'Fiyat: $price',
+                          title: 'Fiyat: ${widget.price}',
                         ),
                       ],
                     ),

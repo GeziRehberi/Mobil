@@ -1,16 +1,20 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../view/home/followers_list.dart';
 import '../../../view/home/followings_list.dart';
+import '../../init/lang/locale_keys.dart';
 
 class NumbersWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          buildFollowingsButton(context, '35', 'Takip'),
+          buildFollowingsButton(
+              context, '35', LocaleKeys.profil_subtitle1.tr()),
           buildDivider(),
-          buildFollowersButton(context, '782', 'Takipçiler'),
+          buildFollowersButton(
+              context, '782', LocaleKeys.profil_subtitle2.tr()),
         ],
       );
   Widget buildDivider() => Container(

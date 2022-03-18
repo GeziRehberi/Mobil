@@ -1,7 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../../core/init/lang/locale_keys.dart';
 import '../../home/bottom_navigator_ekrani.dart';
 import '../forgot/sifremi_unuttum_ekrani.dart';
 import '../sign_up/kayit_ol_ekrani.dart';
@@ -64,9 +66,10 @@ class _GirisYapEkraniState extends State<GirisYapEkrani> {
                       autovalidateMode: AutovalidateMode.onUserInteraction,
                       keyboardType: TextInputType.emailAddress,
                       decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          labelText: 'Email',
-                          hintText: 'Email giriniz: abc@gmail.com'),
+                        border: OutlineInputBorder(),
+                        labelText: 'Email',
+                        hintText: LocaleKeys.login_email.tr(),
+                      ),
                       onSaved: (deger) {
                         _email = deger!;
                         print(_email); // verilerin kaydedilmesi
@@ -92,7 +95,7 @@ class _GirisYapEkraniState extends State<GirisYapEkrani> {
                       autovalidateMode: AutovalidateMode.onUserInteraction,
                       decoration: InputDecoration(
                           border: OutlineInputBorder(),
-                          labelText: 'Şifre',
+                          labelText: LocaleKeys.login_password.tr(),
                           hintText: 'Şifrenizi Giriniz'),
                       onSaved: (deger) {
                         _sifre = deger!;
@@ -118,7 +121,7 @@ class _GirisYapEkraniState extends State<GirisYapEkrani> {
                               builder: (_) => SifremiUnutttumEkrani()));
                     },
                     child: Text(
-                      'Şifremi Unuttum',
+                      LocaleKeys.login_forgotText.tr(),
                       style: TextStyle(color: Color(0xFF3949AB), fontSize: 15),
                     ),
                   ),
@@ -145,19 +148,19 @@ class _GirisYapEkraniState extends State<GirisYapEkrani> {
                         }
                       },
                       child: Text(
-                        'Giriş Yap',
+                        LocaleKeys.login_loginButton.tr(),
                         style: TextStyle(color: Colors.white, fontSize: 25),
                       ),
                     ),
                   ),
-                  SizedBox(height: 90),
+                  SizedBox(height: 40),
                   TextButton(
                     onPressed: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (_) => KayitOlEkrani()));
                     },
                     child: Text(
-                      'Henüz bir hesabınız yoksa kaydolun',
+                      LocaleKeys.login_dontAccount.tr(),
                       style: TextStyle(color: Colors.black),
                     ),
                   ),

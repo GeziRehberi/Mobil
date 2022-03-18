@@ -1,21 +1,28 @@
-import 'package:animated_theme_switcher/animated_theme_switcher.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_widgets/view/authentication/acilis_ekrani.dart';
 import 'package:wiredash/wiredash.dart';
 
-import 'core/init/theme/themes.dart';
+import 'core/constants/app_constants.dart';
 import 'view/test/model/user_preferences.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  await EasyLocalization.ensureInitialized();
   // ekran yatay döndürme kilitlendi sadece portre modu açık
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]);
   await UserPreferences.init();
-  runApp(MyApp());
+  runApp(
+    EasyLocalization(
+      supportedLocales: AppConstant.SUPPORTED_LOCALE,
+      path: AppConstant.LANG_PATH,
+      fallbackLocale: Locale('tr', 'TR'),
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -24,19 +31,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ThemeProvider(
-      initTheme: user.isDarkMode ? MyThemes.darkTheme : MyThemes.lightTheme,
-      child: Builder(
-        builder: (context) => Wiredash(
-          projectId: 'YOUR-PROJECT-ID',
-          secret: 'YOUR-SECRET',
-          navigatorKey: _navigatorKey,
-          child: MaterialApp(
-            navigatorKey: _navigatorKey,
-            debugShowCheckedModeBanner: false,
-            home: SplashScreen(),
-          ),
-        ),
+    return Wiredash(
+      projectId: 'YOUR-PROJECT-ID',
+      secret: 'YOUR-SECRET',
+      navigatorKey: _navigatorKey,
+      child: MaterialApp(
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
+        navigatorKey: _navigatorKey,
+        debugShowCheckedModeBanner: false,
+        home: SplashScreen(),
       ),
     );
   }

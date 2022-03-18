@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -5,6 +6,8 @@ import 'package:wiredash/wiredash.dart';
 
 import '../../core/components/settings_listTile.dart';
 import '../../core/components/widget/profile_widget.dart';
+import '../../core/constants/app_constants.dart';
+import '../../core/init/lang/locale_keys.dart';
 import '../test/model/user.dart';
 import '../test/model/user_preferences.dart';
 import 'edit_profile_page.dart';
@@ -82,7 +85,7 @@ class _SettingsState extends State<Settings> {
           Padding(
             padding: const EdgeInsets.only(top: 16.0, left: 15.0, bottom: 8),
             child: Text(
-              'Settings',
+              LocaleKeys.settings_title.tr(),
               style: TextStyle(fontSize: 18, color: Colors.grey.shade800),
             ),
           ),
@@ -100,30 +103,32 @@ class _SettingsState extends State<Settings> {
                   SizedBox(height: 15),
                   SettingsListTile(
                     icon: Icons.language_outlined,
-                    title: 'Language',
-                    onPressed: () {},
+                    title: LocaleKeys.settings_subtitle1.tr(),
+                    onPressed: () {
+                      languageChange(context);
+                    },
                   ),
                   SettingsListTile(
                     icon: CupertinoIcons.shield_fill,
-                    title: 'Privacy',
+                    title: LocaleKeys.settings_subtitle2.tr(),
                     onPressed: () {
                       showMyDialog(context);
                     },
                   ),
                   SettingsListTile(
                       icon: CupertinoIcons.question_diamond_fill,
-                      title: 'Help & Support',
+                      title: LocaleKeys.settings_subtitle3.tr(),
                       onPressed: () {
                         Wiredash.of(context)!.show();
                       }),
                   SettingsListTile(
                     icon: CupertinoIcons.person_add_solid,
-                    title: 'Invite a Friend',
+                    title: LocaleKeys.settings_subtitle4.tr(),
                     onPressed: () {},
                   ),
                   SettingsListTile(
                       icon: Icons.info,
-                      title: 'About',
+                      title: LocaleKeys.settings_subtitle5.tr(),
                       onPressed: () {
                         showLicensePage(
                           context: context,
@@ -139,6 +144,47 @@ class _SettingsState extends State<Settings> {
         ],
       ),
     );
+  }
+
+  void languageChange(BuildContext context) {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            actions: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                      onPressed: () {
+                        context.setLocale(AppConstant.EN_LOCALE);
+                      },
+                      child: Column(
+                        children: [
+                          Icon(Icons.language),
+                          Text("EN-US"),
+                        ],
+                      )),
+                  ElevatedButton(
+                      onPressed: () {
+                        context.setLocale(AppConstant.TR_LOCALE);
+                      },
+                      child: Column(
+                        children: [
+                          Icon(Icons.language),
+                          Text("TR"),
+                        ],
+                      )),
+                  TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text("Ok"))
+                ],
+              ),
+            ],
+          );
+        });
   }
 
   Future<bool?> showMyDialog(BuildContext context) => showDialog<bool>(

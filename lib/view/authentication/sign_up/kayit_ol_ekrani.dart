@@ -1,7 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../../core/init/lang/locale_keys.dart';
 import '../login/giris_yap_ekrani.dart';
 
 class KayitOlEkrani extends StatelessWidget {
@@ -25,8 +27,8 @@ class KayitOlEkrani extends StatelessWidget {
         iconTheme: IconThemeData(
           color: Color(0xFF3949AB),
         ),
-        title: const Text(
-          'Hesap Oluştur',
+        title: Text(
+          LocaleKeys.sign_up_title.tr(),
           style: TextStyle(color: Colors.black),
         ),
       ),
@@ -68,7 +70,7 @@ class KayitOlEkrani extends StatelessWidget {
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(40),
                                   ),
-                                  hintText: 'Adınızı giriniz',
+                                  hintText: LocaleKeys.sign_up_name.tr(),
                                 ),
                                 onSaved: (deger) {
                                   _ad = deger!;
@@ -99,7 +101,7 @@ class KayitOlEkrani extends StatelessWidget {
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(40),
                                   ),
-                                  hintText: 'Soyadınızı giriniz',
+                                  hintText: LocaleKeys.sign_up_surname.tr(),
                                 ),
                                 onSaved: (deger) {
                                   _soyAd = deger!;
@@ -130,7 +132,7 @@ class KayitOlEkrani extends StatelessWidget {
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(40),
                                   ),
-                                  hintText: 'Email giriniz',
+                                  hintText: LocaleKeys.sign_up_email.tr(),
                                 ),
                                 onSaved: (deger) {
                                   _email = deger!; // verilerin kaydedilmesi
@@ -167,7 +169,7 @@ class KayitOlEkrani extends StatelessWidget {
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(40),
                                     ),
-                                    hintText: 'Şifre giriniz',
+                                    hintText: LocaleKeys.sign_up_password.tr(),
                                   ),
                                   validator: (deger) {
                                     // şifre doğrulama işlemleri
@@ -198,7 +200,7 @@ class KayitOlEkrani extends StatelessWidget {
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(40),
                                   ),
-                                  hintText: 'Şifreyi yeniden giriniz',
+                                  hintText: LocaleKeys.sign_up_reEnter.tr(),
                                 ),
                                 validator: (value) {
                                   if (password.text != confirmpassword.text) {
@@ -238,8 +240,8 @@ class KayitOlEkrani extends StatelessWidget {
                                                 GirisYapEkrani()));
                                   }
                                 },
-                                child: const Text(
-                                  'Kayıt Ol',
+                                child: Text(
+                                  LocaleKeys.sign_up_Button.tr(),
                                   style: TextStyle(
                                       color: Colors.white, fontSize: 25),
                                 ),
