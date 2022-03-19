@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 
 class FormFieldText extends StatelessWidget {
   final void Function(String?)? onSaved;
+  final TextEditingController? controller;
   final AutovalidateMode? autovalidateMode;
   final TextInputType? keyboardType;
   final TextInputAction? textInputAction;
+  final TextAlign? textAlign;
   final InputDecoration? decoration;
   final TextStyle? style;
   final String? hintText;
@@ -36,6 +38,8 @@ class FormFieldText extends StatelessWidget {
     this.left,
     this.right,
     this.labelText,
+    this.controller,
+    this.textAlign,
   }) : super(key: key);
 
   @override
@@ -47,11 +51,13 @@ class FormFieldText extends StatelessWidget {
           left: left ?? 25.0,
           right: right ?? 25.0),
       child: TextFormField(
+        controller: controller,
         obscureText: obscureText ?? false,
         autovalidateMode:
             autovalidateMode ?? AutovalidateMode.onUserInteraction,
         keyboardType: keyboardType ?? TextInputType.text,
         textInputAction: textInputAction ?? TextInputAction.next,
+        textAlign: textAlign ?? TextAlign.start,
         onSaved: onSaved,
         initialValue: initialValue,
         style: style ?? TextStyle(fontSize: 16.0, color: Colors.black),

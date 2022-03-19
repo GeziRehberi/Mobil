@@ -39,7 +39,7 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/konum.png
+    - assets/images/konum.png
     - assets/lang/
     - assets/gizlilk.txt
 

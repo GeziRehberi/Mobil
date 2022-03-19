@@ -14,7 +14,7 @@ class SplashScreen extends StatelessWidget {
       navigateRoute: GirisYapEkrani(),
       duration: 5000,
       imageSize: 200,
-      imageSrc: "assets/konum.png",
+      imageSrc: "assets/images/konum.png",
       text: "Gezi Rehberi",
       textType: TextType.ColorizeAnimationText,
       textStyle: TextStyle(

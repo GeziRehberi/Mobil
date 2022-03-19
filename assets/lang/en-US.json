@@ -28,7 +28,9 @@
         "password": "Password",
         "forgotText": "Forgot Password",
         "login": "Login",
-        "dontAccount": "Don't have account"
+        "dontAccount": "Don't have account",
+        "language": "Select Language :",
+        "ok": "Ok"
     },
     "signUp": {
         "title" : "Create Account",

@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
+import '../../../core/components/widget/appBar_widget.dart';
 import 'sifre_yenileme_ekrani.dart';
 
-class KoduDogrula extends StatelessWidget {
+class KoduDogrula extends StatefulWidget {
   const KoduDogrula({Key? key}) : super(key: key);
 
   @override
+  State<KoduDogrula> createState() => _KoduDogrulaState();
+}
+
+class _KoduDogrulaState extends State<KoduDogrula> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        centerTitle: true,
-        iconTheme: IconThemeData(
-          color: Color(0xFF3949AB),
-        ),
-      ),
+      appBar: buildAppBar(context, ''),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -55,7 +55,6 @@ class KoduDogrula extends StatelessWidget {
                 maxLength: 6,
                 decoration: InputDecoration(
                   hintText: 'Kodu giriniz',
-                  hintStyle: TextStyle(),
                 ),
               ),
             ),

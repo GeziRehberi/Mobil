@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:animated_theme_switcher/animated_theme_switcher.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_widgets/view/test/model/user.dart';
 import 'package:flutter_widgets/view/test/model/user_preferences.dart';
@@ -28,65 +27,60 @@ class _EditProfilePageState extends State<EditProfilePage> {
   }
 
   @override
-  Widget build(BuildContext context) => ThemeSwitchingArea(
-        child: Builder(
-          builder: (context) => Scaffold(
-            appBar: AppBar(
-              backgroundColor: Colors.transparent,
-              leading: IconButton(
-                icon: Icon(Icons.arrow_back, color: Colors.black, size: 30),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              ),
-              elevation: 0,
-            ),
-            body: ListView(
-              padding: EdgeInsets.symmetric(horizontal: 32),
-              physics: BouncingScrollPhysics(),
-              children: [
-                ProfileWidget(
-                  imagePath: user.imagePath,
-                  isEdit: true,
-                  onClicked: () async {
-                    final image = await ImagePicker()
-                        .getImage(source: ImageSource.gallery);
-
-                    if (image == null) return;
-
-                    final directory = await getApplicationDocumentsDirectory();
-                    final name = basename(image.path);
-                    final imageFile = File('${directory.path}/$name');
-                    final newImage =
-                        await File(image.path).copy(imageFile.path);
-
-                    setState(() => user = user.copy(imagePath: newImage.path));
-                  },
-                ),
-                const SizedBox(height: 24),
-                TextFieldWidget(
-                  label: 'Full Name',
-                  text: user.name,
-                  onChanged: (name) => user = user.copy(name: name),
-                ),
-                const SizedBox(height: 24),
-                TextFieldWidget(
-                  label: 'Email',
-                  text: user.email,
-                  onChanged: (email) => user = user.copy(email: email),
-                ),
-                const SizedBox(height: 24),
-                const SizedBox(height: 24),
-                ButtonWidget(
-                  text: 'Save',
-                  onClicked: () {
-                    UserPreferences.setUser(user);
-                    Navigator.of(context).pop();
-                  },
-                ),
-              ],
-            ),
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back, color: Colors.black, size: 30),
+            onPressed: () {
+              Navigator.pop(context);
+            },
           ),
+          elevation: 0,
+        ),
+        body: ListView(
+          padding: EdgeInsets.symmetric(horizontal: 32),
+          physics: BouncingScrollPhysics(),
+          children: [
+            ProfileWidget(
+              imagePath: user.imagePath,
+              isEdit: true,
+              onClicked: () async {
+                final image =
+                    await ImagePicker().getImage(source: ImageSource.gallery);
+
+                if (image == null) return;
+
+                final directory = await getApplicationDocumentsDirectory();
+                final name = basename(image.path);
+                final imageFile = File('${directory.path}/$name');
+                final newImage = await File(image.path).copy(imageFile.path);
+
+                setState(() => user = user.copy(imagePath: newImage.path));
+              },
+            ),
+            const SizedBox(height: 24),
+            TextFieldWidget(
+              label: 'Full Name',
+              text: user.name,
+              onChanged: (name) => user = user.copy(name: name),
+            ),
+            const SizedBox(height: 24),
+            TextFieldWidget(
+              label: 'Email',
+              text: user.email,
+              onChanged: (email) => user = user.copy(email: email),
+            ),
+            const SizedBox(height: 24),
+            const SizedBox(height: 24),
+            ButtonWidget(
+              text: 'Save',
+              onClicked: () {
+                UserPreferences.setUser(user);
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
         ),
       );
 }

@@ -28,7 +28,9 @@
         "password": "Şifre",
         "forgotText": "Şifremi Unuttum",
         "login": "Giriş Yap",
-        "dontAccount": "Henüz bir hesabınız yoksa kaydolun"
+        "dontAccount": "Henüz bir hesabınız yoksa kaydolun",
+        "language": "Dil Seçiniz :",
+        "ok": "Tamam"
     },
     "signUp": {
         "title" : "Hesab Oluştur",

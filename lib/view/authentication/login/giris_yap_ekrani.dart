@@ -20,6 +20,7 @@ class GirisYapEkrani extends StatefulWidget {
 class _GirisYapEkraniState extends State<GirisYapEkrani> {
   String _email = '';
   String _sifre = '';
+  bool _isHidden = true;
   final _formkey = GlobalKey<FormState>();
 
   @override
@@ -61,6 +62,10 @@ class _GirisYapEkraniState extends State<GirisYapEkrani> {
                       initialValue: 'nuri@gmail.com',
                       keyboardType: TextInputType.emailAddress,
                       hintText: LocaleKeys.login_email.tr(),
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(40)),
+                      ),
                       onSaved: (deger) {
                         _email = deger!;
                         print(_email); // verilerin kaydedilmesi
@@ -81,9 +86,26 @@ class _GirisYapEkraniState extends State<GirisYapEkrani> {
                       left: 30,
                       right: 30,
                       initialValue: 'nuri07',
-                      obscureText: true,
+                      obscureText: _isHidden,
                       keyboardType: TextInputType.text,
-                      hintText: LocaleKeys.login_password.tr(),
+                      decoration: InputDecoration(
+                        suffix: InkWell(
+                          onTap: _togglePasswordView,
+
+                          /// This is Magical Function
+                          child: Icon(
+                            _isHidden
+                                ?
+
+                                /// CHeck Show & Hide.
+                                Icons.visibility
+                                : Icons.visibility_off,
+                          ),
+                        ),
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(40)),
+                        hintText: LocaleKeys.login_password.tr(),
+                      ),
                       onSaved: (deger) {
                         _sifre = deger!;
                         print(_sifre);
@@ -161,5 +183,11 @@ class _GirisYapEkraniState extends State<GirisYapEkrani> {
         ),
       ),
     );
+  }
+
+  void _togglePasswordView() {
+    setState(() {
+      _isHidden = !_isHidden;
+    });
   }
 }

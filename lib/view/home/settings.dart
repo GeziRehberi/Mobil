@@ -5,8 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:wiredash/wiredash.dart';
 
 import '../../core/components/settings_listTile.dart';
+import '../../core/components/widget/icon_language.dart';
 import '../../core/components/widget/profile_widget.dart';
-import '../../core/constants/app_constants.dart';
 import '../../core/init/lang/locale_keys.dart';
 import '../test/model/user.dart';
 import '../test/model/user_preferences.dart';
@@ -105,7 +105,7 @@ class _SettingsState extends State<Settings> {
                     icon: Icons.language_outlined,
                     title: LocaleKeys.settings_subtitle1.tr(),
                     onPressed: () {
-                      languageChange(context);
+                      languageChangeSettings(context);
                     },
                   ),
                   SettingsListTile(
@@ -144,47 +144,6 @@ class _SettingsState extends State<Settings> {
         ],
       ),
     );
-  }
-
-  void languageChange(BuildContext context) {
-    showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            actions: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  ElevatedButton(
-                      onPressed: () {
-                        context.setLocale(AppConstant.EN_LOCALE);
-                      },
-                      child: Column(
-                        children: [
-                          Icon(Icons.language),
-                          Text("EN-US"),
-                        ],
-                      )),
-                  ElevatedButton(
-                      onPressed: () {
-                        context.setLocale(AppConstant.TR_LOCALE);
-                      },
-                      child: Column(
-                        children: [
-                          Icon(Icons.language),
-                          Text("TR"),
-                        ],
-                      )),
-                  TextButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      child: Text("Ok"))
-                ],
-              ),
-            ],
-          );
-        });
   }
 
   Future<bool?> showMyDialog(BuildContext context) => showDialog<bool>(
