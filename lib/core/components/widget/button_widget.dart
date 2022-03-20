@@ -1,23 +1,38 @@
 import 'package:flutter/material.dart';
 
-class ButtonWidget extends StatelessWidget {
+class ElevatedButtonWidget extends StatelessWidget {
   final String text;
-  final VoidCallback onClicked;
+  final Color? color;
+  final double? fontSize;
+  final double? radius;
+  final ButtonStyle? style;
+  final VoidCallback onPressed;
+  final Widget? child;
 
-  const ButtonWidget({
+  const ElevatedButtonWidget({
     Key? key,
     required this.text,
-    required this.onClicked,
+    required this.onPressed,
+    this.color,
+    this.fontSize,
+    this.style,
+    this.child, this.radius,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) => ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          shape: StadiumBorder(),
-          onPrimary: Colors.white,
-          padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
-        ),
-        child: Text(text),
-        onPressed: onClicked,
+        style: style ??
+            ElevatedButton.styleFrom(
+              primary: color ?? Color(0xFF3949AB),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(radius ?? 25)),
+            ),
+        child: child ??
+            Text(
+              text,
+              style: TextStyle(
+                  color: color ?? Colors.white, fontSize: fontSize ?? 25),
+            ),
+        onPressed: onPressed,
       );
 }
