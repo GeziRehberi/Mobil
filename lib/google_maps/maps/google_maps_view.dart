@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:location/location.dart';
 
 class GoogleMapsView extends StatefulWidget {
   const GoogleMapsView({Key? key}) : super(key: key);
@@ -76,7 +77,28 @@ class _GoogleMapsViewState extends State<GoogleMapsView> {
           ),
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.white,
+        onPressed: getUserLocation,
+        child: Image.asset(
+          "assets/images/crosshairs-gps.png",
+        ),
+      ),
     );
   } // rgb - 26, 155,231
 
+  Future<LatLng?> getUserLocation() async {
+    final GoogleMapController controller = await _controller.future;
+    LocationData currentLocation;
+    var location = new Location();
+    currentLocation = await location.getLocation();
+
+    controller.animateCamera(CameraUpdate.newCameraPosition(
+      CameraPosition(
+        bearing: 0,
+        target: LatLng(currentLocation.latitude!, currentLocation.longitude!),
+        zoom: 17.0,
+      ),
+    ));
+  }
 }
