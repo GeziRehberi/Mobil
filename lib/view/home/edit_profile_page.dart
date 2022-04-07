@@ -7,7 +7,6 @@ import 'package:image_picker/image_picker.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 
-import '../../core/components/widget/button_widget.dart';
 import '../../core/components/widget/profile_widget.dart';
 import '../../core/components/widget/textfield_widget.dart';
 
@@ -73,13 +72,13 @@ class _EditProfilePageState extends State<EditProfilePage> {
             ),
             const SizedBox(height: 24),
             const SizedBox(height: 24),
-            ButtonWidget(
+            /*ButtonWidget(
               text: 'Save',
               onClicked: () {
                 UserPreferences.setUser(user);
                 Navigator.of(context).pop();
               },
-            ),
+            ),*/
           ],
         ),
       );

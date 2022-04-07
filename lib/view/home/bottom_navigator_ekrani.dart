@@ -2,7 +2,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'harita_ekrani.dart';
+import '../../google_maps/maps/google_maps_view.dart';
 import 'oylama_ekrani.dart';
 import 'profil_ekrani.dart';
 
@@ -19,7 +19,7 @@ class _BottomNavigatorPageState extends State<BottomNavigatorPage> {
 
   final screens = [
     OylamaSayfasi(),
-    HaritaSayfasi(),
+    GoogleMapsView(),
     ProfilSayfasi(),
   ];
 
