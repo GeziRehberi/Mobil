@@ -1,6 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 import '../../google_maps/maps/google_maps_view.dart';
 import 'oylama_ekrani.dart';
@@ -32,26 +33,32 @@ class _BottomNavigatorPageState extends State<BottomNavigatorPage> {
             screens[_currentIndex],
           ],
         ),
-        bottomNavigationBar: CurvedNavigationBar(
-          key: _bottomNavigationKey,
-          index: 0,
-          height: 60.0,
-          items: const <Widget>[
-            Icon(Icons.favorite, size: 30),
-            Icon(CupertinoIcons.placemark_fill, size: 30),
-            Icon(Icons.perm_identity, size: 30),
+        bottomNavigationBar: SalomonBottomBar(
+          currentIndex: _currentIndex,
+          onTap: (i) => setState(() => _currentIndex = i),
+          items: [
+            SalomonBottomBarItem(
+              icon: const Icon(Icons.favorite, size: 30),
+              title: const Text("Oylama"),
+              selectedColor: Colors.purple,
+            ),
+            SalomonBottomBarItem(
+              icon: const Icon(
+                CupertinoIcons.placemark_fill,
+                size: 30,
+              ),
+              title: const Text("Harita"),
+              selectedColor: Colors.red,
+            ),
+            SalomonBottomBarItem(
+              icon: const Icon(
+                Icons.perm_identity,
+                size: 30,
+              ),
+              title: const Text("Profil"),
+              selectedColor: Colors.teal,
+            ),
           ],
-          color: Colors.white,
-          buttonBackgroundColor: Colors.white,
-          backgroundColor: Colors.blue.withOpacity(0.2),
-          animationCurve: Curves.fastLinearToSlowEaseIn,
-          animationDuration: const Duration(milliseconds: 600),
-          onTap: (index) {
-            setState(() {
-              _currentIndex = index;
-            });
-          },
-          letIndexChange: (index) => true,
         ),
       ),
     );
@@ -72,14 +79,7 @@ SalomonBottomBar(
               title: const Text("Harita"),
               selectedColor: Colors.purple,
             ),
-            SalomonBottomBarItem(
-              icon: const Icon(
-                Icons.add,
-                size: 30,
-              ),
-              title: const Text("Katkı"),
-              selectedColor: Colors.orange,
-            ),
+
             SalomonBottomBarItem(
               icon: const Icon(
                 Icons.favorite,
@@ -99,3 +99,26 @@ SalomonBottomBar(
           ],
         ),
  */
+
+/*
+CurvedNavigationBar(
+key: _bottomNavigationKey,
+index: 0,
+height: 60.0,
+items: const <Widget>[
+Icon(Icons.favorite, size: 30),
+Icon(CupertinoIcons.placemark_fill, size: 30),
+Icon(Icons.perm_identity, size: 30),
+],
+color: Colors.white,
+buttonBackgroundColor: Colors.white,
+backgroundColor: Colors.blue.withOpacity(0.2),
+animationCurve: Curves.fastLinearToSlowEaseIn,
+animationDuration: const Duration(milliseconds: 600),
+onTap: (index) {
+setState(() {
+_currentIndex = index;
+});
+},
+letIndexChange: (index) => true,
+)*/

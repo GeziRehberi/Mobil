@@ -11,7 +11,7 @@ environment:
 dependencies:
   splash_screen_view: ^3.0.0
   font_awesome_flutter: ^9.0.2
-  salomon_bottom_bar: ^3.2.0
+  salomon_bottom_bar: ^3.3.0
   email_validator:
   image_picker: ^0.7.4
   animated_theme_switcher: ^2.0.1-nullsafety.0
