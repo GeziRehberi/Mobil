@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_widgets/view/authentication/acilis_ekrani.dart';
 import 'package:wiredash/wiredash.dart';
 
@@ -8,6 +9,7 @@ import 'core/constants/app_constants.dart';
 import 'view/test/model/user_preferences.dart';
 
 Future main() async {
+  await dotenv.load(fileName: '.env'); // .env dosyasında verileri okuma
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
   // ekran yatay döndürme kilitlendi sadece portre modu açık
