@@ -86,18 +86,16 @@ class _GirisYapEkraniState extends State<GirisYapEkrani> {
                       left: 30,
                       right: 30,
                       initialValue: 'nuri07',
-                      obscureText: _isHidden,
                       keyboardType: TextInputType.text,
+                      obscureText: _isHidden,
                       decoration: InputDecoration(
                         suffix: InkWell(
                           onTap: _togglePasswordView,
-
-                          /// This is Magical Function
                           child: Icon(
                             _isHidden
                                 ?
 
-                                /// CHeck Show & Hide.
+                                /// Check Show & Hide.
                                 Icons.visibility
                                 : Icons.visibility_off,
                           ),

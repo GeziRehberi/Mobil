@@ -5,6 +5,8 @@ import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 
+import 'location_service.dart';
+
 class GoogleMapsView extends StatefulWidget {
   const GoogleMapsView({Key? key}) : super(key: key);
 
@@ -15,6 +17,7 @@ class GoogleMapsView extends StatefulWidget {
 class _GoogleMapsViewState extends State<GoogleMapsView> {
   late String searchAddress;
   late final Completer<GoogleMapController> _controller = Completer();
+  TextEditingController _searchController = TextEditingController();
   static final CameraPosition _cameraPosition = CameraPosition(
     //Harita ekranda ilk açıldığında gelen konumunu ayarlanmasını sağlar.
     // bearing: 192.8334901395799,
@@ -57,21 +60,23 @@ class _GoogleMapsViewState extends State<GoogleMapsView> {
                 color: Colors.white.withOpacity(1),
               ),
               child: TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Adres Giriniz:',
-                    border: InputBorder.none,
-                    contentPadding: EdgeInsets.only(left: 20.0),
-                    suffix: IconButton(
-                      icon: Icon(Icons.search),
-                      iconSize: 25.0,
-                      onPressed: () {},
-                    ),
+                controller: _searchController,
+                textCapitalization: TextCapitalization.words,
+                decoration: InputDecoration(
+                  hintText: 'Burada Arayın',
+                  border: InputBorder.none,
+                  contentPadding: EdgeInsets.only(left: 20.0),
+                  suffix: IconButton(
+                    icon: Icon(Icons.search),
+                    iconSize: 25.0,
+                    onPressed: () async {
+                      var place = await LocationService()
+                          .getPlace(_searchController.text);
+                      _goToPlace(place);
+                    },
                   ),
-                  onChanged: (value) {
-                    setState(() {
-                      searchAddress = value;
-                    });
-                  }),
+                ),
+              ),
             ),
           ),
         ],
@@ -99,5 +104,17 @@ class _GoogleMapsViewState extends State<GoogleMapsView> {
         zoom: 17.0,
       ),
     ));
+  }
+
+  Future<void> _goToPlace(Map<String, dynamic> place) async {
+    final double lat = place['geometry']['location']['lat'];
+    final double lng = place['geometry']['location']['lng'];
+
+    final GoogleMapController controller = await _controller.future;
+    controller.animateCamera(
+      CameraUpdate.newCameraPosition(
+        CameraPosition(target: LatLng(lat, lng), zoom: 12),
+      ),
+    );
   }
 }
