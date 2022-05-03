@@ -5,13 +5,10 @@ class Voting extends StatefulWidget {
   final String placeName;
   final String categoryName;
 
-  final void Function()? onPressed;
-
   const Voting({
     Key? key,
     required this.placeName,
     required this.categoryName,
-    this.onPressed,
   }) : super(key: key);
 
   @override
@@ -41,7 +38,7 @@ class _VotingState extends State<Voting> {
                 backgroundColor: Colors.white,
                 radius: 18,
                 child: IconButton(
-                  onPressed: widget.onPressed,
+                  onPressed: () {},
                   icon: Icon(CupertinoIcons.bookmark, color: Colors.blue),
                   iconSize: 22,
                 ),

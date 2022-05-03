@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import '../../core/components/voting.dart';
+import '../../core/init/network/http_service.dart';
+import '../../core/init/network/post_model.dart';
 
 class OylamaSayfasi extends StatefulWidget {
   const OylamaSayfasi({Key? key}) : super(key: key);
@@ -10,7 +13,9 @@ class OylamaSayfasi extends StatefulWidget {
 }
 
 class _OylamaSayfasiState extends State<OylamaSayfasi> {
-  final _navigatorKey = GlobalKey<NavigatorState>();
+  final HttpService httpService = HttpService();
+  final String urlVotingVisitPlaces =
+      dotenv.env['urlVotingVisitPlaces'] ?? 'API_KEY not found';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,18 +32,23 @@ class _OylamaSayfasiState extends State<OylamaSayfasi> {
         ),
         centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: ListView(children: <Widget>[
-          Voting(
-            placeName: 'Galata',
-            categoryName: 'Turistik Yer',
-          ),
-          Voting(
-            placeName: 'Burger King',
-            categoryName: 'Hamburger Resturantı',
-          ),
-        ]),
+      body: FutureBuilder(
+        future: httpService.getPosts(urlVotingVisitPlaces),
+        builder: (BuildContext context, AsyncSnapshot<List<Post>> snapshot) {
+          if (snapshot.hasData) {
+            var postList = snapshot.data!;
+            return ListView.builder(
+                itemCount: postList.length,
+                itemBuilder: (context, index) {
+                  return Voting(
+                    placeName: postList[index].visitPlace,
+                    categoryName: postList[index].createdAt,
+                  );
+                });
+          } else {
+            return Center(child: CircularProgressIndicator());
+          }
+        },
       ),
     );
   }
