@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import '../../core/components/voting.dart';
+import '../../core/constants/app_constants.dart';
 import '../../core/init/network/http_service.dart';
-import '../../core/init/network/post_model.dart';
+import '../../core/init/network/model/voting_visit_places_model.dart';
 
 class OylamaSayfasi extends StatefulWidget {
   const OylamaSayfasi({Key? key}) : super(key: key);
@@ -14,8 +14,7 @@ class OylamaSayfasi extends StatefulWidget {
 
 class _OylamaSayfasiState extends State<OylamaSayfasi> {
   final HttpService httpService = HttpService();
-  final String urlVotingVisitPlaces =
-      dotenv.env['urlVotingVisitPlaces'] ?? 'API_KEY not found';
+  final AppConstant url = AppConstant();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +32,7 @@ class _OylamaSayfasiState extends State<OylamaSayfasi> {
         centerTitle: true,
       ),
       body: FutureBuilder(
-        future: httpService.getPosts(urlVotingVisitPlaces),
+        future: httpService.getPosts(url.urlVotingVisitPlaces),
         builder: (BuildContext context, AsyncSnapshot<List<Post>> snapshot) {
           if (snapshot.hasData) {
             var postList = snapshot.data!;

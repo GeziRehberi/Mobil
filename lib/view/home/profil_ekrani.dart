@@ -3,12 +3,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_widgets/view/test/model/user_preferences.dart';
 
-import '../../core/components/card_comments.dart';
 import '../../core/components/card_favorites.dart';
 import '../../core/components/menu_items.dart';
 import '../../core/components/widget/numbers_widget.dart';
 import '../../core/components/widget/profile_widget.dart';
+import '../../core/constants/app_constants.dart';
 import '../../core/init/lang/locale_keys.dart';
+import '../../core/init/network/http_service.dart';
+import '../../core/init/network/services/comment_services.dart';
 import '../authentication/login/giris_yap_ekrani.dart';
 import '../test/model/menu_item.dart';
 import 'edit_profile_page.dart';
@@ -23,9 +25,10 @@ class ProfilSayfasi extends StatefulWidget {
 
 class _ProfilSayfasiState extends State<ProfilSayfasi>
     with TickerProviderStateMixin {
+  final HttpService httpService = HttpService();
+  final AppConstant url = AppConstant();
+
   late final TabController _tabController;
-  String _logo =
-      'https://pbs.twimg.com/profile_images/1408322029061824512/7oNDK2Tb_400x400.jpg';
 
   @override
   void initState() {
@@ -132,7 +135,6 @@ class _ProfilSayfasiState extends State<ProfilSayfasi>
             },
             body: Container(
               width: double.infinity,
-              height: 400,
               child: TabBarView(
                 controller: _tabController,
                 children: [
@@ -146,26 +148,10 @@ class _ProfilSayfasiState extends State<ProfilSayfasi>
                     child: SingleChildScrollView(
                       child: Column(
                         children: [
-                          CardComments(
-                            logo:
-                                'https://pbs.twimg.com/profile_images/1408322029061824512/7oNDK2Tb_400x400.jpg',
-                            name: 'Nuri',
-                            comment:
-                                'There are many variations of passages of Lorem Ipsum available, '
-                                'but the majority have suffered alteration in some form, by injected humour, or randomised words which.',
-                            date: '1 m ago',
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          CardComments(
-                            logo:
-                                'https://pbs.twimg.com/profile_images/1408322029061824512/7oNDK2Tb_400x400.jpg',
-                            name: 'Nuri',
-                            comment:
-                                'Various versions have evolved over the years, sometimes by accident, '
-                                'sometimes on purpose (injected humour and the like).',
-                            date: 'right now',
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(left: 4.0, right: 4.0),
+                            child: CommentServices(),
                           ),
                         ],
                       ),
@@ -182,9 +168,8 @@ class _ProfilSayfasiState extends State<ProfilSayfasi>
                             resimUrl:
                                 'https://im.haberturk.com/2020/02/25/ver1582697783/2595195_1200x627.jpg',
                             descriptionCard:
-                                'Topkapı Sarayı, İstanbul Sarayburnu nda, Osmanlı İmparatorluğu nun 600 yıllık tarihinin 400 yılı boyunca,'
-                                ' devletin idare merkezi olarak kullanılan ve Osmanlı padişahlarının yaşadığı saraydır. '
-                                'Bir zamanlar içinde 4.000e yakın insan yaşamıştır..',
+                                'Galata Kulesi ya da müze olarak kullanılmaya başlaması sonrasındaki adıyla Galata Kulesi Müzesi, '
+                                'Türkiye nin İstanbul şehrinin Beyoğlu ilçesinde bulunan bir kuledir. Adını, bulunduğu Galata semtinden alır ',
                             workingHours: 'Çalışma Saatleri: 10:00–16:00',
                             addressCard:
                                 'Bereketzade, Galata Kulesi, 34421 Beyoğlu/İstanbul',

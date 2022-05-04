@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CardComments extends StatelessWidget {
+class CardComments extends StatefulWidget {
   final String logo;
   final Color? color;
   final Widget? child;
@@ -25,48 +25,63 @@ class CardComments extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State<CardComments> createState() => _CardCommentsState();
+}
+
+class _CardCommentsState extends State<CardComments> {
+  @override
   Widget build(BuildContext context) {
     return Material(
-      borderRadius: BorderRadius.circular(radius ?? 10),
-      elevation: elevation ?? 5,
-      shadowColor: shadowColor ?? Colors.grey,
-      color: color ?? Colors.white,
-      child: ListTile(
-        leading: CircleAvatar(
-          backgroundImage: NetworkImage(logo),
-        ),
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              name,
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 16,
-              ),
+      borderRadius: BorderRadius.circular(widget.radius ?? 10),
+      elevation: widget.elevation ?? 5,
+      shadowColor: widget.shadowColor ?? Colors.grey,
+      color: widget.color ?? Colors.white,
+      child: Column(
+        children: [
+          ListTile(
+            leading: CircleAvatar(
+              backgroundImage: NetworkImage(widget.logo),
             ),
-            Text(
-              date,
-              style: TextStyle(
-                color: Colors.grey,
-                fontSize: 13,
-              ),
-            ),
-          ],
-        ),
-        subtitle: Padding(
-          padding: const EdgeInsets.only(top: 5),
-          child: RichText(
-            text: TextSpan(
-              style: TextStyle(
-                color: Colors.grey.shade600,
-              ),
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                TextSpan(text: comment),
+                Text(
+                  widget.name,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 14,
+                  ),
+                ),
+                Text(
+                  widget.date,
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: 11,
+                  ),
+                ),
               ],
             ),
+            subtitle: Padding(
+              padding: const EdgeInsets.only(top: 5),
+              child: RichText(
+                text: TextSpan(
+                  style: TextStyle(
+                    color: Colors.grey.shade600,
+                  ),
+                  children: [
+                    TextSpan(text: widget.comment),
+                  ],
+                ),
+              ),
+            ),
+            contentPadding: EdgeInsets.only(
+              top: 5,
+              left: 5,
+              right: 5,
+            ),
           ),
-        ),
+          SizedBox(height: 10),
+        ],
       ),
     );
   }

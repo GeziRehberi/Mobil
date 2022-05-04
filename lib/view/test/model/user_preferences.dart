@@ -10,7 +10,7 @@ class UserPreferences {
   static const myUser = User(
     imagePath:
         'https://pbs.twimg.com/profile_images/1466813742390427648/zPrpJfv6_400x400.jpg',
-    name: 'Nuri Ülgen',
+    name: 'Nuri',
     email: 'nuri07@gmail.com',
     isDarkMode: false,
   );
