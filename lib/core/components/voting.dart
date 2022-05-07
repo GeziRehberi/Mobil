@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'like_button.dart';
+import 'widget/dislike_button.dart';
+
 class Voting extends StatefulWidget {
   final String placeName;
   final String categoryName;
@@ -53,31 +56,9 @@ class _VotingState extends State<Voting> {
             SizedBox(height: 10),
             Row(
               children: [
-                IconButton(
-                  onPressed: () {
-                    setState(
-                      () {
-                        colorChangedLike = !colorChangedLike;
-                      },
-                    );
-                  },
-                  icon: Icon(Icons.thumb_up_alt_outlined),
-                  color: colorChangedLike ? Colors.black : Colors.blue,
-                  iconSize: 30,
-                ),
+                LikeButtons(),
                 SizedBox(width: 3),
-                IconButton(
-                  onPressed: () {
-                    setState(
-                      () {
-                        colorChangedDislike = !colorChangedDislike;
-                      },
-                    );
-                  },
-                  icon: Icon(Icons.thumb_down_alt_outlined),
-                  iconSize: 30,
-                  color: colorChangedDislike ? Colors.black : Colors.red,
-                ),
+                DislikeButton(),
               ],
             ),
           ],

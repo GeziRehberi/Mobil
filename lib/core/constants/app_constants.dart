@@ -1,6 +1,11 @@
 import 'package:flutter/widgets.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class AppConstant {
+  final String urlVotingVisitPlaces =
+      dotenv.env['VotingVisitPlaces'] ?? 'API_KEY not found';
+  final String urlComments = dotenv.env['Comments'] ?? 'API_KEY not found';
+
   static const TR_LOCALE = Locale("tr", "TR");
   static const EN_LOCALE = Locale("en", "US");
   static const LANG_PATH = "assets/lang";
