@@ -38,51 +38,55 @@ class _CardCommentsState extends State<CardComments> {
       color: widget.color ?? Colors.white,
       child: Column(
         children: [
-          ListTile(
-            leading: CircleAvatar(
-              backgroundImage: NetworkImage(widget.logo),
-            ),
-            title: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  widget.name,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 14,
-                  ),
-                ),
-                Text(
-                  widget.date,
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 11,
-                  ),
-                ),
-              ],
-            ),
-            subtitle: Padding(
-              padding: const EdgeInsets.only(top: 5),
-              child: RichText(
-                text: TextSpan(
-                  style: TextStyle(
-                    color: Colors.grey.shade600,
-                  ),
-                  children: [
-                    TextSpan(text: widget.comment),
-                  ],
-                ),
-              ),
-            ),
-            contentPadding: EdgeInsets.only(
-              top: 5,
-              left: 5,
-              right: 5,
-            ),
-          ),
+          cardListTile(),
           SizedBox(height: 10),
         ],
       ),
     );
+  }
+
+  ListTile cardListTile() {
+    return ListTile(
+          leading: CircleAvatar(
+            backgroundImage: NetworkImage(widget.logo),
+          ),
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                widget.name,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 14,
+                ),
+              ),
+              Text(
+                widget.date,
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 11,
+                ),
+              ),
+            ],
+          ),
+          subtitle: Padding(
+            padding: const EdgeInsets.only(top: 5),
+            child: RichText(
+              text: TextSpan(
+                style: TextStyle(
+                  color: Colors.grey.shade600,
+                ),
+                children: [
+                  TextSpan(text: widget.comment),
+                ],
+              ),
+            ),
+          ),
+          contentPadding: EdgeInsets.only(
+            top: 5,
+            left: 5,
+            right: 5,
+          ),
+        );
   }
 }

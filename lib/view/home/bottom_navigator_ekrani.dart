@@ -22,7 +22,7 @@ class _BottomNavigatorPageState extends State<BottomNavigatorPage> {
   final screens = [
     OylamaSayfasi(),
     GoogleMapsView(),
-    KatkiSayfasi(),
+    Test(),
     ProfilSayfasi(),
   ];
 
