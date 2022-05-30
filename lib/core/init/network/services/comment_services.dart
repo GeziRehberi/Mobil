@@ -30,7 +30,8 @@ class _CommentServicesState extends State<CommentServices> {
                 itemCount: postList.length,
                 itemBuilder: (context, index) {
                   return Container(
-                    margin: const EdgeInsets.only(left: 10, right: 10),
+                    margin:
+                        const EdgeInsets.only(left: 10, right: 10, bottom: 10),
                     child: CardComments(
                       name: postList[index].user,
                       date: postList[index].createdAt,

@@ -38,6 +38,9 @@ class MyApp extends StatelessWidget {
       secret: 'YOUR-SECRET',
       navigatorKey: _navigatorKey,
       child: MaterialApp(
+        //theme: MyThemes.lightTheme,
+        //darkTheme: MyThemes.darkTheme,
+        themeMode: ThemeMode.light,
         localizationsDelegates: context.localizationDelegates,
         supportedLocales: context.supportedLocales,
         locale: context.locale,

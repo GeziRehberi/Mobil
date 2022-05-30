@@ -10,17 +10,17 @@ class MarkerInfoDetails extends StatefulWidget {
   final String hour;
   final String address;
   final String imagePath;
-  final double latitude;
-  final double longitude;
-  final int price;
+  final double? latitude;
+  final double? longitude;
+  final String price;
 
   const MarkerInfoDetails({
     Key? key,
     required this.name,
     required this.hour,
     required this.imagePath,
-    required this.latitude,
-    required this.longitude,
+    this.latitude,
+    this.longitude,
     required this.price,
     required this.address,
   }) : super(key: key);
@@ -34,40 +34,35 @@ class MarkerInfoDetailsState extends State<MarkerInfoDetails> {
   GoogleMapsViewState view = GoogleMapsViewState();
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        goLocation(widget.latitude, widget.longitude);
-      },
-      child: Container(
-        child: new FittedBox(
-          child: Material(
-              color: Colors.white,
-              elevation: 14.0,
-              borderRadius: BorderRadius.circular(24.0),
-              shadowColor: Color(0x802196F3),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Container(
-                    width: 180,
-                    height: 200,
-                    child: ClipRRect(
-                      borderRadius: new BorderRadius.circular(24.0),
-                      child: Image(
-                        fit: BoxFit.fill,
-                        image: NetworkImage(widget.imagePath),
-                      ),
+    return Container(
+      child: new FittedBox(
+        child: Material(
+            color: Colors.white,
+            elevation: 14.0,
+            borderRadius: BorderRadius.circular(24.0),
+            shadowColor: Color(0x802196F3),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Container(
+                  width: 180,
+                  height: 200,
+                  child: ClipRRect(
+                    borderRadius: new BorderRadius.circular(24.0),
+                    child: Image(
+                      fit: BoxFit.fill,
+                      image: NetworkImage(widget.imagePath),
                     ),
                   ),
-                  Container(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: myDetailsContainer(),
-                    ),
+                ),
+                Container(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: myDetailsContainer(),
                   ),
-                ],
-              )),
-        ),
+                ),
+              ],
+            )),
       ),
     );
   }
@@ -121,22 +116,6 @@ class MarkerInfoDetailsState extends State<MarkerInfoDetails> {
               fontWeight: FontWeight.bold),
         )),
       ],
-    );
-  }
-
-  Future<void> goLocation(double latitude, double longitude) async {
-    print(latitude);
-    print(longitude);
-    final GoogleMapController controller = await _controller.future;
-    controller.animateCamera(
-      CameraUpdate.newCameraPosition(
-        CameraPosition(
-          target: LatLng(latitude, longitude),
-          zoom: 15,
-          tilt: 50.0,
-          bearing: 45.0,
-        ),
-      ),
     );
   }
 }

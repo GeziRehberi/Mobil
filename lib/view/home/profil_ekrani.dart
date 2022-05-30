@@ -1,14 +1,13 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_widgets/view/test/model/user_preferences.dart';
+import 'package:get/get.dart';
 
 import '../../core/components/card_favorites.dart';
 import '../../core/components/menu_items.dart';
 import '../../core/components/widget/numbers_widget.dart';
 import '../../core/components/widget/profile_widget.dart';
 import '../../core/constants/app_constants.dart';
-import '../../core/init/lang/locale_keys.dart';
 import '../../core/init/network/http_service.dart';
 import '../../core/init/network/services/comment_services.dart';
 import '../authentication/login/giris_yap_ekrani.dart';
@@ -93,7 +92,7 @@ class _ProfilSayfasiState extends State<ProfilSayfasi>
                         Container(
                           width: 360,
                           child: ElevatedButton(
-                            child: Text(LocaleKeys.profil_subtitle3.tr()),
+                            child: Text('Takip Et'),
                             onPressed: () {},
                             style: ElevatedButton.styleFrom(
                               primary: Colors.grey,
@@ -188,6 +187,19 @@ class _ProfilSayfasiState extends State<ProfilSayfasi>
                             addressCard: 'Fatih/İstanbul',
                             categoryCard: 'Cami/Müze',
                             priceCard: 'Ücretsiz',
+                          ),
+                          SizedBox(height: 15),
+                          CardFavorites(
+                            placeName: 'Dolmabahçe Sarayı',
+                            resimUrl:
+                                'https://blog.obilet.com/wp-content/uploads/2018/05/Dolmabah%C3%A7e-Saray%C4%B1-2.jpg',
+                            descriptionCard:
+                                'Dolmabahçe Sarayı, İstanbul, Beşiktaş ta, Kabataş tan Beşiktaşa uzanan'
+                                ' Dolmabahçe Caddesi yle İstanbul Boğazı arasında, 250.000 m²lik bir alan üzerinde bulunan Osmanlı sarayı.',
+                            workingHours: '09:00- 16:00',
+                            addressCard: 'Beşiktaş/İstanbul',
+                            categoryCard: 'Tarihi Mekan',
+                            priceCard: '100 tl',
                           )
                         ],
                       ),
@@ -220,6 +232,11 @@ class _ProfilSayfasiState extends State<ProfilSayfasi>
         break;
       case MenuItems.itemSignOut:
         showMyDialog(context);
+        break;
+      case MenuItems.itemDarkMode:
+        Get.changeTheme(
+          Get.isDarkMode ? ThemeData.light() : ThemeData.dark(),
+        );
     }
   }
 }

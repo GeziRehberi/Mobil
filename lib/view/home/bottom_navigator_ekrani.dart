@@ -1,4 +1,3 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
@@ -17,7 +16,6 @@ class BottomNavigatorPage extends StatefulWidget {
 
 class _BottomNavigatorPageState extends State<BottomNavigatorPage> {
   var _currentIndex = 0;
-  GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
 
   final screens = [
     OylamaSayfasi(),

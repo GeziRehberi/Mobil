@@ -39,7 +39,7 @@ class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
     final user = UserPreferences.getUser();
-    final _navigatorKey = GlobalKey<NavigatorState>();
+
     return Scaffold(
       backgroundColor: Colors.white.withOpacity(0),
       appBar: AppBar(
