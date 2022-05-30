@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../core/components/widget/appBar_widget.dart';
-import '../../core/components/widget/follow_list.dart';
+import '../../core/init/network/services/follow_services.dart';
 
 class FollowingsPage extends StatefulWidget {
   const FollowingsPage({Key? key}) : super(key: key);
@@ -15,26 +15,11 @@ class _FollowingsPageState extends State<FollowingsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context, 'Takip Edilenler'),
-      body: ListView(children: [
-        FollowList(
-          name: 'Nuri',
-          surName: 'Ulgen',
-          photoPath: '',
-          followTitle: 'Takip Ediliyor',
-        ),
-        FollowList(
-          name: 'Mia',
-          surName: 'Wong',
-          photoPath: '',
-          followTitle: 'Takip Ediliyor',
-        ),
-        FollowList(
-          name: 'Jane',
-          surName: 'Meldrum',
-          photoPath: '',
-          followTitle: 'Takip Ediliyor',
-        ),
-      ]),
+      body: ListView(
+        children: [
+          FollowService(),
+        ],
+      ),
     );
   }
 }
