@@ -1,15 +1,6 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class AppColours {
-  const AppColours();
-
-  static const Color colorStart = const Color(0xFF0d47a1);
-  static const Color colorEnd = const Color(0xFF1565c0);
-
-  static const buttonGradient = const LinearGradient(
-    colors: const [colorStart, colorEnd],
-    stops: const [0.0, 1.0],
-    begin: Alignment.topCenter,
-    end: Alignment.bottomCenter,
-  );
+class MyThemes {
+  final themeData = Get.isDarkMode ? ThemeData.dark() : ThemeData.light();
 }
