@@ -1,19 +1,19 @@
                                                          # Gezi Rehberi Mobil Uygulama
 
 <div>
-<img src="https://user-images.githubusercontent.com/45700377/171494306-6209704f-9d9c-4986-88c5-6f6cd28a26a6.jpeg"  width="300" height="500" />
+<img src="https://user-images.githubusercontent.com/45700377/171494306-6209704f-9d9c-4986-88c5-6f6cd28a26a6.jpeg"  width="250" height="500" />
 
-<img src="https://user-images.githubusercontent.com/45700377/171498261-ddaa2b7b-f5ce-4d83-8f04-f5a5b33da59f.jpeg"  width="300" height="500" />
+<img src="https://user-images.githubusercontent.com/45700377/171498261-ddaa2b7b-f5ce-4d83-8f04-f5a5b33da59f.jpeg"  width="250" height="500" />
   
-<img src="https://user-images.githubusercontent.com/45700377/171505095-dcdce20d-0b8e-4b6d-b518-4ca7ea1f6856.jpeg"  width="300" height="500" />
+<img src="https://user-images.githubusercontent.com/45700377/171505095-dcdce20d-0b8e-4b6d-b518-4ca7ea1f6856.jpeg"  width="250" height="500" />
 </div>
 
 <div>
-<img src="https://user-images.githubusercontent.com/45700377/171505286-102048d8-a718-46b5-b334-c49d42661bc5.jpeg"  width="300" height="500" />
+<img src="https://user-images.githubusercontent.com/45700377/171505286-102048d8-a718-46b5-b334-c49d42661bc5.jpeg"  width="200" height="500" />
 
-<img src="https://user-images.githubusercontent.com/45700377/171505299-239ac7de-17a1-4b26-aa1f-37b31f81c611.jpeg"  width="300" height="500" />
+<img src="https://user-images.githubusercontent.com/45700377/171505299-239ac7de-17a1-4b26-aa1f-37b31f81c611.jpeg"  width="200" height="500" />
   
-<img src="https://user-images.githubusercontent.com/45700377/171505315-69a9d561-c625-4803-b518-18dc962409a5.jpeg"  width="300" height="500" />
+<img src="https://user-images.githubusercontent.com/45700377/171505315-69a9d561-c625-4803-b518-18dc962409a5.jpeg"  width="200" height="500" />
 </div>
 
 <div>
