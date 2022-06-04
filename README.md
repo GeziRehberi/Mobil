@@ -1,4 +1,4 @@
-                                                         # Gezi Rehberi Mobil Uygulama
+ # Gezi Rehberi Mobil Uygulama
 
 <div>
 <img src="https://user-images.githubusercontent.com/45700377/171494306-6209704f-9d9c-4986-88c5-6f6cd28a26a6.jpeg"  width="250" height="500" />
