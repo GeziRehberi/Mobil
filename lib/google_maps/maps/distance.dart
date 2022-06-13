@@ -75,33 +75,9 @@ class _DistanceState extends State<Distance> {
                 Padding(
                   padding: const EdgeInsets.only(left: 20.0, top: 8),
                   child: Column(children: [
-                    Container(
-                      width: 320,
-                      child: TextFormField(
-                        controller: _originController,
-                        textCapitalization: TextCapitalization.words,
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: 'Başlangıç noktası',
-                          contentPadding: EdgeInsets.only(left: 20.0, top: 8),
-                          prefixIcon: Icon(Icons.search, size: 25),
-                        ),
-                      ),
-                    ),
+                    originContainer(),
                     SizedBox(height: 10),
-                    Container(
-                      width: 320,
-                      child: TextFormField(
-                        controller: _destinationController,
-                        textCapitalization: TextCapitalization.words,
-                        decoration: InputDecoration(
-                          border: OutlineInputBorder(),
-                          hintText: 'Varış noktası',
-                          contentPadding: EdgeInsets.only(left: 20.0, top: 8),
-                          prefixIcon: Icon(Icons.search, size: 25),
-                        ),
-                      ),
-                    ),
+                    destinationContainer(),
                   ]),
                 ),
                 SizedBox(width: 10),
@@ -133,23 +109,59 @@ class _DistanceState extends State<Distance> {
               ],
             ),
             SizedBox(height: 10),
-            Expanded(
-              child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  child: GoogleMap(
-                    mapType: MapType.normal,
-                    initialCameraPosition: _cameraPosition,
-                    myLocationEnabled: true,
-                    myLocationButtonEnabled: false,
-                    polylines: _polylines,
-                    zoomControlsEnabled: false,
-                    onMapCreated: (GoogleMapController controller) {
-                      _controller.complete(controller);
-                    },
-                  )),
-            ),
+            googleMaps(context),
           ],
         ));
+  }
+
+  Expanded googleMaps(BuildContext context) {
+    return Expanded(
+            child: Container(
+                width: MediaQuery.of(context).size.width,
+                child: GoogleMap(
+                  mapType: MapType.normal,
+                  initialCameraPosition: _cameraPosition,
+                  myLocationEnabled: true,
+                  myLocationButtonEnabled: false,
+                  polylines: _polylines,
+                  zoomControlsEnabled: false,
+                  onMapCreated: (GoogleMapController controller) {
+                    _controller.complete(controller);
+                  },
+                )),
+          );
+  }
+
+  Container destinationContainer() {
+    return Container(
+                    width: 320,
+                    child: TextFormField(
+                      controller: _destinationController,
+                      textCapitalization: TextCapitalization.words,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: 'Varış noktası',
+                        contentPadding: EdgeInsets.only(left: 20.0, top: 8),
+                        prefixIcon: Icon(Icons.search, size: 25),
+                      ),
+                    ),
+                  );
+  }
+
+  Container originContainer() {
+    return Container(
+                    width: 320,
+                    child: TextFormField(
+                      controller: _originController,
+                      textCapitalization: TextCapitalization.words,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: 'Başlangıç noktası',
+                        contentPadding: EdgeInsets.only(left: 20.0, top: 8),
+                        prefixIcon: Icon(Icons.search, size: 25),
+                      ),
+                    ),
+                  );
   }
 
   Future<void> _goToPlace(
