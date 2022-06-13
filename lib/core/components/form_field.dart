@@ -19,6 +19,7 @@ class FormFieldText extends StatelessWidget {
   final double? bottom;
   final double? left;
   final double? right;
+  final int? maxLinesLenght;
 
   const FormFieldText({
     Key? key,
@@ -40,6 +41,7 @@ class FormFieldText extends StatelessWidget {
     this.labelText,
     this.controller,
     this.textAlign,
+    this.maxLinesLenght,
   }) : super(key: key);
 
   @override
@@ -51,6 +53,7 @@ class FormFieldText extends StatelessWidget {
           left: left ?? 25.0,
           right: right ?? 25.0),
       child: TextFormField(
+        maxLines: maxLinesLenght ?? 1,
         controller: controller,
         obscureText: obscureText ?? false,
         autovalidateMode:

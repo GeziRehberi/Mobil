@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../view/home/katki_ekrani.dart';
 import 'like_button.dart';
 import 'widget/dislike_button.dart';
 
@@ -22,7 +21,7 @@ class Voting extends StatefulWidget {
 class _VotingState extends State<Voting> {
   bool colorChangedLike = false;
   bool colorChangedDislike = false;
-  final TestState ekle = TestState();
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -43,11 +42,7 @@ class _VotingState extends State<Voting> {
                 backgroundColor: Colors.white,
                 radius: 18,
                 child: GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      ekle.addCardWidget();
-                    });
-                  },
+                  onTap: () {},
                   child: Icon(CupertinoIcons.bookmark, color: Colors.blue),
                 ),
               ),
